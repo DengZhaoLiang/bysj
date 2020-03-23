@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="common/common :: head"></div>
+
+</head>
+<body>
+<!--header-->
+<header>
+    <h1><img src="../images/admin_logo.png"/></h1>
+
+    <ul class="rt_nav">
+        <li><a href="http://www.baidu.com" target="_blank" class="website_icon">站点首页</a></li>
+        <li><a href="login.html" class="quit_icon">安全退出</a></li>
+    </ul>
+</header>
+
+<!--侧边栏-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 235px;margin-top: 10px;margin-bottom: 20px;">
+    <form method="post" action="/CheckAdmin">
+        <h2 class="fl">管理员列表</h2>
+        <input type="text" style="margin-left: 20px;margin-top: 12px" name="id" placeholder="请输入您要搜索的内容"/>
+        <input type="submit" class="button_head" value="搜索" onclick=""/>
+        <a th:href="@{/bysj/admin/insert}" class="button_head">添加管理员</a>
+    </form>
+</section>
+<section>
+    <form action="" method="get">
+        <table class="table">
+            <colgroup>
+                <col width="9%">
+                <col width="15%">
+                <col width="9%">
+                <col width="12%">
+                <col width="12%">
+                <col width="6%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>管理员编号</th>
+                <th>管理员姓名</th>
+                <th>管理员账号</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="Admin : ${adminList}">
+                <td th:text="${Admin.getId()}"></td>
+                <td th:text="${Admin.getName()}"></td>
+                <td th:text="${Admin.getAccount()}"></td>
+                <td th:text="${#dates.format(Admin.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td>
+                    <a th:href="@{update/${Admin.getId()}}" class="inner_btn" style="margin-left: 130px">编辑</a>
+                    <a th:href="@{delete/${Admin.getId()}}" class="inner_btn">删除</a>
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</section>
+
+</body>
+</html>

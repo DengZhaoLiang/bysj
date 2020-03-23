@@ -1,8 +1,11 @@
 package com.liang.service.admin.admin;
 
+import com.liang.dto.admin.admin.AdminResponse;
 import com.liang.repository.admin.IAdminRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import generated.tables.pojos.Admin;
 
 /**
  * @author Liang
@@ -15,7 +18,12 @@ public class AdminServiceImpl implements AdminService {
     private IAdminRepository mIAdminRepository;
 
     @Override
-    public String login(String username, String password) {
+    public Admin login(String username, String password) {
         return mIAdminRepository.login(username, password);
+    }
+
+    @Override
+    public List<AdminResponse> list() {
+        return mIAdminRepository.list();
     }
 }

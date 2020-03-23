@@ -1,78 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
-    <title>环保公益·后台管理系统</title>
-    <meta name="author" content="DeathGhost" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
-    <!--[if lt IE 9]>
-    <script th:src="@{/js/html5.js}"></script>
-    <![endif]-->
-    <script th:src="@{/js/jquery.js}"></script>
-    <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
-    <script th:src="@{/js/clock.js}"></script>
-    <style>
-        .clocks {
-            height: 140px;
-            margin: 30px 22px 50px 15px;
-            position: relative;
-            width: 150px;
-        }
-        .wrap{
-            margin:0 auto;
-            width:1000px;
-        }
-        .logo p{
-            color:white;
-            font-size:25px;
-            margin-top:1px;
-            font-family: 'Fjalla One', sans-serif;
-        }
-        .title{
-            margin-bottom: 40px;
-        }
-        .title h1{
-            font-size:70px;
-            color: #21ca83;
-            text-align:center;
-            margin-top:100px;
-            text-shadow:6px 1px 6px #333;
-            font-family: 'Fjalla One', sans-serif;
-        }
-        .title h2{
-            font-size:50px;
-            color: #21ca83;
-            text-align:center;
-            margin-bottom:1px;
-            text-shadow:6px 1px 6px #333;
-            font-family: 'Fjalla One', sans-serif;
-            margin-top: -10px;
-        }
-
-    </style>
-    <script>
-        (function($){
-            $(window).load(function(){
-
-                $("a[rel='load-content']").click(function(e){
-                    e.preventDefault();
-                    var url=$(this).attr("href");
-                    $.get(url,function(data){
-                        $(".content .mCSB_container").append(data); //load new content inside .mCSB_container
-                        //scroll-to appended content
-                        $(".content").mCustomScrollbar("scrollTo","h2:last");
-                    });
-                });
-
-                $(".content").delegate("a[href='top']","click",function(e){
-                    e.preventDefault();
-                    $(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
-                });
-
-            });
-        })(jQuery);
-
-    </script>
+    <div th:replace="common/common :: head"></div>
 </head>
 <body>
 <!--header-->

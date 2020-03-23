@@ -1,6 +1,9 @@
 package com.liang.repository.admin;
 
+import com.liang.dto.admin.admin.AdminResponse;
+import generated.tables.pojos.Admin;
 import com.liang.DAO.admin.AdminDbStrategy;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -17,7 +20,12 @@ public class AdminRepository implements IAdminRepository {
     private AdminDbStrategy mAdminDbStrategy;
 
     @Override
-    public String login(String username, String password) {
+    public Admin login(String username, String password) {
         return mAdminDbStrategy.login(username, password);
+    }
+
+    @Override
+    public List<AdminResponse> list() {
+        return mAdminDbStrategy.list();
     }
 }

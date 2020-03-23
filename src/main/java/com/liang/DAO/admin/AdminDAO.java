@@ -1,5 +1,8 @@
 package com.liang.DAO.admin;
 
+import com.liang.dto.admin.admin.AdminResponse;
+import generated.tables.pojos.Admin;
+import java.util.List;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,11 +19,16 @@ public class AdminDAO implements AdminDbStrategy {
     private DSLContext mDSLContext;
 
     @Override
-    public String login(String username, String password) {
-        return mDSLContext.select(ADMIN.ACCOUNT)
-                .from(ADMIN)
+    public Admin login(String username, String password) {
+        return mDSLContext.selectFrom(ADMIN)
                 .where(ADMIN.ACCOUNT.eq(username)
                         .and(ADMIN.PASSWORD.eq(password)))
-                .fetchOneInto(String.class);
+                .fetchOneInto(Admin.class);
+    }
+
+    @Override
+    public List<AdminResponse> list() {
+        return mDSLContext.selectFrom(ADMIN)
+                .fetchInto(AdminResponse.class);
     }
 }
