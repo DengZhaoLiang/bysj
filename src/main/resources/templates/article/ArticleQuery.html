@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>飞跃·后台管理系统</title>
+    <meta name="author" content="DeathGhost" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/clock.js"></script>
+    <style>
+        .clocks {
+            height: 140px;
+            margin: 30px 22px 50px 15px;
+            position: relative;
+            width: 150px;
+        }
+
+    </style>
+    <script>
+        (function($){
+            $(window).load(function(){
+
+                $("a[rel='load-content']").click(function(e){
+                    e.preventDefault();
+                    var url=$(this).attr("href");
+                    $.get(url,function(data){
+                        $(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+                        //scroll-to appended content
+                        $(".content").mCustomScrollbar("scrollTo","h2:last");
+                    });
+                });
+
+                $(".content").delegate("a[href='top']","click",function(e){
+                    e.preventDefault();
+                    $(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+                });
+
+            });
+        })(jQuery);
+
+        function jump(){
+            window.location.href="../article/ArticleAdd.html";
+        }
+
+    </script>
+    <style>
+        #bar{
+            height:100%;
+            overflow-y:auto;
+        }
+        section{
+            margin-bottom: 150px;
+        }
+    </style>
+</head>
+<body>
+<!--header-->
+<header>
+    <h1><img src="../images/admin_logo.png"/></h1>
+
+    <ul class="rt_nav">
+        <li><a href="http://www.baidu.com" target="_blank" class="website_icon">站点首页</a></li>
+        <li><a href="../admin/login.html" class="quit_icon">安全退出</a></li>
+    </ul>
+</header>
+
+<!--aside nav-->
+<aside class="lt_aside_nav content mCustomScrollbar">
+    <div class="user">
+        <div class="clocks">
+            <canvas id="canvas" width="160" height="160"></canvas>
+        </div>
+        <p style="text-align: center;margin: 20px">你好！<span class="userName">PLUM</span></p>
+    </div>
+    <h2><a href="../admin/index.html">首页</a></h2>
+    <ul>
+        <li>
+            <dl>
+                <dt>课程管理</dt>
+                <dd><a href="/courseQueryList" >课程列表</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>学员管理</dt>
+                <dd><a href="/studentQueryList"  >学员库</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>教师管理</dt>
+                <dd><a href="/teacherQueryList" >教师库</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>文章管理</dt>
+                <dd><a href="/resourceQueryList" >资源库</a></dd>
+                <dd><a href="/articleQueryList" >教育资讯</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>留言管理</dt>
+                <dd><a href="/messageQueryList" >留言信息表</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>管理员管理</dt>
+                <dd><a href="/adminQueryList" >管理员列表</a></dd>
+            </dl>
+        </li>
+
+        <li>
+            <p class="btm_infor">© PLUM 版权所有</p>
+        </li>
+    </ul>
+</aside>
+<section style="margin-left: 235px;margin-top: 10px;margin-bottom:20px;" >
+    <form method="post" action="/CheckArticle">
+    <h2 class="fl" >教育资讯文章列表</h2>
+    <input type="text" style="margin-left: 20px;margin-top: 12px" name="id"  placeholder="请输入您要搜索的内容"/>
+    <input type="submit" class="button_head" value ="搜索" onclick="" />
+    <input type="button" class="button_head" value ="增加教育资讯"  onclick=jump() />
+    </form>
+</section>
+<div id="bar">
+<section >
+    <form action="/articleQueryList" method="get"  >
+        <table class="table" style="text-align: center;">
+            <colgroup>
+                <col width="7%">
+                <col width="20%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="30%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>文章编号</th>
+                <th>文章标题</th>
+                <th>作者</th>
+                <th>日期</th>
+                <th>类别</th>
+                <th>内容</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="Article:${ArticleList}">
+                <td th:text="${Article.article_id}"></td>
+                <td th:text="${Article.article_title}"></td>
+                <td th:text="${Article.article_author}"></td>
+                <td th:text="${Article.article_date}"></td>
+                <td th:text="${Article.article_category}"></td>
+                <td th:text="${Article.article_content}"></td>
+                <td >
+                    <a th:href="@{'articleUpdate/'+${Article.article_id}}"class="inner_btn" style="margin-left: 5px" >编辑</a>
+                    <a th:href="@{'articleDelete/'+${Article.article_id}}"  class="inner_btn">删除</a>
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--aside nav-->
+<aside class="lt_aside_nav content mCustomScrollbar" th:fragment="aside_nav">
+    <div class="user">
+        <div class="clocks">
+            <canvas id="canvas" width="160" height="160"></canvas>
+        </div>
+        <p style="text-align: center;margin: 20px"><span class="userName">Liang</span></p>
+    </div>
+    <h2><a th:href="@{/bysj/admin/index}">首页</a></h2>
+    <ul>
+        <li>
+            <dl>
+                <dt>课程管理</dt>
+                <dd><a href="/courseQueryList" >课程列表</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>学员管理</dt>
+                <dd><a href="/studentQueryList"  >学员库</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>教师管理</dt>
+                <dd><a href="/teacherQueryList" >教师库</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>文章管理</dt>
+                <dd><a href="/resourceQueryList" >资源库</a></dd>
+                <dd><a href="/articleQueryList" >教育资讯</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>留言管理</dt>
+                <dd><a href="/messageQueryList" >留言信息表</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>管理员管理</dt>
+                <dd><a href="/adminQueryList" >管理员列表</a></dd>
+            </dl>
+        </li>
+
+        <li>
+            <p class="btm_infor">© Liang 版权所有</p>
+        </li>
+    </ul>
+</aside>
+
+<!--section-->
+<section th:fragment="section">
+    <div class="wrap">
+        <div class="logo">
+            <p>环保公益网</p>
+        </div>
+        <div class="title">
+            <h3 style="text-align: center "><img th:src="@{/images/icon/theme.jpeg}"  width=400px height=400px ></h3>
+            <h1>环保公益网</h1>
+            <h2>Environmental public welfare network!</h2>
+        </div>
+    </div>
+</section>
+</html>
