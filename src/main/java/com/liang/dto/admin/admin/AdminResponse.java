@@ -1,7 +1,9 @@
 package com.liang.dto.admin.admin;
 
+import com.liang.dto.BaseResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.sql.Date;
 import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 
@@ -12,7 +14,7 @@ import org.springframework.validation.annotation.Validated;
 @Data
 @Validated
 @ApiModel
-public class AdminResponse {
+public class AdminResponse extends BaseResponse {
 
     @ApiModelProperty(value = "管理员编号")
     private Long id;
@@ -24,5 +26,5 @@ public class AdminResponse {
     private String account;
 
     @ApiModelProperty(value = "创建时间")
-    private Long createdAt;
+    private Date createdAt;
 }

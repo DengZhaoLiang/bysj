@@ -9,6 +9,7 @@ import generated.Indexes;
 import generated.Keys;
 import generated.tables.records.AdminRecord;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -34,7 +35,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Admin extends TableImpl<AdminRecord> {
 
-    private static final long serialVersionUID = -1531522718;
+    private static final long serialVersionUID = -1336522990;
 
     /**
      * The reference instance of <code>bysj.admin</code>
@@ -55,6 +56,11 @@ public class Admin extends TableImpl<AdminRecord> {
     public final TableField<AdminRecord, ULong> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).identity(true), this, "");
 
     /**
+     * The column <code>bysj.admin.name</code>. ??
+     */
+    public final TableField<AdminRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "??");
+
+    /**
      * The column <code>bysj.admin.account</code>. ??
      */
     public final TableField<AdminRecord, String> ACCOUNT = createField(DSL.name("account"), org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false), this, "??");
@@ -67,12 +73,12 @@ public class Admin extends TableImpl<AdminRecord> {
     /**
      * The column <code>bysj.admin.created_at</code>. ????
      */
-    public final TableField<AdminRecord, ULong> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINTUNSIGNED)), this, "????");
+    public final TableField<AdminRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
 
     /**
      * The column <code>bysj.admin.updated_at</code>. ????
      */
-    public final TableField<AdminRecord, ULong> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINTUNSIGNED)), this, "????");
+    public final TableField<AdminRecord, LocalDateTime> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
 
     /**
      * Create a <code>bysj.admin</code> table reference
@@ -159,11 +165,11 @@ public class Admin extends TableImpl<AdminRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<ULong, String, String, ULong, ULong> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<ULong, String, String, String, LocalDateTime, LocalDateTime> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

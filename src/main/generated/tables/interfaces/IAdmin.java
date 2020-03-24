@@ -5,6 +5,7 @@ package generated.tables.interfaces;
 
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,6 +28,18 @@ public interface IAdmin extends Serializable {
      * Getter for <code>bysj.admin.id</code>.
      */
     public ULong getId();
+
+    /**
+     * Setter for <code>bysj.admin.name</code>. ??
+     */
+    public IAdmin setName(String value);
+
+    /**
+     * Getter for <code>bysj.admin.name</code>. ??
+     */
+    @NotNull
+    @Size(max = 255)
+    public String getName();
 
     /**
      * Setter for <code>bysj.admin.account</code>. ??
@@ -55,22 +68,22 @@ public interface IAdmin extends Serializable {
     /**
      * Setter for <code>bysj.admin.created_at</code>. ????
      */
-    public IAdmin setCreatedAt(ULong value);
+    public IAdmin setCreatedAt(LocalDateTime value);
 
     /**
      * Getter for <code>bysj.admin.created_at</code>. ????
      */
-    public ULong getCreatedAt();
+    public LocalDateTime getCreatedAt();
 
     /**
      * Setter for <code>bysj.admin.updated_at</code>. ????
      */
-    public IAdmin setUpdatedAt(ULong value);
+    public IAdmin setUpdatedAt(LocalDateTime value);
 
     /**
      * Getter for <code>bysj.admin.updated_at</code>. ????
      */
-    public ULong getUpdatedAt();
+    public LocalDateTime getUpdatedAt();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

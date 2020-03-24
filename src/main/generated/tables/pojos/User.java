@@ -6,6 +6,8 @@ package generated.tables.pojos;
 
 import generated.tables.interfaces.IUser;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.Size;
 
 import org.jooq.types.ULong;
@@ -17,15 +19,15 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User implements IUser {
 
-    private static final long serialVersionUID = -1413711409;
+    private static final long serialVersionUID = 1494059978;
 
-    private ULong  id;
-    private String phone;
-    private String password;
-    private String name;
-    private ULong  lastLoginAt;
-    private ULong  createdAt;
-    private ULong  updatedAt;
+    private ULong         id;
+    private String        phone;
+    private String        password;
+    private String        name;
+    private LocalDateTime lastLoginAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public User() {}
 
@@ -40,13 +42,13 @@ public class User implements IUser {
     }
 
     public User(
-        ULong  id,
-        String phone,
-        String password,
-        String name,
-        ULong  lastLoginAt,
-        ULong  createdAt,
-        ULong  updatedAt
+        ULong         id,
+        String        phone,
+        String        password,
+        String        name,
+        LocalDateTime lastLoginAt,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
     ) {
         this.id = id;
         this.phone = phone;
@@ -105,34 +107,34 @@ public class User implements IUser {
     }
 
     @Override
-    public ULong getLastLoginAt() {
+    public LocalDateTime getLastLoginAt() {
         return this.lastLoginAt;
     }
 
     @Override
-    public User setLastLoginAt(ULong lastLoginAt) {
+    public User setLastLoginAt(LocalDateTime lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
         return this;
     }
 
     @Override
-    public ULong getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return this.createdAt;
     }
 
     @Override
-    public User setCreatedAt(ULong createdAt) {
+    public User setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
 
     @Override
-    public ULong getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return this.updatedAt;
     }
 
     @Override
-    public User setUpdatedAt(ULong updatedAt) {
+    public User setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }

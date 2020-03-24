@@ -3,6 +3,8 @@ package com.liang.repository.admin;
 import com.liang.dto.admin.admin.AdminResponse;
 import generated.tables.pojos.Admin;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * @author Liang

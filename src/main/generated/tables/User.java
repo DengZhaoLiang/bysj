@@ -9,6 +9,7 @@ import generated.Indexes;
 import generated.Keys;
 import generated.tables.records.UserRecord;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,7 +35,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = 908839185;
+    private static final long serialVersionUID = 1425738780;
 
     /**
      * The reference instance of <code>bysj.user</code>
@@ -72,17 +73,17 @@ public class User extends TableImpl<UserRecord> {
     /**
      * The column <code>bysj.user.last_login_at</code>. ??????
      */
-    public final TableField<UserRecord, ULong> LAST_LOGIN_AT = createField(DSL.name("last_login_at"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINTUNSIGNED)), this, "??????");
+    public final TableField<UserRecord, LocalDateTime> LAST_LOGIN_AT = createField(DSL.name("last_login_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "??????");
 
     /**
      * The column <code>bysj.user.created_at</code>. ????
      */
-    public final TableField<UserRecord, ULong> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINTUNSIGNED)), this, "????");
+    public final TableField<UserRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
 
     /**
      * The column <code>bysj.user.updated_at</code>. ????
      */
-    public final TableField<UserRecord, ULong> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINTUNSIGNED)), this, "????");
+    public final TableField<UserRecord, LocalDateTime> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
 
     /**
      * Create a <code>bysj.user</code> table reference
@@ -173,7 +174,7 @@ public class User extends TableImpl<UserRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<ULong, String, String, String, ULong, ULong, ULong> fieldsRow() {
+    public Row7<ULong, String, String, String, LocalDateTime, LocalDateTime, LocalDateTime> fieldsRow() {
         return (Row7) super.fieldsRow();
     }
 }

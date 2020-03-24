@@ -5,6 +5,7 @@ package generated.tables.interfaces;
 
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.validation.constraints.Size;
 
@@ -63,32 +64,32 @@ public interface IUser extends Serializable {
     /**
      * Setter for <code>bysj.user.last_login_at</code>. ??????
      */
-    public IUser setLastLoginAt(ULong value);
+    public IUser setLastLoginAt(LocalDateTime value);
 
     /**
      * Getter for <code>bysj.user.last_login_at</code>. ??????
      */
-    public ULong getLastLoginAt();
+    public LocalDateTime getLastLoginAt();
 
     /**
      * Setter for <code>bysj.user.created_at</code>. ????
      */
-    public IUser setCreatedAt(ULong value);
+    public IUser setCreatedAt(LocalDateTime value);
 
     /**
      * Getter for <code>bysj.user.created_at</code>. ????
      */
-    public ULong getCreatedAt();
+    public LocalDateTime getCreatedAt();
 
     /**
      * Setter for <code>bysj.user.updated_at</code>. ????
      */
-    public IUser setUpdatedAt(ULong value);
+    public IUser setUpdatedAt(LocalDateTime value);
 
     /**
      * Getter for <code>bysj.user.updated_at</code>. ????
      */
-    public ULong getUpdatedAt();
+    public LocalDateTime getUpdatedAt();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

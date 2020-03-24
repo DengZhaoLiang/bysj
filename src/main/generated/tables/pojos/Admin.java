@@ -6,6 +6,8 @@ package generated.tables.pojos;
 
 import generated.tables.interfaces.IAdmin;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,18 +20,20 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Admin implements IAdmin {
 
-    private static final long serialVersionUID = 600803305;
+    private static final long serialVersionUID = 2016063408;
 
-    private ULong  id;
-    private String account;
-    private String password;
-    private ULong  createdAt;
-    private ULong  updatedAt;
+    private ULong         id;
+    private String        name;
+    private String        account;
+    private String        password;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public Admin() {}
 
     public Admin(IAdmin value) {
         this.id = value.getId();
+        this.name = value.getName();
         this.account = value.getAccount();
         this.password = value.getPassword();
         this.createdAt = value.getCreatedAt();
@@ -37,13 +41,15 @@ public class Admin implements IAdmin {
     }
 
     public Admin(
-        ULong  id,
-        String account,
-        String password,
-        ULong  createdAt,
-        ULong  updatedAt
+        ULong         id,
+        String        name,
+        String        account,
+        String        password,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
     ) {
         this.id = id;
+        this.name = name;
         this.account = account;
         this.password = password;
         this.createdAt = createdAt;
@@ -58,6 +64,19 @@ public class Admin implements IAdmin {
     @Override
     public Admin setId(ULong id) {
         this.id = id;
+        return this;
+    }
+
+    @NotNull
+    @Size(max = 255)
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public Admin setName(String name) {
+        this.name = name;
         return this;
     }
 
@@ -88,23 +107,23 @@ public class Admin implements IAdmin {
     }
 
     @Override
-    public ULong getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return this.createdAt;
     }
 
     @Override
-    public Admin setCreatedAt(ULong createdAt) {
+    public Admin setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
 
     @Override
-    public ULong getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return this.updatedAt;
     }
 
     @Override
-    public Admin setUpdatedAt(ULong updatedAt) {
+    public Admin setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -123,6 +142,12 @@ public class Admin implements IAdmin {
                 return false;
         }
         else if (!id.equals(other.id))
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!name.equals(other.name))
             return false;
         if (account == null) {
             if (other.account != null)
@@ -156,6 +181,7 @@ public class Admin implements IAdmin {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
         result = prime * result + ((this.account == null) ? 0 : this.account.hashCode());
         result = prime * result + ((this.password == null) ? 0 : this.password.hashCode());
         result = prime * result + ((this.createdAt == null) ? 0 : this.createdAt.hashCode());
@@ -168,6 +194,7 @@ public class Admin implements IAdmin {
         StringBuilder sb = new StringBuilder("Admin (");
 
         sb.append(id);
+        sb.append(", ").append(name);
         sb.append(", ").append(account);
         sb.append(", ").append(password);
         sb.append(", ").append(createdAt);
@@ -184,6 +211,7 @@ public class Admin implements IAdmin {
     @Override
     public void from(IAdmin from) {
         setId(from.getId());
+        setName(from.getName());
         setAccount(from.getAccount());
         setPassword(from.getPassword());
         setCreatedAt(from.getCreatedAt());
