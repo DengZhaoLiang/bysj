@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel
-public class PageResponse extends BaseResponse {
+@ApiModel("分页Response")
+public class PageResponse{
 
     @ApiModelProperty(value = "当前页")
     private Integer currentPage;
@@ -29,8 +29,4 @@ public class PageResponse extends BaseResponse {
 
     @ApiModelProperty(value = "下一页")
     private Integer next;
-
-    @ApiModelProperty(value = "内容体")
-    private List<?> content;
-
 }

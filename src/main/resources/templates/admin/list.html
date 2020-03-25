@@ -6,15 +6,9 @@
     <div th:replace="common/common :: page"></div>
 </head>
 <body>
-<!--header-->
-<header>
-    <h1><img src="../images/admin_logo.png"/></h1>
 
-    <ul class="rt_nav">
-        <li><a href="http://www.baidu.com" target="_blank" class="website_icon">站点首页</a></li>
-        <li><a href="login.html" class="quit_icon">安全退出</a></li>
-    </ul>
-</header>
+<!--header-->
+<div th:replace="common/common :: header"></div>
 
 <!--侧边栏-->
 <div th:replace="common/common :: aside_nav"></div>
@@ -27,6 +21,7 @@
         <a th:href="@{/bysj/admin/insert}" class="button_head">添加管理员</a>
     </form>
 </section>
+
 <section>
     <form action="" method="get">
         <table class="table" style="text-align: center">
@@ -47,8 +42,9 @@
                 <th>操作</th>
             </tr>
             </thead>
-            <tbody style="text-align: center">
-            <tr th:each="Admin : ${adminPage.getContent()}">
+
+            <tbody style="text-align: center" id="adminAjax">
+            <tr th:each="Admin : ${adminList}">
                 <td th:text="${Admin.getId()}"></td>
                 <td th:text="${Admin.getName()}"></td>
                 <td th:text="${Admin.getAccount()}"></td>
@@ -59,14 +55,23 @@
                 </td>
 
             </tr>
+            </tbody>
         </table>
     </form>
-<!--    分页导航栏-->
+    <!--    分页导航栏-->
     <div class="center">
         <ul class="pagination">
-            <li><a href="#">«</a></li>
-            <li><a class="active" href="#">1</a></li>
-            <li><a href="#">»</a></li>
+            <li>
+                <a th:href="@{'admin?page='+${page.getPrevious()}}">«</a></li>
+            <li th:each="i:${#numbers.sequence(1,page.getTotalPage())}">
+
+                <a th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"
+                   th:href="@{'admin?page='+${i}}"
+                   th:text="${i}">
+                </a>
+
+            </li>
+            <li><a th:href="@{'admin?page='+${page.getNext()}}">»</a></li>
         </ul>
     </div>
 </section>

@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
  **/
 @Data
 @Validated
-@ApiModel
+@ApiModel("管理员列表")
 public class AdminResponse extends BaseResponse {
 
     @ApiModelProperty(value = "管理员编号")
