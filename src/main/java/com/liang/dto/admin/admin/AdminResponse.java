@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.sql.Date;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.validation.annotation.Validated;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 @Data
 @Validated
 @ApiModel("管理员列表")
+@EqualsAndHashCode(callSuper = false)
 public class AdminResponse extends BaseResponse {
 
     @ApiModelProperty(value = "管理员编号")

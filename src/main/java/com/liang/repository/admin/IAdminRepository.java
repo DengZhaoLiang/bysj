@@ -3,8 +3,8 @@ package com.liang.repository.admin;
 import com.liang.dto.admin.admin.AdminResponse;
 import generated.tables.pojos.Admin;
 import java.util.List;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.Optional;
+import org.jooq.types.ULong;
 
 /**
  * @author Liang
@@ -20,4 +20,9 @@ public interface IAdminRepository {
      * 返回管理员列表
      */
     List<AdminResponse> list();
+
+    /**
+     * 获取管理员详情
+     */
+    Optional<Admin> getAdminById(Long id);
 }

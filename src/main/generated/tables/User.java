@@ -26,7 +26,6 @@ import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.ULong;
 
 
 /**
@@ -35,7 +34,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = 1425738780;
+    private static final long serialVersionUID = -719511181;
 
     /**
      * The reference instance of <code>bysj.user</code>
@@ -53,7 +52,7 @@ public class User extends TableImpl<UserRecord> {
     /**
      * The column <code>bysj.user.id</code>.
      */
-    public final TableField<UserRecord, ULong> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<UserRecord, Long> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>bysj.user.phone</code>. ???
@@ -129,7 +128,7 @@ public class User extends TableImpl<UserRecord> {
     }
 
     @Override
-    public Identity<UserRecord, ULong> getIdentity() {
+    public Identity<UserRecord, Long> getIdentity() {
         return Keys.IDENTITY_USER;
     }
 
@@ -174,7 +173,7 @@ public class User extends TableImpl<UserRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<ULong, String, String, String, LocalDateTime, LocalDateTime, LocalDateTime> fieldsRow() {
+    public Row7<Long, String, String, String, LocalDateTime, LocalDateTime, LocalDateTime> fieldsRow() {
         return (Row7) super.fieldsRow();
     }
 }

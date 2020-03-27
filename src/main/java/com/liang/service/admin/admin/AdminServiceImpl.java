@@ -9,6 +9,7 @@ import generated.tables.pojos.Admin;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.jooq.types.ULong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -52,5 +53,11 @@ public class AdminServiceImpl implements AdminService {
         response.setAdmin(list);
         response.setPage(pageResponse);
         return response;
+    }
+
+    @Override
+    public Admin detail(Long id) {
+        return mIAdminRepository.getAdminById(id)
+                .orElseThrow(() -> new RuntimeException("管理员不存在"));
     }
 }

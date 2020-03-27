@@ -26,7 +26,6 @@ import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.ULong;
 
 
 /**
@@ -35,7 +34,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Admin extends TableImpl<AdminRecord> {
 
-    private static final long serialVersionUID = -1336522990;
+    private static final long serialVersionUID = -1513480325;
 
     /**
      * The reference instance of <code>bysj.admin</code>
@@ -53,7 +52,7 @@ public class Admin extends TableImpl<AdminRecord> {
     /**
      * The column <code>bysj.admin.id</code>.
      */
-    public final TableField<AdminRecord, ULong> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINTUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<AdminRecord, Long> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>bysj.admin.name</code>. ??
@@ -124,7 +123,7 @@ public class Admin extends TableImpl<AdminRecord> {
     }
 
     @Override
-    public Identity<AdminRecord, ULong> getIdentity() {
+    public Identity<AdminRecord, Long> getIdentity() {
         return Keys.IDENTITY_ADMIN;
     }
 
@@ -169,7 +168,7 @@ public class Admin extends TableImpl<AdminRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<ULong, String, String, String, LocalDateTime, LocalDateTime> fieldsRow() {
+    public Row6<Long, String, String, String, LocalDateTime, LocalDateTime> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 }

@@ -1,6 +1,6 @@
 CREATE TABLE `admin`
 (
-    `id`         BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id`         BIGINT(13)          NOT NULL AUTO_INCREMENT,
     `name`       VARCHAR(255)        NOT NULL COMMENT '姓名',
     `account`    VARCHAR(32)         NOT NULL COMMENT '账号',
     `password`   VARCHAR(64)         NOT NULL COMMENT '密码',
@@ -12,7 +12,7 @@ CREATE TABLE `admin`
 
 CREATE TABLE `user`
 (
-    `id`            BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id`            BIGINT(13)          NOT NULL AUTO_INCREMENT,
     `phone`         VARCHAR(32)         NOT NULL DEFAULT ''      COMMENT '手机号',
     `password`      VARCHAR(64)         NOT NULL DEFAULT ''      COMMENT '密码',
     `name`          VARCHAR(64)         NOT NULL DEFAULT ''      COMMENT '昵称',

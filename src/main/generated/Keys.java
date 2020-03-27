@@ -12,7 +12,6 @@ import generated.tables.records.UserRecord;
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
-import org.jooq.types.ULong;
 
 
 /**
@@ -26,8 +25,8 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
-    public static final Identity<AdminRecord, ULong> IDENTITY_ADMIN = Identities0.IDENTITY_ADMIN;
-    public static final Identity<UserRecord, ULong> IDENTITY_USER = Identities0.IDENTITY_USER;
+    public static final Identity<AdminRecord, Long> IDENTITY_ADMIN = Identities0.IDENTITY_ADMIN;
+    public static final Identity<UserRecord, Long> IDENTITY_USER = Identities0.IDENTITY_USER;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
@@ -48,8 +47,8 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 {
-        public static Identity<AdminRecord, ULong> IDENTITY_ADMIN = Internal.createIdentity(Admin.ADMIN, Admin.ADMIN.ID);
-        public static Identity<UserRecord, ULong> IDENTITY_USER = Internal.createIdentity(User.USER, User.USER.ID);
+        public static Identity<AdminRecord, Long> IDENTITY_ADMIN = Internal.createIdentity(Admin.ADMIN, Admin.ADMIN.ID);
+        public static Identity<UserRecord, Long> IDENTITY_USER = Internal.createIdentity(User.USER, User.USER.ID);
     }
 
     private static class UniqueKeys0 {

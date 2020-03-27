@@ -2,12 +2,10 @@ package com.liang.DAO.admin;
 
 import com.liang.dto.admin.admin.AdminResponse;
 import generated.tables.pojos.Admin;
-import generated.tables.records.AdminRecord;
 import java.util.List;
+import java.util.Optional;
 import org.jooq.DSLContext;
-import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import static generated.Tables.ADMIN;
 
@@ -33,5 +31,12 @@ public class AdminDAO implements AdminDbStrategy {
     public List<AdminResponse> list() {
         return mDSLContext.selectFrom(ADMIN)
                 .fetchInto(AdminResponse.class);
+    }
+
+    @Override
+    public Optional<Admin> getAdminById(Long id) {
+        return mDSLContext.selectFrom(ADMIN)
+                .where(ADMIN.ID.eq(id))
+                .fetchOptionalInto(Admin.class);
     }
 }

@@ -1,13 +1,11 @@
 package com.liang.controller.admin;
 
-import com.liang.dto.PageResponse;
+
 import com.liang.dto.admin.admin.AdminPageResponse;
-import com.liang.dto.admin.admin.AdminResponse;
 import com.liang.service.admin.admin.AdminService;
 import generated.tables.pojos.Admin;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -54,5 +54,21 @@ public class AdminController {
         model.addAttribute("adminList", response.getAdmin());
         model.addAttribute("page", response.getPage());
         return "admin/list";
+    }
+
+    @ApiOperation("跳转到管理员修改页面")
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable Long id,
+                         Model model) {
+        Admin admin = mAdminService.detail(id);
+        model.addAttribute("this", admin);
+        return "admin/update";
+    }
+
+    @ApiOperation("修改管理员逻辑")
+    @PostMapping("/doUpdate")
+    public String doUpdate(Admin admin) {
+        System.out.println(admin);
+        return "redirect:/bysj/admin/";
     }
 }

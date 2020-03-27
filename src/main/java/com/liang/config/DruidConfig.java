@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * @author Liang
- * @Description DruidConfig  2020/1/28 0028 7:59 Liang
+ * DruidConfig  2020/1/28 0028 7:59 Liang
  */
 @Configuration
 public class DruidConfig {
