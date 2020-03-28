@@ -27,65 +27,76 @@ public interface IUser extends Serializable {
     public Long getId();
 
     /**
-     * Setter for <code>bysj.user.phone</code>. ???
+     * Setter for <code>bysj.user.email</code>. 邮箱
+     */
+    public IUser setEmail(String value);
+
+    /**
+     * Getter for <code>bysj.user.email</code>. 邮箱
+     */
+    @Size(max = 32)
+    public String getEmail();
+
+    /**
+     * Setter for <code>bysj.user.phone</code>. 手机号
      */
     public IUser setPhone(String value);
 
     /**
-     * Getter for <code>bysj.user.phone</code>. ???
+     * Getter for <code>bysj.user.phone</code>. 手机号
      */
     @Size(max = 32)
     public String getPhone();
 
     /**
-     * Setter for <code>bysj.user.password</code>. ??
+     * Setter for <code>bysj.user.password</code>. 密码
      */
     public IUser setPassword(String value);
 
     /**
-     * Getter for <code>bysj.user.password</code>. ??
+     * Getter for <code>bysj.user.password</code>. 密码
      */
     @Size(max = 64)
     public String getPassword();
 
     /**
-     * Setter for <code>bysj.user.name</code>. ??
+     * Setter for <code>bysj.user.name</code>. 昵称
      */
     public IUser setName(String value);
 
     /**
-     * Getter for <code>bysj.user.name</code>. ??
+     * Getter for <code>bysj.user.name</code>. 昵称
      */
     @Size(max = 64)
     public String getName();
 
     /**
-     * Setter for <code>bysj.user.last_login_at</code>. ??????
+     * Setter for <code>bysj.user.last_login_at</code>. 最新登录时间
      */
     public IUser setLastLoginAt(LocalDateTime value);
 
     /**
-     * Getter for <code>bysj.user.last_login_at</code>. ??????
+     * Getter for <code>bysj.user.last_login_at</code>. 最新登录时间
      */
     public LocalDateTime getLastLoginAt();
 
     /**
-     * Setter for <code>bysj.user.created_at</code>. ????
+     * Setter for <code>bysj.user.created_at</code>. 创建时间
      */
     public IUser setCreatedAt(LocalDateTime value);
 
     /**
-     * Getter for <code>bysj.user.created_at</code>. ????
+     * Getter for <code>bysj.user.created_at</code>. 创建时间
      */
     public LocalDateTime getCreatedAt();
 
     /**
-     * Setter for <code>bysj.user.updated_at</code>. ????
+     * Setter for <code>bysj.user.updated_at</code>. 更新时间
      */
     public IUser setUpdatedAt(LocalDateTime value);
 
     /**
-     * Getter for <code>bysj.user.updated_at</code>. ????
+     * Getter for <code>bysj.user.updated_at</code>. 更新时间
      */
     public LocalDateTime getUpdatedAt();
 

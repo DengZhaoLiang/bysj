@@ -23,8 +23,11 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     public static final Index ADMIN_ADMIN_ACCOUNT_UNIQUE = Indexes0.ADMIN_ADMIN_ACCOUNT_UNIQUE;
+    public static final Index ADMIN_ADMIN_NAME_INDEX = Indexes0.ADMIN_ADMIN_NAME_INDEX;
     public static final Index ADMIN_PRIMARY = Indexes0.ADMIN_PRIMARY;
     public static final Index USER_PRIMARY = Indexes0.USER_PRIMARY;
+    public static final Index USER_USER_EMAIL_UNIQUE = Indexes0.USER_USER_EMAIL_UNIQUE;
+    public static final Index USER_USER_NAME_INDEX = Indexes0.USER_USER_NAME_INDEX;
     public static final Index USER_USER_PHONE_UNIQUE = Indexes0.USER_USER_PHONE_UNIQUE;
 
     // -------------------------------------------------------------------------
@@ -33,8 +36,11 @@ public class Indexes {
 
     private static class Indexes0 {
         public static Index ADMIN_ADMIN_ACCOUNT_UNIQUE = Internal.createIndex("admin_account_unique", Admin.ADMIN, new OrderField[] { Admin.ADMIN.ACCOUNT }, true);
+        public static Index ADMIN_ADMIN_NAME_INDEX = Internal.createIndex("admin_name_index", Admin.ADMIN, new OrderField[] { Admin.ADMIN.NAME }, false);
         public static Index ADMIN_PRIMARY = Internal.createIndex("PRIMARY", Admin.ADMIN, new OrderField[] { Admin.ADMIN.ID }, true);
         public static Index USER_PRIMARY = Internal.createIndex("PRIMARY", User.USER, new OrderField[] { User.USER.ID }, true);
+        public static Index USER_USER_EMAIL_UNIQUE = Internal.createIndex("user_email_unique", User.USER, new OrderField[] { User.USER.EMAIL }, true);
+        public static Index USER_USER_NAME_INDEX = Internal.createIndex("user_name_index", User.USER, new OrderField[] { User.USER.NAME }, false);
         public static Index USER_USER_PHONE_UNIQUE = Internal.createIndex("user_phone_unique", User.USER, new OrderField[] { User.USER.PHONE }, true);
     }
 }

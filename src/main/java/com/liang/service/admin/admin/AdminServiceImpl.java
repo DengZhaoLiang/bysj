@@ -6,14 +6,15 @@ import com.liang.dto.admin.admin.AdminResponse;
 import com.liang.repository.admin.IAdminRepository;
 import com.liang.utils.PageUtils;
 import generated.tables.pojos.Admin;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.jooq.types.ULong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 /**
  * @author Liang
@@ -31,9 +32,9 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public AdminPageResponse page(Pageable pageable) {
+    public AdminPageResponse page(Pageable pageable,String params) {
 
-        List<AdminResponse> page = mIAdminRepository.list();
+        List<AdminResponse> page = mIAdminRepository.list(params);
         /**
          * 初始化页面大小和起始页
          */
@@ -59,5 +60,23 @@ public class AdminServiceImpl implements AdminService {
     public Admin detail(Long id) {
         return mIAdminRepository.getAdminById(id)
                 .orElseThrow(() -> new RuntimeException("管理员不存在"));
+    }
+
+    @Override
+    public void insert(Admin admin) {
+        admin.setUpdatedAt(LocalDateTime.now());
+        admin.setCreatedAt(LocalDateTime.now());
+        mIAdminRepository.insert(admin);
+    }
+
+    @Override
+    public void update(Admin admin) {
+        admin.setUpdatedAt(LocalDateTime.now());
+        mIAdminRepository.update(admin);
+    }
+
+    @Override
+    public void delete(Long id) {
+        mIAdminRepository.delete(id);
     }
 }

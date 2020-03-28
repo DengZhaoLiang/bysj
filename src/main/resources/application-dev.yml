@@ -49,13 +49,8 @@ spring:
         stmp:
           ssl:
             enable: true
-
-# pagehelper
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
+  session:
+    timeout: 30m
 
 #  config-location: classpath:mybatis/mybatis-config.xml
 #  mapper-locations: classpath:mybatis/mapper/*.xml

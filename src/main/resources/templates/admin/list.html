@@ -14,11 +14,11 @@
 <div th:replace="common/common :: aside_nav"></div>
 
 <section style="margin-left: 235px;margin-top: 10px;margin-bottom: 20px;">
-    <form method="post" th:action="@{admin/find}">
+    <form method="get" th:action="@{/bysj/admin}">
         <h2 class="fl">管理员列表</h2>
         <input type="text" style="margin-left: 20px;margin-top: 12px" name="params" placeholder="请输入搜索关键字"/>
         <input type="submit" class="button_head" value="搜索"/>
-        <a th:href="@{admin/insert}" class="button_head">添加管理员</a>
+        <a th:href="@{/bysj/admin/insert}" class="button_head">添加管理员</a>
     </form>
 </section>
 
@@ -43,15 +43,15 @@
             </tr>
             </thead>
 
-            <tbody style="text-align: center" id="adminAjax">
+            <tbody style="text-align: center">
             <tr th:each="Admin : ${adminList}">
                 <td th:text="${Admin.getId()}"></td>
                 <td th:text="${Admin.getName()}"></td>
                 <td th:text="${Admin.getAccount()}"></td>
                 <td th:text="${#dates.format(Admin.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td>
-                    <a th:href="@{'admin/update/'+${Admin.getId()}}" class="inner_btn">编辑</a>
-                    <a th:href="@{'admin/delete/'+${Admin.getId()}}" class="inner_btn">删除</a>
+                    <a th:href="@{'/bysj/admin/update/'+${Admin.getId()}}" class="inner_btn">编辑</a>
+                    <a th:href="@{'/bysj/admin/delete/'+${Admin.getId()}}" class="inner_btn">删除</a>
                 </td>
 
             </tr>
@@ -62,16 +62,16 @@
     <div class="center">
         <ul class="pagination">
             <li>
-                <a th:href="@{'admin?page='+${page.getPrevious()}}">«</a></li>
+                <a th:href="@{'/bysj/admin?page='+${page.getPrevious()}}">«</a></li>
             <li th:each="i:${#numbers.sequence(1,page.getTotalPage())}">
 
                 <a th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"
-                   th:href="@{'admin?page='+${i}}"
+                   th:href="@{'/bysj/admin?page='+${i}}"
                    th:text="${i}">
                 </a>
 
             </li>
-            <li><a th:href="@{'admin?page='+${page.getNext()}}">»</a></li>
+            <li><a th:href="@{'/bysj/admin?page='+${page.getNext()}}">»</a></li>
         </ul>
     </div>
 </section>

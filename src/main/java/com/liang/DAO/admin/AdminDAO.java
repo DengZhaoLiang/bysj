@@ -1,10 +1,13 @@
 package com.liang.DAO.admin;
 
 import com.liang.dto.admin.admin.AdminResponse;
+import com.liang.utils.DSLPlusUtils;
 import generated.tables.pojos.Admin;
+import generated.tables.records.AdminRecord;
 import java.util.List;
 import java.util.Optional;
 import org.jooq.DSLContext;
+import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import static generated.Tables.ADMIN;
@@ -28,9 +31,11 @@ public class AdminDAO implements AdminDbStrategy {
     }
 
     @Override
-    public List<AdminResponse> list() {
-        return mDSLContext.selectFrom(ADMIN)
-                .fetchInto(AdminResponse.class);
+    public List<AdminResponse> list(String params) {
+        SelectQuery<AdminRecord> query = mDSLContext.selectQuery(ADMIN);
+        query.addSelect(ADMIN.fields());
+        DSLPlusUtils.containsIfNotBlank(query, ADMIN.NAME, params);
+        return query.fetchInto(AdminResponse.class);
     }
 
     @Override
@@ -38,5 +43,24 @@ public class AdminDAO implements AdminDbStrategy {
         return mDSLContext.selectFrom(ADMIN)
                 .where(ADMIN.ID.eq(id))
                 .fetchOptionalInto(Admin.class);
+    }
+
+    @Override
+    public void insert(Admin admin) {
+        AdminRecord record = mDSLContext.newRecord(ADMIN, admin);
+        record.insert();
+    }
+
+    @Override
+    public void update(Admin admin) {
+        AdminRecord record = mDSLContext.newRecord(ADMIN, admin);
+        record.update();
+    }
+
+    @Override
+    public void delete(Long id) {
+        mDSLContext.delete(ADMIN)
+                .where(ADMIN.ID.eq(id))
+                .execute();
     }
 }

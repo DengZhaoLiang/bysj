@@ -44,7 +44,6 @@ img {
 }
 
 @-ms-viewport {
-    width: device-width;
 }
 
 html {
@@ -189,12 +188,6 @@ small, weak {
 
 @font-face {
     font-family: 'adminthemesregular';
-    src: url('font/adminthemes-webfont.eot');
-    src: url('font/adminthemes-webfont.eot?#iefix') format('embedded-opentype'),
-    url('font/adminthemes-webfont.woff2') format('woff2'),
-    url('font/adminthemes-webfont.woff') format('woff'),
-    url('font/adminthemes-webfont.ttf') format('truetype'),
-    url('font/adminthemes-webfont.svg#adminthemesregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -449,9 +442,10 @@ header .rt_nav li .quit_icon:before {
     width: 210px;
     height: 100%;
     position: absolute;
-    top: 70px;
+    top: 55px;
     left: 0;
     background: #fcfcfc;
+    opacity: 0.9;
 }
 
 .lt_aside_nav h2 {
@@ -601,7 +595,6 @@ header .rt_nav li .quit_icon:before {
     font-size: 12px;
     border: 1px #139667 solid;
     vertical-align: middle;
-    appearance: button;
     -webkit-appearance: button;
 }
 
@@ -655,28 +648,31 @@ header .rt_nav li .quit_icon:before {
 }
 
 .table {
-    margin-left:210px;
-    width:89%;
-
+    margin-left:220px;
+    text-align: center;
+    width:88%;
 }
 
 .table th {
     border: 1px #d2d2d2 solid;
     height: 40px;
     line-height: 40px;
+    opacity: 0.9;
 }
 
 .table td {
     border: 1px #d2d2d2 solid;
     padding: 10px 8px;
+    opacity: 0.9;
 }
 
 .table tr:nth-child(odd) {
     background: #f8f8f8;
 }
 
-.table tr:hover {
+.table tr{
     background: #f9f9f9;
+    opacity: 0.9;
 }
 
 .table td a {

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="common/common :: head"></div>
+    <div th:replace="common/common :: page"></div>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<!--侧边栏-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 235px;margin-top: 10px;margin-bottom: 20px;">
+    <form method="get" th:action="@{/bysj/admin/user}">
+        <h2 class="fl">用户列表</h2>
+        <input type="text" style="margin-left: 20px;margin-top: 12px" name="params" placeholder="请输入搜索关键字"/>
+        <input type="submit" class="button_head" value="搜索"/>
+        <a th:href="@{/bysj/admin/user/insert}" class="button_head">添加用户</a>
+    </form>
+</section>
+
+<section>
+    <form action="" method="get">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>用户编号</th>
+                <th>用户姓名</th>
+                <th>用户邮箱</th>
+                <th>用户手机号</th>
+                <th>用户密码</th>
+                <th>最新登录时间</th>
+                <th>创建时间</th>
+                <th>更新时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tbody style="text-align: center">
+            <tr th:each="User : ${userList}">
+                <td th:text="${User.getId()}"></td>
+                <td th:text="${User.getName()}"></td>
+                <td th:text="${User.getEmail()}"></td>
+                <td th:text="${User.getPhone()}"></td>
+                <td th:text="${User.getPassword()}"></td>
+                <td th:text="${#dates.format(User.getLastLoginAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td th:text="${#dates.format(User.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td th:text="${#dates.format(User.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td>
+                    <a th:href="@{'/bysj/admin/user/update/'+${User.getId()}}" class="inner_btn">编辑</a>
+                    <a th:href="@{'/bysj/admin/user/delete/'+${User.getId()}}" class="inner_btn">删除</a>
+                    <a th:href="@{'/bysj/admin/user/reset/'+${User.getId()}}" class="inner_btn">重置密码</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <!--    分页导航栏-->
+    <div class="center">
+        <ul class="pagination">
+            <li>
+                <a th:href="@{'/bysj/admin/user?page='+${page.getPrevious()}}">«</a></li>
+            <li th:each="i:${#numbers.sequence(1,page.getTotalPage())}">
+
+                <a th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"
+                   th:href="@{'/bysj/admin/user?page='+${i}}"
+                   th:text="${i}">
+                </a>
+
+            </li>
+            <li><a th:href="@{'/bysj/admin/user?page='+${page.getNext()}}">»</a></li>
+        </ul>
+    </div>
+</section>
+
+</body>
+</html>

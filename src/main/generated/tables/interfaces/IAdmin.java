@@ -28,58 +28,58 @@ public interface IAdmin extends Serializable {
     public Long getId();
 
     /**
-     * Setter for <code>bysj.admin.name</code>. ??
+     * Setter for <code>bysj.admin.name</code>. 姓名
      */
     public IAdmin setName(String value);
 
     /**
-     * Getter for <code>bysj.admin.name</code>. ??
+     * Getter for <code>bysj.admin.name</code>. 姓名
      */
     @NotNull
     @Size(max = 255)
     public String getName();
 
     /**
-     * Setter for <code>bysj.admin.account</code>. ??
+     * Setter for <code>bysj.admin.account</code>. 账号
      */
     public IAdmin setAccount(String value);
 
     /**
-     * Getter for <code>bysj.admin.account</code>. ??
+     * Getter for <code>bysj.admin.account</code>. 账号
      */
     @NotNull
     @Size(max = 32)
     public String getAccount();
 
     /**
-     * Setter for <code>bysj.admin.password</code>. ??
+     * Setter for <code>bysj.admin.password</code>. 密码
      */
     public IAdmin setPassword(String value);
 
     /**
-     * Getter for <code>bysj.admin.password</code>. ??
+     * Getter for <code>bysj.admin.password</code>. 密码
      */
     @NotNull
     @Size(max = 64)
     public String getPassword();
 
     /**
-     * Setter for <code>bysj.admin.created_at</code>. ????
+     * Setter for <code>bysj.admin.created_at</code>. 创建时间
      */
     public IAdmin setCreatedAt(LocalDateTime value);
 
     /**
-     * Getter for <code>bysj.admin.created_at</code>. ????
+     * Getter for <code>bysj.admin.created_at</code>. 创建时间
      */
     public LocalDateTime getCreatedAt();
 
     /**
-     * Setter for <code>bysj.admin.updated_at</code>. ????
+     * Setter for <code>bysj.admin.updated_at</code>. 更新时间
      */
     public IAdmin setUpdatedAt(LocalDateTime value);
 
     /**
-     * Getter for <code>bysj.admin.updated_at</code>. ????
+     * Getter for <code>bysj.admin.updated_at</code>. 更新时间
      */
     public LocalDateTime getUpdatedAt();
 
