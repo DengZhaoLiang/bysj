@@ -1,5 +1,127 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
+<!-- 入场动画 -->
+<div class="preloader" th:fragment="effects">
+    <div class="preloader-body">
+        <div class="cssload-bell">
+            <div class="cssload-circle">
+                <div class="cssload-inner"></div>
+            </div>
+            <div class="cssload-circle">
+                <div class="cssload-inner"></div>
+            </div>
+            <div class="cssload-circle">
+                <div class="cssload-inner"></div>
+            </div>
+            <div class="cssload-circle">
+                <div class="cssload-inner"></div>
+            </div>
+            <div class="cssload-circle">
+                <div class="cssload-inner"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Page Footer-->
+<footer class="section footer-modern footer-modern-2" th:fragment="footer">
+    <div class="footer-modern-body section-xl context-dark">
+        <div class="container">
+            <div class="row row-40 row-md-50 justify-content-xl-between">
+                <!-- 画廊 -->
+                <div class="col-md-10 col-lg-3 col-xl-4 wow fadeInRight">
+                    <div class="inset-xl-right-70 block-1">
+
+                        <h5 class="footer-modern-title">画廊</h5>
+                        <div class="row row-10 gutters-10" data-lightgallery="group">
+                            <div class="col-4 col-sm-2 col-lg-4">
+                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
+                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                            </div>
+                            <div class="col-4 col-sm-2 col-lg-4">
+                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
+                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                            </div>
+                            <div class="col-4 col-sm-2 col-lg-4">
+                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
+                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                            </div>
+                            <div class="col-4 col-sm-2 col-lg-4">
+                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
+                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                            </div>
+                            <div class="col-4 col-sm-2 col-lg-4">
+                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
+                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                            </div>
+                            <div class="col-4 col-sm-2 col-lg-4">
+                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
+                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-7 col-lg-5 wow fadeInRight" data-wow-delay=".1s">
+                    <h5 class="footer-modern-title">友情链接</h5>
+                    <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block">
+                        <li><a th:href="@{#}">Our Team</a></li>
+                        <li><a th:href="@{#}">New Products</a></li>
+                        <li><a th:href="@{#}">Blog</a></li>
+                        <li><a th:href="@{#}">About Us</a></li>
+                        <li><a th:href="@{#}">FAQ</a></li>
+                        <li><a th:href="@{#}">Contact Us</a></li>
+                        <li><a th:href="@{#}">Smoothies</a></li>
+                        <li><a th:href="@{#}">Energy Bowls</a></li>
+                        <li><a th:href="@{#}">Juices</a></li>
+                        <li><a th:href="@{#}">Ingredients</a></li>
+                        <li><a th:href="@{#}">Delivery</a></li>
+                    </ul>
+                </div>
+
+                <!-- 联系 -->
+                <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
+                    <h5 class="footer-modern-title">取得联系</h5>
+                    <ul class="contacts-creative">
+                        <li>
+                            <div class="unit unit-spacing-sm flex-column flex-md-row">
+                                <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                                <div class="unit-body"><a th:href="@{#}">广东省湛江市<br/>广东海洋大学寸金学院</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="unit unit-spacing-sm flex-column flex-md-row">
+                                <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                                <div class="unit-body"><a href="tel:#">13018592726</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="unit unit-spacing-sm flex-column flex-md-row">
+                                <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
+                                <div class="unit-body"><a href="mailto:#">386229680@qq.com</a></div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="list-inline list-social-3 list-inline-sm">
+                        <!-- 联系链接 -->
+                        <li><a class="icon mdi mdi-facebook icon-xxs" th:href="@{#}"></a></li>
+                        <li><a class="icon mdi mdi-twitter icon-xxs" th:href="@{#}"></a></li>
+                        <li><a class="icon mdi mdi-instagram icon-xxs" th:href="@{#}"></a></li>
+                        <li><a class="icon mdi mdi-google-plus icon-xxs" th:href="@{#}"></a></li>
+                        <li><a class="icon mdi mdi-skype icon-xxs" th:href="@{#}"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-modern-panel text-center">
+        <div class="container">
+            <p class="rights"><span>Copyright &copy; 2020.垃圾分类环保公益网.World And You</span></p>
+        </div>
+    </div>
+</footer>
+
 
 </html>

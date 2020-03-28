@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/bysj/admin")
 @Api(tags = "1. 通用接口")
 @Validated
-public class CommonController {
+public class AdminCommonController {
 
     @ApiOperation("后台管理首页")
     @GetMapping("/index")

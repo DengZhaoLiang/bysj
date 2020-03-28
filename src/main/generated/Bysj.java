@@ -5,6 +5,7 @@ package generated;
 
 
 import generated.tables.Admin;
+import generated.tables.Banner;
 import generated.tables.User;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Bysj extends SchemaImpl {
 
-    private static final long serialVersionUID = 165881862;
+    private static final long serialVersionUID = -492111319;
 
     /**
      * The reference instance of <code>bysj</code>
@@ -30,9 +31,14 @@ public class Bysj extends SchemaImpl {
     public static final Bysj BYSJ = new Bysj();
 
     /**
-     * The table <code>bysj.admin</code>.
+     * ???
      */
     public final Admin ADMIN = generated.tables.Admin.ADMIN;
+
+    /**
+     * The table <code>bysj.banner</code>.
+     */
+    public final Banner BANNER = generated.tables.Banner.BANNER;
 
     /**
      * The table <code>bysj.user</code>.
@@ -62,6 +68,7 @@ public class Bysj extends SchemaImpl {
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
             Admin.ADMIN,
+            Banner.BANNER,
             User.USER);
     }
 }

@@ -5,8 +5,10 @@ package generated;
 
 
 import generated.tables.Admin;
+import generated.tables.Banner;
 import generated.tables.User;
 import generated.tables.records.AdminRecord;
+import generated.tables.records.BannerRecord;
 import generated.tables.records.UserRecord;
 
 import org.jooq.Identity;
@@ -26,6 +28,7 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     public static final Identity<AdminRecord, Long> IDENTITY_ADMIN = Identities0.IDENTITY_ADMIN;
+    public static final Identity<BannerRecord, Long> IDENTITY_BANNER = Identities0.IDENTITY_BANNER;
     public static final Identity<UserRecord, Long> IDENTITY_USER = Identities0.IDENTITY_USER;
 
     // -------------------------------------------------------------------------
@@ -34,6 +37,7 @@ public class Keys {
 
     public static final UniqueKey<AdminRecord> KEY_ADMIN_PRIMARY = UniqueKeys0.KEY_ADMIN_PRIMARY;
     public static final UniqueKey<AdminRecord> KEY_ADMIN_ADMIN_ACCOUNT_UNIQUE = UniqueKeys0.KEY_ADMIN_ADMIN_ACCOUNT_UNIQUE;
+    public static final UniqueKey<BannerRecord> KEY_BANNER_PRIMARY = UniqueKeys0.KEY_BANNER_PRIMARY;
     public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = UniqueKeys0.KEY_USER_PRIMARY;
     public static final UniqueKey<UserRecord> KEY_USER_USER_EMAIL_UNIQUE = UniqueKeys0.KEY_USER_USER_EMAIL_UNIQUE;
     public static final UniqueKey<UserRecord> KEY_USER_USER_PHONE_UNIQUE = UniqueKeys0.KEY_USER_USER_PHONE_UNIQUE;
@@ -49,12 +53,14 @@ public class Keys {
 
     private static class Identities0 {
         public static Identity<AdminRecord, Long> IDENTITY_ADMIN = Internal.createIdentity(Admin.ADMIN, Admin.ADMIN.ID);
+        public static Identity<BannerRecord, Long> IDENTITY_BANNER = Internal.createIdentity(Banner.BANNER, Banner.BANNER.ID);
         public static Identity<UserRecord, Long> IDENTITY_USER = Internal.createIdentity(User.USER, User.USER.ID);
     }
 
     private static class UniqueKeys0 {
         public static final UniqueKey<AdminRecord> KEY_ADMIN_PRIMARY = Internal.createUniqueKey(Admin.ADMIN, "KEY_admin_PRIMARY", Admin.ADMIN.ID);
         public static final UniqueKey<AdminRecord> KEY_ADMIN_ADMIN_ACCOUNT_UNIQUE = Internal.createUniqueKey(Admin.ADMIN, "KEY_admin_admin_account_unique", Admin.ADMIN.ACCOUNT);
+        public static final UniqueKey<BannerRecord> KEY_BANNER_PRIMARY = Internal.createUniqueKey(Banner.BANNER, "KEY_banner_PRIMARY", Banner.BANNER.ID);
         public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = Internal.createUniqueKey(User.USER, "KEY_user_PRIMARY", User.USER.ID);
         public static final UniqueKey<UserRecord> KEY_USER_USER_EMAIL_UNIQUE = Internal.createUniqueKey(User.USER, "KEY_user_user_email_unique", User.USER.EMAIL);
         public static final UniqueKey<UserRecord> KEY_USER_USER_PHONE_UNIQUE = Internal.createUniqueKey(User.USER, "KEY_user_user_phone_unique", User.USER.PHONE);

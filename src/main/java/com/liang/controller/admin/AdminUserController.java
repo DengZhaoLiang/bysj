@@ -24,7 +24,7 @@ import generated.tables.pojos.User;
 @RequestMapping("/bysj/admin/user")
 @Api(tags = "3. 用户管理")
 @Validated
-public class UserController {
+public class AdminUserController {
 
     @Autowired
     private AdminUserService mAdminUserService;

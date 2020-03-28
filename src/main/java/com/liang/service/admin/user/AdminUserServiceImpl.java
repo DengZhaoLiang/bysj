@@ -51,8 +51,6 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     public void insert(User user) {
-        user.setCreatedAt(LocalDateTime.now());
-        user.setUpdatedAt(LocalDateTime.now());
         mIUserRepository.insert(user);
     }
 

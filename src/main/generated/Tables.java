@@ -5,6 +5,7 @@ package generated;
 
 
 import generated.tables.Admin;
+import generated.tables.Banner;
 import generated.tables.User;
 
 
@@ -15,9 +16,14 @@ import generated.tables.User;
 public class Tables {
 
     /**
-     * The table <code>bysj.admin</code>.
+     * ???
      */
     public static final Admin ADMIN = Admin.ADMIN;
+
+    /**
+     * The table <code>bysj.banner</code>.
+     */
+    public static final Banner BANNER = Banner.BANNER;
 
     /**
      * The table <code>bysj.user</code>.

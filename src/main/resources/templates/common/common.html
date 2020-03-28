@@ -4,13 +4,19 @@
 <!--aside nav-->
 <aside class="lt_aside_nav content mCustomScrollbar" th:fragment="aside_nav">
     <div class="user" style="text-align: center; background-color: #F6F6F6">
-        <img th:src="@{/images/icon/theme.jpeg}" width=160px height=160px>
+        <img th:src="@{/img/core-img/favicon.png}" width=160px height=160px>
         <p style="text-align: center;margin-top: 10px">
             <span class="userName" th:text="${session.Admin.getName()}"></span>
         </p>
     </div>
     <h2><a th:href="@{/bysj/admin/index}">首页</a></h2>
     <ul>
+        <li>
+            <dl>
+                <dt>轮播图管理</dt>
+                <dd><a th:href="@{/bysj/admin/banner}">轮播图列表</a></dd>
+            </dl>
+        </li>
         <li>
             <dl>
                 <dt>用户管理</dt>
@@ -37,9 +43,9 @@
             <p>环保公益网</p>
         </div>
         <div class="title">
-            <h3 style="text-align: center "><img th:src="@{/images/icon/theme.jpeg}" width=400px height=400px></h3>
-            <h1>环保公益网</h1>
-            <h2>Environmental public welfare network!</h2>
+            <h3 style="text-align: center "><img th:src="@{/img/core-img/favicon.png}" width=400px height=400px></h3>
+            <h1>垃圾分类环保公益网</h1>
+            <h2>World And You</h2>
         </div>
     </div>
 </section>
