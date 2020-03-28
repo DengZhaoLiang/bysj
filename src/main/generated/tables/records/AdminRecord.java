@@ -25,7 +25,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Record6<Long, String, String, String, LocalDateTime, LocalDateTime>, IAdmin {
 
-    private static final long serialVersionUID = 1702839444;
+    private static final long serialVersionUID = 10903796;
 
     /**
      * Setter for <code>bysj.admin.id</code>.
@@ -45,7 +45,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Setter for <code>bysj.admin.name</code>. ??
+     * Setter for <code>bysj.admin.name</code>. 姓名
      */
     @Override
     public AdminRecord setName(String value) {
@@ -54,7 +54,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Getter for <code>bysj.admin.name</code>. ??
+     * Getter for <code>bysj.admin.name</code>. 姓名
      */
     @NotNull
     @Size(max = 255)
@@ -64,7 +64,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Setter for <code>bysj.admin.account</code>. ??
+     * Setter for <code>bysj.admin.account</code>. 账号
      */
     @Override
     public AdminRecord setAccount(String value) {
@@ -73,7 +73,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Getter for <code>bysj.admin.account</code>. ??
+     * Getter for <code>bysj.admin.account</code>. 账号
      */
     @NotNull
     @Size(max = 32)
@@ -83,7 +83,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Setter for <code>bysj.admin.password</code>. ??
+     * Setter for <code>bysj.admin.password</code>. 密码
      */
     @Override
     public AdminRecord setPassword(String value) {
@@ -92,7 +92,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Getter for <code>bysj.admin.password</code>. ??
+     * Getter for <code>bysj.admin.password</code>. 密码
      */
     @NotNull
     @Size(max = 64)
@@ -102,7 +102,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Setter for <code>bysj.admin.created_at</code>. ????
+     * Setter for <code>bysj.admin.created_at</code>. 创建时间
      */
     @Override
     public AdminRecord setCreatedAt(LocalDateTime value) {
@@ -111,7 +111,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Getter for <code>bysj.admin.created_at</code>. ????
+     * Getter for <code>bysj.admin.created_at</code>. 创建时间
      */
     @Override
     public LocalDateTime getCreatedAt() {
@@ -119,7 +119,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Setter for <code>bysj.admin.updated_at</code>. ????
+     * Setter for <code>bysj.admin.updated_at</code>. 更新时间
      */
     @Override
     public AdminRecord setUpdatedAt(LocalDateTime value) {
@@ -128,7 +128,7 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     }
 
     /**
-     * Getter for <code>bysj.admin.updated_at</code>. ????
+     * Getter for <code>bysj.admin.updated_at</code>. 更新时间
      */
     @Override
     public LocalDateTime getUpdatedAt() {

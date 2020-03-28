@@ -35,6 +35,7 @@ public class Keys {
     public static final UniqueKey<AdminRecord> KEY_ADMIN_PRIMARY = UniqueKeys0.KEY_ADMIN_PRIMARY;
     public static final UniqueKey<AdminRecord> KEY_ADMIN_ADMIN_ACCOUNT_UNIQUE = UniqueKeys0.KEY_ADMIN_ADMIN_ACCOUNT_UNIQUE;
     public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = UniqueKeys0.KEY_USER_PRIMARY;
+    public static final UniqueKey<UserRecord> KEY_USER_USER_EMAIL_UNIQUE = UniqueKeys0.KEY_USER_USER_EMAIL_UNIQUE;
     public static final UniqueKey<UserRecord> KEY_USER_USER_PHONE_UNIQUE = UniqueKeys0.KEY_USER_USER_PHONE_UNIQUE;
 
     // -------------------------------------------------------------------------
@@ -55,6 +56,7 @@ public class Keys {
         public static final UniqueKey<AdminRecord> KEY_ADMIN_PRIMARY = Internal.createUniqueKey(Admin.ADMIN, "KEY_admin_PRIMARY", Admin.ADMIN.ID);
         public static final UniqueKey<AdminRecord> KEY_ADMIN_ADMIN_ACCOUNT_UNIQUE = Internal.createUniqueKey(Admin.ADMIN, "KEY_admin_admin_account_unique", Admin.ADMIN.ACCOUNT);
         public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = Internal.createUniqueKey(User.USER, "KEY_user_PRIMARY", User.USER.ID);
+        public static final UniqueKey<UserRecord> KEY_USER_USER_EMAIL_UNIQUE = Internal.createUniqueKey(User.USER, "KEY_user_user_email_unique", User.USER.EMAIL);
         public static final UniqueKey<UserRecord> KEY_USER_USER_PHONE_UNIQUE = Internal.createUniqueKey(User.USER, "KEY_user_user_phone_unique", User.USER.PHONE);
     }
 }

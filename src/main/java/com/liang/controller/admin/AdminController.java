@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author Liang
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/bysj/admin")
-@Api(tags = "1. 管理员管理")
+@Api(tags = "2. 管理员管理")
 @Validated
 public class AdminController {
 
@@ -49,11 +50,27 @@ public class AdminController {
 
     @ApiOperation("分页获取管理员列表")
     @GetMapping("")
-    public String page(Model model, Pageable pageable) {
-        AdminPageResponse response = mAdminService.page(pageable);
+    public String page(
+            Model model,
+            Pageable pageable,
+            @RequestParam(required = false) String params) {
+        AdminPageResponse response = mAdminService.page(pageable, params);
         model.addAttribute("adminList", response.getAdmin());
         model.addAttribute("page", response.getPage());
         return "admin/list";
+    }
+
+    @ApiOperation("跳转到管理员添加页面")
+    @GetMapping("/insert")
+    public String insert() {
+        return "admin/add";
+    }
+
+    @ApiOperation("添加管理员逻辑")
+    @PostMapping("/doInsert")
+    public String doInsert(Admin admin) {
+        mAdminService.insert(admin);
+        return "redirect:/bysj/admin/";
     }
 
     @ApiOperation("跳转到管理员修改页面")
@@ -68,7 +85,14 @@ public class AdminController {
     @ApiOperation("修改管理员逻辑")
     @PostMapping("/doUpdate")
     public String doUpdate(Admin admin) {
-        System.out.println(admin);
+        mAdminService.update(admin);
+        return "redirect:/bysj/admin/";
+    }
+
+    @ApiOperation("删除管理员逻辑")
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        mAdminService.delete(id);
         return "redirect:/bysj/admin/";
     }
 }

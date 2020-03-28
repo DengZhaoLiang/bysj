@@ -26,12 +26,27 @@ public class AdminRepository implements IAdminRepository {
     }
 
     @Override
-    public List<AdminResponse> list() {
-        return mAdminDbStrategy.list();
+    public List<AdminResponse> list(String params) {
+        return mAdminDbStrategy.list(params);
     }
 
     @Override
     public Optional<Admin> getAdminById(Long id) {
         return mAdminDbStrategy.getAdminById(id);
+    }
+
+    @Override
+    public void insert(Admin admin) {
+        mAdminDbStrategy.insert(admin);
+    }
+
+    @Override
+    public void update(Admin admin) {
+        mAdminDbStrategy.update(admin);
+    }
+
+    @Override
+    public void delete(Long id) {
+        mAdminDbStrategy.delete(id);
     }
 }

@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Admin extends TableImpl<AdminRecord> {
 
-    private static final long serialVersionUID = -1513480325;
+    private static final long serialVersionUID = -2085013035;
 
     /**
      * The reference instance of <code>bysj.admin</code>
@@ -55,29 +55,29 @@ public class Admin extends TableImpl<AdminRecord> {
     public final TableField<AdminRecord, Long> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>bysj.admin.name</code>. ??
+     * The column <code>bysj.admin.name</code>. 姓名
      */
-    public final TableField<AdminRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "??");
+    public final TableField<AdminRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "姓名");
 
     /**
-     * The column <code>bysj.admin.account</code>. ??
+     * The column <code>bysj.admin.account</code>. 账号
      */
-    public final TableField<AdminRecord, String> ACCOUNT = createField(DSL.name("account"), org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false), this, "??");
+    public final TableField<AdminRecord, String> ACCOUNT = createField(DSL.name("account"), org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false), this, "账号");
 
     /**
-     * The column <code>bysj.admin.password</code>. ??
+     * The column <code>bysj.admin.password</code>. 密码
      */
-    public final TableField<AdminRecord, String> PASSWORD = createField(DSL.name("password"), org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "??");
+    public final TableField<AdminRecord, String> PASSWORD = createField(DSL.name("password"), org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "密码");
 
     /**
-     * The column <code>bysj.admin.created_at</code>. ????
+     * The column <code>bysj.admin.created_at</code>. 创建时间
      */
-    public final TableField<AdminRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
+    public final TableField<AdminRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "创建时间");
 
     /**
-     * The column <code>bysj.admin.updated_at</code>. ????
+     * The column <code>bysj.admin.updated_at</code>. 更新时间
      */
-    public final TableField<AdminRecord, LocalDateTime> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
+    public final TableField<AdminRecord, LocalDateTime> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "更新时间");
 
     /**
      * Create a <code>bysj.admin</code> table reference
@@ -119,7 +119,7 @@ public class Admin extends TableImpl<AdminRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.ADMIN_ADMIN_ACCOUNT_UNIQUE, Indexes.ADMIN_PRIMARY);
+        return Arrays.<Index>asList(Indexes.ADMIN_ADMIN_ACCOUNT_UNIQUE, Indexes.ADMIN_ADMIN_NAME_INDEX, Indexes.ADMIN_PRIMARY);
     }
 
     @Override

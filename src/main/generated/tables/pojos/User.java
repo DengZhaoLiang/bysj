@@ -17,9 +17,10 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User implements IUser {
 
-    private static final long serialVersionUID = -1305781987;
+    private static final long serialVersionUID = 385597005;
 
     private Long          id;
+    private String        email;
     private String        phone;
     private String        password;
     private String        name;
@@ -31,6 +32,7 @@ public class User implements IUser {
 
     public User(IUser value) {
         this.id = value.getId();
+        this.email = value.getEmail();
         this.phone = value.getPhone();
         this.password = value.getPassword();
         this.name = value.getName();
@@ -41,6 +43,7 @@ public class User implements IUser {
 
     public User(
         Long          id,
+        String        email,
         String        phone,
         String        password,
         String        name,
@@ -49,6 +52,7 @@ public class User implements IUser {
         LocalDateTime updatedAt
     ) {
         this.id = id;
+        this.email = email;
         this.phone = phone;
         this.password = password;
         this.name = name;
@@ -65,6 +69,18 @@ public class User implements IUser {
     @Override
     public User setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    @Size(max = 32)
+    @Override
+    public String getEmail() {
+        return this.email;
+    }
+
+    @Override
+    public User setEmail(String email) {
+        this.email = email;
         return this;
     }
 
@@ -152,6 +168,12 @@ public class User implements IUser {
         }
         else if (!id.equals(other.id))
             return false;
+        if (email == null) {
+            if (other.email != null)
+                return false;
+        }
+        else if (!email.equals(other.email))
+            return false;
         if (phone == null) {
             if (other.phone != null)
                 return false;
@@ -196,6 +218,7 @@ public class User implements IUser {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.email == null) ? 0 : this.email.hashCode());
         result = prime * result + ((this.phone == null) ? 0 : this.phone.hashCode());
         result = prime * result + ((this.password == null) ? 0 : this.password.hashCode());
         result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
@@ -210,6 +233,7 @@ public class User implements IUser {
         StringBuilder sb = new StringBuilder("User (");
 
         sb.append(id);
+        sb.append(", ").append(email);
         sb.append(", ").append(phone);
         sb.append(", ").append(password);
         sb.append(", ").append(name);
@@ -228,6 +252,7 @@ public class User implements IUser {
     @Override
     public void from(IUser from) {
         setId(from.getId());
+        setEmail(from.getEmail());
         setPhone(from.getPhone());
         setPassword(from.getPassword());
         setName(from.getName());

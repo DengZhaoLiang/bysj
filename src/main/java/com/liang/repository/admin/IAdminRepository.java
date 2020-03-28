@@ -19,10 +19,26 @@ public interface IAdminRepository {
     /**
      * 返回管理员列表
      */
-    List<AdminResponse> list();
+    List<AdminResponse> list(String params);
 
     /**
      * 获取管理员详情
      */
     Optional<Admin> getAdminById(Long id);
+
+    /**
+     * 添加管理员
+     */
+    void insert(Admin admin);
+
+    /**
+     * 修改管理员
+     */
+    void update(Admin admin);
+
+    /**
+     * 删除管理员
+     */
+    void delete(Long id);
+
 }

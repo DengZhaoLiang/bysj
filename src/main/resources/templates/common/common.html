@@ -13,33 +13,8 @@
     <ul>
         <li>
             <dl>
-                <dt>课程管理</dt>
-                <dd><a href="/courseQueryList">课程列表</a></dd>
-            </dl>
-        </li>
-        <li>
-            <dl>
-                <dt>学员管理</dt>
-                <dd><a href="/studentQueryList">学员库</a></dd>
-            </dl>
-        </li>
-        <li>
-            <dl>
-                <dt>教师管理</dt>
-                <dd><a href="/teacherQueryList">教师库</a></dd>
-            </dl>
-        </li>
-        <li>
-            <dl>
-                <dt>文章管理</dt>
-                <dd><a href="/resourceQueryList">资源库</a></dd>
-                <dd><a href="/articleQueryList">教育资讯</a></dd>
-            </dl>
-        </li>
-        <li>
-            <dl>
-                <dt>留言管理</dt>
-                <dd><a href="/messageQueryList">留言信息表</a></dd>
+                <dt>用户管理</dt>
+                <dd><a th:href="@{/bysj/admin/user}">用户列表</a></dd>
             </dl>
         </li>
         <li>
@@ -175,9 +150,7 @@
 
 <!--header-->
 <div th:fragment="header">
-    <header>
-        <h1><img th:src="@{/images/admin_logo.png}"/></h1>
-
+    <header style="background-image: url('/images/admin/flower.jpg')">
         <ul class="rt_nav">
             <li><a href="http://www.baidu.com" target="_blank" class="website_icon">站点首页</a></li>
             <li><a href="login.html" class="quit_icon">安全退出</a></li>

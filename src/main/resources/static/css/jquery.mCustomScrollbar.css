@@ -28,7 +28,7 @@ CONTENTS:
 	.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action{ -ms-touch-action: auto; touch-action: auto; }
 	
 	.mCustomScrollBox{ /* contains plugin's markup */
-		position: relative;
+
 		overflow: hidden;
 		height: 100%;
 		max-width: 100%;
@@ -368,7 +368,6 @@ yx-axis
 	.mCSB_scrollTools .mCSB_buttonDown,
 	.mCSB_scrollTools .mCSB_buttonLeft,
 	.mCSB_scrollTools .mCSB_buttonRight{
-		background-image: url(mCSB_buttons.png); /* css sprites */
 		background-repeat: no-repeat;
 		opacity: 0.4; filter: "alpha(opacity=40)"; -ms-filter: "alpha(opacity=40)"; 
 	}

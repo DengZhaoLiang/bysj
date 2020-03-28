@@ -19,10 +19,25 @@ public interface AdminService {
     /**
      * 分页获取管理员列表
      */
-    AdminPageResponse page(Pageable pageable);
+    AdminPageResponse page(Pageable pageable,String params);
 
     /**
      * 获取管理员详情
      */
     Admin detail(Long id);
+
+    /**
+     * 添加管理员
+     */
+    void insert(Admin admin);
+
+    /**
+     * 更新管理员
+     */
+    void update(Admin admin);
+
+    /**
+     * 删除管理员
+     */
+    void delete(Long id);
 }
