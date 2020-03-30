@@ -31,4 +31,10 @@ public class ApiCommonController {
         model.addAttribute("banners",banners);
         return "api/index";
     }
+
+    @ApiOperation("博客列表")
+    @GetMapping("/blog")
+    public String blog(Model model) {
+        return "api/blog-list";
+    }
 }

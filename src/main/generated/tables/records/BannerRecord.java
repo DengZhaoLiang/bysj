@@ -25,7 +25,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements Record7<Long, String, String, String, Long, LocalDateTime, LocalDateTime>, IBanner {
 
-    private static final long serialVersionUID = -716263576;
+    private static final long serialVersionUID = -1308485454;
 
     /**
      * Setter for <code>bysj.banner.id</code>.
@@ -101,20 +101,20 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>bysj.banner.article_id</code>. ??Id
+     * Setter for <code>bysj.banner.blog_id</code>. ??Id
      */
     @Override
-    public BannerRecord setArticleId(Long value) {
+    public BannerRecord setBlogId(Long value) {
         set(4, value);
         return this;
     }
 
     /**
-     * Getter for <code>bysj.banner.article_id</code>. ??Id
+     * Getter for <code>bysj.banner.blog_id</code>. ??Id
      */
     @NotNull
     @Override
-    public Long getArticleId() {
+    public Long getBlogId() {
         return (Long) get(4);
     }
 
@@ -197,7 +197,7 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
 
     @Override
     public Field<Long> field5() {
-        return Banner.BANNER.ARTICLE_ID;
+        return Banner.BANNER.BLOG_ID;
     }
 
     @Override
@@ -232,7 +232,7 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
 
     @Override
     public Long component5() {
-        return getArticleId();
+        return getBlogId();
     }
 
     @Override
@@ -267,7 +267,7 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
 
     @Override
     public Long value5() {
-        return getArticleId();
+        return getBlogId();
     }
 
     @Override
@@ -306,7 +306,7 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
 
     @Override
     public BannerRecord value5(Long value) {
-        setArticleId(value);
+        setBlogId(value);
         return this;
     }
 
@@ -344,7 +344,7 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
         setName(from.getName());
         setDescribe(from.getDescribe());
         setImg(from.getImg());
-        setArticleId(from.getArticleId());
+        setBlogId(from.getBlogId());
         setCreatedAt(from.getCreatedAt());
         setUpdatedAt(from.getUpdatedAt());
     }
@@ -369,14 +369,14 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     /**
      * Create a detached, initialised BannerRecord
      */
-    public BannerRecord(Long id, String name, String describe, String img, Long articleId, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public BannerRecord(Long id, String name, String describe, String img, Long blogId, LocalDateTime createdAt, LocalDateTime updatedAt) {
         super(Banner.BANNER);
 
         set(0, id);
         set(1, name);
         set(2, describe);
         set(3, img);
-        set(4, articleId);
+        set(4, blogId);
         set(5, createdAt);
         set(6, updatedAt);
     }

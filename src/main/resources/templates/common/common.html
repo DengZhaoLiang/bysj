@@ -19,6 +19,12 @@
         </li>
         <li>
             <dl>
+                <dt>博客管理</dt>
+                <dd><a th:href="@{/bysj/admin/blog}">博客列表</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
                 <dt>用户管理</dt>
                 <dd><a th:href="@{/bysj/admin/user}">用户列表</a></dd>
             </dl>
@@ -40,11 +46,11 @@
 <section th:fragment="section">
     <div class="wrap">
         <div class="logo">
-            <p>环保公益网</p>
+            <p>World And You网</p>
         </div>
         <div class="title">
             <h3 style="text-align: center "><img th:src="@{/img/core-img/favicon.png}" width=400px height=400px></h3>
-            <h1>垃圾分类环保公益网</h1>
+            <h1>垃圾分类World And You网</h1>
             <h2>World And You</h2>
         </div>
     </div>
@@ -54,15 +60,18 @@
 <div th:fragment="head">
 
     <meta charset="utf-8"/>
-    <title>环保公益·后台管理系统</title>
+    <title>World And You·后台管理系统</title>
     <meta name="author" content="DeathGhost"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <!-- Favicon -->
+    <link rel="icon" th:href="@{/img/core-img/favicon.png}">
     <!--[if lt IE 9]>
     <script th:src="@{/js/html5.js}"></script>
     <![endif]-->
     <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
     <script th:src="@{/js/clock.js}"></script>
+    <script th:src="@{/ckeditor/ckeditor.js}"></script>
     <style>
         .logo p {
             color: white;

@@ -18,13 +18,13 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner implements IBanner {
 
-    private static final long serialVersionUID = -2091498348;
+    private static final long serialVersionUID = -2086227512;
 
     private Long          id;
     private String        name;
     private String        describe;
     private String        img;
-    private Long          articleId;
+    private Long          blogId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -35,7 +35,7 @@ public class Banner implements IBanner {
         this.name = value.getName();
         this.describe = value.getDescribe();
         this.img = value.getImg();
-        this.articleId = value.getArticleId();
+        this.blogId = value.getBlogId();
         this.createdAt = value.getCreatedAt();
         this.updatedAt = value.getUpdatedAt();
     }
@@ -45,7 +45,7 @@ public class Banner implements IBanner {
         String        name,
         String        describe,
         String        img,
-        Long          articleId,
+        Long          blogId,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
     ) {
@@ -53,7 +53,7 @@ public class Banner implements IBanner {
         this.name = name;
         this.describe = describe;
         this.img = img;
-        this.articleId = articleId;
+        this.blogId = blogId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -109,13 +109,13 @@ public class Banner implements IBanner {
 
     @NotNull
     @Override
-    public Long getArticleId() {
-        return this.articleId;
+    public Long getBlogId() {
+        return this.blogId;
     }
 
     @Override
-    public Banner setArticleId(Long articleId) {
-        this.articleId = articleId;
+    public Banner setBlogId(Long blogId) {
+        this.blogId = blogId;
         return this;
     }
 
@@ -174,11 +174,11 @@ public class Banner implements IBanner {
         }
         else if (!img.equals(other.img))
             return false;
-        if (articleId == null) {
-            if (other.articleId != null)
+        if (blogId == null) {
+            if (other.blogId != null)
                 return false;
         }
-        else if (!articleId.equals(other.articleId))
+        else if (!blogId.equals(other.blogId))
             return false;
         if (createdAt == null) {
             if (other.createdAt != null)
@@ -203,7 +203,7 @@ public class Banner implements IBanner {
         result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
         result = prime * result + ((this.describe == null) ? 0 : this.describe.hashCode());
         result = prime * result + ((this.img == null) ? 0 : this.img.hashCode());
-        result = prime * result + ((this.articleId == null) ? 0 : this.articleId.hashCode());
+        result = prime * result + ((this.blogId == null) ? 0 : this.blogId.hashCode());
         result = prime * result + ((this.createdAt == null) ? 0 : this.createdAt.hashCode());
         result = prime * result + ((this.updatedAt == null) ? 0 : this.updatedAt.hashCode());
         return result;
@@ -217,7 +217,7 @@ public class Banner implements IBanner {
         sb.append(", ").append(name);
         sb.append(", ").append(describe);
         sb.append(", ").append(img);
-        sb.append(", ").append(articleId);
+        sb.append(", ").append(blogId);
         sb.append(", ").append(createdAt);
         sb.append(", ").append(updatedAt);
 
@@ -235,7 +235,7 @@ public class Banner implements IBanner {
         setName(from.getName());
         setDescribe(from.getDescribe());
         setImg(from.getImg());
-        setArticleId(from.getArticleId());
+        setBlogId(from.getBlogId());
         setCreatedAt(from.getCreatedAt());
         setUpdatedAt(from.getUpdatedAt());
     }

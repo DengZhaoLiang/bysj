@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common/common :: head"></div>
+    <style>
+        textarea:required:invalid, input:required:invalid {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<!--aside nav-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 225px;margin-top: 10px;margin-bottom: 20px;" >
+    <h2><strong class="fl">修改轮播图信息:</strong></h2>
+    <form th:action="@{/bysj/admin/user/doUpdate}" method="post" name="form1">
+        <ul class="ulColumn2">
+            <input type="hidden" name="id" th:value="${this.getId()}">
+
+            <li>
+                <span class="item_name" style="width:120px;">轮播图标题：</span>
+                <input th:value="${this.getName()}" type="text" class="textbox textbox_295" name="name">
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">轮播图描述：</span>
+                <input th:value="${this.getDescribe()}" type="text" class="textbox textbox_295" name="describe">
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">当前轮播图：</span>
+                <img th:src="@{${this.getImg()}}" width="50px" height="50px">
+                <input type="file" class="textbox textbox_295" name="file" placeholder="请选择图片"/>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">对应的文章编号：</span>
+                <input th:value="${this.getArticleId()}" type="number" class="textbox textbox_295" name="articleId" placeholder="文章编号"/>
+            </li>
+            <li>
+                <input type="submit" class="button_head" value="确认修改" style="margin-left: 124px"/>
+                <input type="reset" class="button_head" value="重置">
+            </li>
+        </ul>
+    </form>
+</section>
+
+
+
+</body>
+</html>

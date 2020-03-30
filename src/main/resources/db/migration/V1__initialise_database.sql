@@ -36,9 +36,23 @@ CREATE TABLE `banner`
     `name`          VARCHAR(255)        NOT NULL               COMMENT '标题',
     `describe`      VARCHAR(255)                                COMMENT '描述',
     `img`           VARCHAR(255)        NOT NULL               COMMENT '图片',
-    `article_id`    BIGINT(13)          NOT NULL               COMMENT '文章Id',
+    `blog_id`       BIGINT(13)          NOT NULL               COMMENT '博客Id',
     `created_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '创建时间',
     `updated_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '更新时间',
     PRIMARY KEY (`id`),
-    KEY `banner_article_id_index` (`article_id`)
+    KEY `banner_blog_id_index` (`blog_id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+-- 博客
+CREATE TABLE `blog`
+(
+    `id`            BIGINT(13)          NOT NULL AUTO_INCREMENT,
+    `name`          VARCHAR(255)        NOT NULL               COMMENT '博客名',
+    `describe`      VARCHAR(255)                               COMMENT '描述',
+    `context`       LONGTEXT            NOT NULL               COMMENT '富文本内容',
+    `type`          INT(1)              NOT NULL DEFAULT 1     COMMENT '博客类型 1-可回收 2-有害 3-干 4-湿 5-厨余 6-其它',
+    `pv`            BIGINT(20)          NOT NULL DEFAULT 0     COMMENT '博客访问量',
+    `created_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '创建时间',
+    `updated_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '更新时间',
+    PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

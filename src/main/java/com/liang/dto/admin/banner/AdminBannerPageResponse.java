@@ -11,7 +11,7 @@ import lombok.Data;
  * Created By 2020/3/25
  **/
 @Data
-@ApiModel("用户分页Response")
+@ApiModel("轮播图分页Response")
 public class AdminBannerPageResponse {
 
     @ApiModelProperty(value = "分页内容体")

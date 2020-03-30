@@ -1,152 +1,66 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>World And You</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" th:href="@{/api/css/api.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/api/css/bootstrap.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/api/css/fonts.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/api/css/style.css}">
-   
-  </head>
-  <body>
-  <!-- 入场动画 -->
-  <div th:replace="common/appCommon :: effects"></div>
+<head>
+  <!-- head -->
+  <div th:replace="common/appCommon :: head"></div>
 
-    <div class="page">
-      <!-- 菜单栏-->
-      <header class="section page-header header-creative-wrap context-dark">
-        <div class="rd-navbar-wrap">
-          <nav class="rd-navbar rd-navbar-creative rd-navbar-creative-2" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px" data-xl-stick-up-offset="112px" data-xxl-stick-up-offset="132px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
-            <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
-            <div class="rd-navbar-aside-outer">
-              <div class="rd-navbar-aside">
-                <div class="rd-navbar-panel">
-                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-                  <div class="rd-navbar-brand">
-                    <!-- 网站首页LOGO -->
-                    <a class="brand" th:href="@{#}">
-                      <img class="brand-logo-dark" th:src="@{/api/images/logo-default-234x82.png}" alt="" width="117" height="41"/>
-                      <img class="brand-logo-light" th:src="@{/api/images/logo-inverse-234x82.png}" alt="" width="117" height="41"/>
-                    </a>
-                  </div>
-                </div>
-                <div class="rd-navbar-aside-element">
-                  <div class="rd-navbar-search rd-navbar-search-2">
-                    <button class="rd-navbar-search-toggle rd-navbar-fixed-element-3" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
+</head>
+<body>
+<!-- 入场动画 -->
+<div th:replace="common/appCommon :: effects"></div>
 
-                    <!-- 全站搜索 -->
-                    <form class="rd-search" th:action="@{#}" data-search-live="rd-search-results-live" method="GET">
-                      <div class="form-wrap">
-                        <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
-                        <label class="form-label" for="rd-navbar-search-form-input">请输入需要查找的内容...</label>
-                        <div class="rd-search-results-live" id="rd-search-results-live"></div>
-                        <button class="rd-search-form-submit fl-bigmug-line-search74" type="submit"></button>
+<div class="page">
+  <!-- 菜单栏-->
+  <header class="section page-header header-creative-wrap context-dark">
+    <div class="rd-navbar-wrap">
+      <nav class="rd-navbar rd-navbar-creative rd-navbar-creative-2" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px" data-xl-stick-up-offset="112px" data-xxl-stick-up-offset="132px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+        <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
 
-                      </div>
-                    </form>
-                  </div>
-                  <!-- i18n国际化 -->
-                  <div class="rd-navbar-fixed-element-2 select-inline">
-                    <select data-dropdown-class="select-inline-dropdown">
-                      <option value="en">cn</option>
-                      <option value="fr">en</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!--网站logo 和 工具类 -->
+          <div th:replace="common/appCommon :: navbar"></div>
 
-            <!-- 导航栏 -->
-            <div class="rd-navbar-main-outer">
-              <div class="rd-navbar-main">
-                <div class="rd-navbar-nav-wrap">
-                  <ul class="rd-navbar-nav">
+          <!--网站logo 和 工具类 -->
+          <div th:replace="common/appCommon :: nav"></div>
 
-                    <li class="rd-nav-item active"><a class="rd-nav-link" th:href="@{#}">首页</a></li>
-                    
-                    <!-- 下拉框 -->
-                    <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">干湿分类</a>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">可回收垃圾</a></li>
-                        </ul>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">有害垃圾</a></li>
-                        </ul>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">干垃圾</a></li>
-                        </ul>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">湿垃圾</a></li>
-                        </ul>
-                    </li>
 
-                    <!-- 下拉框 -->
-                    <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">传统分类</a>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">可回收垃圾</a></li>
-                        </ul>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">有害垃圾</a></li>
-                        </ul>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">厨余垃圾</a></li>
-                        </ul>
-                        <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">其它垃圾</a></li>
-                        </ul>
-                    </li>
+      </nav>
+    </div>
+  </header>
 
-                    <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">垃圾分类知识</a></li>
-
-                    <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">垃圾分类资讯</a></li>
-
-                    <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">问答社区</a></li>
-
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
-
-      <!-- Banner-->
-      <section class="section swiper-container swiper-slider swiper-slider-4" data-loop="true" data-autoplay="5000">
-        <div class="swiper-wrapper context-dark">
-          <div th:each="banner : ${banners}"
-               class="swiper-slide"
-               style="width: 1908px"
-               th:classappend="'swiper-slider-'+${banners.indexOf(banner)}"
-               th:data-slide-bg="${banner.getImg()}">
-            <div class="swiper-slide-caption section-md text-center">
-              <div class="container">
-                <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">[(${banner.getName()})]</h2>
-                <h5 class="swiper-title-2" data-caption-animate="fadeInRight" data-caption-delay="250">[(${banner.getDescribe()})]<br class="d-none d-md-block">
-                </h5>
-                <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400">
+  <!-- Banner-->
+  <section class="section swiper-container swiper-slider swiper-slider-4" data-loop="true" data-autoplay="5000">
+    <div class="swiper-wrapper context-dark">
+      <div th:each="banner : ${banners}"
+           class="swiper-slide"
+           style="width: 100%"
+           th:classappend="'swiper-slider-'+${banners.indexOf(banner)}"
+           th:data-slide-bg="${banner.getImg()}">
+        <div class="swiper-slide-caption section-md text-center">
+          <div class="container">
+            <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">[(${banner.getName()})]</h2>
+            <h5 class="swiper-title-2" data-caption-animate="fadeInRight" data-caption-delay="250">[(${banner.getDescribe()})]<br class="d-none d-md-block">
+            </h5>
+            <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400">
 <!--                    TODO 文章链接-->
-                    <a class="button button-lg button-shadow-5 button-default-outline button-zakaria" th:href="@{#}">立即阅览</a></div>
-              </div>
-            </div>
+                <a class="button button-lg button-shadow-5 button-default-outline button-zakaria" th:href="@{#}">立即阅览</a></div>
           </div>
         </div>
-
-        <!-- Swiper Pagination-->
-        <div class="swiper-pagination"></div>
-
-        <!-- 翻页-->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </section>
-
-      <!-- Page Footer-->
-        <div th:replace="common/appCommon :: footer"></div>
+      </div>
     </div>
-    <div class="snackbars" id="form-output-global"></div>
-    <script th:src="@{/api/js/core.min.js}"></script>
-    <script th:src="@{/api/js/script.js}"></script>
-  </body>
+
+    <!-- Swiper Pagination-->
+    <div class="swiper-pagination"></div>
+
+    <!-- 翻页-->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </section>
+
+  <!-- Page Footer-->
+    <div th:replace="common/appCommon :: footer"></div>
+</div>
+<div class="snackbars" id="form-output-global"></div>
+<script th:src="@{/api/js/core.min.js}"></script>
+<script th:src="@{/api/js/script.js}"></script>
+</body>
 </html>

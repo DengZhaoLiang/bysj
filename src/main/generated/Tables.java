@@ -6,6 +6,7 @@ package generated;
 
 import generated.tables.Admin;
 import generated.tables.Banner;
+import generated.tables.Blog;
 import generated.tables.User;
 
 
@@ -24,6 +25,11 @@ public class Tables {
      * The table <code>bysj.banner</code>.
      */
     public static final Banner BANNER = Banner.BANNER;
+
+    /**
+     * The table <code>bysj.blog</code>.
+     */
+    public static final Blog BLOG = Blog.BLOG;
 
     /**
      * The table <code>bysj.user</code>.

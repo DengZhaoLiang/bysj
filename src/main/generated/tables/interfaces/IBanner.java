@@ -63,15 +63,15 @@ public interface IBanner extends Serializable {
     public String getImg();
 
     /**
-     * Setter for <code>bysj.banner.article_id</code>. ??Id
+     * Setter for <code>bysj.banner.blog_id</code>. ??Id
      */
-    public IBanner setArticleId(Long value);
+    public IBanner setBlogId(Long value);
 
     /**
-     * Getter for <code>bysj.banner.article_id</code>. ??Id
+     * Getter for <code>bysj.banner.blog_id</code>. ??Id
      */
     @NotNull
-    public Long getArticleId();
+    public Long getBlogId();
 
     /**
      * Setter for <code>bysj.banner.created_at</code>. ????

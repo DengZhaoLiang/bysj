@@ -24,6 +24,92 @@
     </div>
 </div>
 
+<!--Head-->
+<div th:fragment="head">
+    <title>World And You</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" th:href="@{/api/css/api.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/api/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/api/css/fonts.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/api/css/style.css}">
+    <!-- Favicon -->
+    <link rel="icon" th:href="@{/img/core-img/favicon.png}">
+</div>
+
+<!--网站logo 和 工具类 -->
+<div class="rd-navbar-aside-outer" th:fragment="navbar" style="margin:30px 0px 30px 0px">
+        <a class="brand" th:href="@{#}" style="padding-left: 30%">
+            <img class="brand-logo-dark" th:src="@{/api/images/logo-default-234x82.png}" alt="" width="117" height="41"/>
+            <img class="brand-logo-light" th:src="@{/api/images/logo-inverse-234x82.png}" alt="" width="117" height="41"/>
+        </a>
+
+        <div class="rd-navbar-aside-element" style="float: right; padding:10px 30% 0 0">
+            <div class="rd-navbar-search rd-navbar-search-2">
+                <button class="rd-navbar-search-toggle rd-navbar-fixed-element-3" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
+
+                <!-- 全站搜索 -->
+                <form class="rd-search" th:action="@{#}" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                        <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
+                        <label class="form-label" for="rd-navbar-search-form-input">请输入需要查找的内容...</label>
+                        <div class="rd-search-results-live" id="rd-search-results-live"></div>
+                        <button class="rd-search-form-submit fl-bigmug-line-search74" type="submit"></button>
+
+                    </div>
+                </form>
+            </div>
+            <!-- i18n国际化 -->
+            <div class="rd-navbar-fixed-element-2 select-inline">
+                <select data-dropdown-class="select-inline-dropdown">
+                    <option value="en">cn</option>
+                    <option value="fr">en</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 导航栏 -->
+<div class="rd-navbar-main-outer" th:fragment="nav">
+    <div class="rd-navbar-main">
+        <div class="rd-navbar-nav-wrap">
+            <ul class="rd-navbar-nav">
+
+                <li class="rd-nav-item active"><a class="rd-nav-link" th:href="@{#}">首页</a></li>
+
+                <!-- 下拉框 -->
+                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">干湿分类</a>
+                    <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">可回收垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">有害垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">干垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">湿垃圾</a></li>
+                    </ul>
+                </li>
+
+                <!-- 下拉框 -->
+                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">传统分类</a>
+                    <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">可回收垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">有害垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">厨余垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{#}">其它垃圾</a></li>
+                    </ul>
+                </li>
+
+                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">垃圾分类知识</a></li>
+
+                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">垃圾分类资讯</a></li>
+
+                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">问答社区</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
 <!-- Page Footer-->
 <footer class="section footer-modern footer-modern-2" th:fragment="footer">
     <div class="footer-modern-body section-xl context-dark">

@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner extends TableImpl<BannerRecord> {
 
-    private static final long serialVersionUID = -803419844;
+    private static final long serialVersionUID = 334586070;
 
     /**
      * The reference instance of <code>bysj.banner</code>
@@ -70,9 +70,9 @@ public class Banner extends TableImpl<BannerRecord> {
     public final TableField<BannerRecord, String> IMG = createField(DSL.name("img"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "??");
 
     /**
-     * The column <code>bysj.banner.article_id</code>. ??Id
+     * The column <code>bysj.banner.blog_id</code>. ??Id
      */
-    public final TableField<BannerRecord, Long> ARTICLE_ID = createField(DSL.name("article_id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "??Id");
+    public final TableField<BannerRecord, Long> BLOG_ID = createField(DSL.name("blog_id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "??Id");
 
     /**
      * The column <code>bysj.banner.created_at</code>. ????
@@ -124,7 +124,7 @@ public class Banner extends TableImpl<BannerRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.BANNER_BANNER_ARTICLE_ID_INDEX, Indexes.BANNER_PRIMARY);
+        return Arrays.<Index>asList(Indexes.BANNER_BANNER_BLOG_ID_INDEX, Indexes.BANNER_PRIMARY);
     }
 
     @Override

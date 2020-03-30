@@ -6,6 +6,7 @@ package generated;
 
 import generated.tables.Admin;
 import generated.tables.Banner;
+import generated.tables.Blog;
 import generated.tables.User;
 
 import org.jooq.Index;
@@ -26,8 +27,9 @@ public class Indexes {
     public static final Index ADMIN_ADMIN_ACCOUNT_UNIQUE = Indexes0.ADMIN_ADMIN_ACCOUNT_UNIQUE;
     public static final Index ADMIN_ADMIN_NAME_INDEX = Indexes0.ADMIN_ADMIN_NAME_INDEX;
     public static final Index ADMIN_PRIMARY = Indexes0.ADMIN_PRIMARY;
-    public static final Index BANNER_BANNER_ARTICLE_ID_INDEX = Indexes0.BANNER_BANNER_ARTICLE_ID_INDEX;
+    public static final Index BANNER_BANNER_BLOG_ID_INDEX = Indexes0.BANNER_BANNER_BLOG_ID_INDEX;
     public static final Index BANNER_PRIMARY = Indexes0.BANNER_PRIMARY;
+    public static final Index BLOG_PRIMARY = Indexes0.BLOG_PRIMARY;
     public static final Index USER_PRIMARY = Indexes0.USER_PRIMARY;
     public static final Index USER_USER_EMAIL_UNIQUE = Indexes0.USER_USER_EMAIL_UNIQUE;
     public static final Index USER_USER_NAME_INDEX = Indexes0.USER_USER_NAME_INDEX;
@@ -41,8 +43,9 @@ public class Indexes {
         public static Index ADMIN_ADMIN_ACCOUNT_UNIQUE = Internal.createIndex("admin_account_unique", Admin.ADMIN, new OrderField[] { Admin.ADMIN.ACCOUNT }, true);
         public static Index ADMIN_ADMIN_NAME_INDEX = Internal.createIndex("admin_name_index", Admin.ADMIN, new OrderField[] { Admin.ADMIN.NAME }, false);
         public static Index ADMIN_PRIMARY = Internal.createIndex("PRIMARY", Admin.ADMIN, new OrderField[] { Admin.ADMIN.ID }, true);
-        public static Index BANNER_BANNER_ARTICLE_ID_INDEX = Internal.createIndex("banner_article_id_index", Banner.BANNER, new OrderField[] { Banner.BANNER.ARTICLE_ID }, false);
+        public static Index BANNER_BANNER_BLOG_ID_INDEX = Internal.createIndex("banner_blog_id_index", Banner.BANNER, new OrderField[] { Banner.BANNER.BLOG_ID }, false);
         public static Index BANNER_PRIMARY = Internal.createIndex("PRIMARY", Banner.BANNER, new OrderField[] { Banner.BANNER.ID }, true);
+        public static Index BLOG_PRIMARY = Internal.createIndex("PRIMARY", Blog.BLOG, new OrderField[] { Blog.BLOG.ID }, true);
         public static Index USER_PRIMARY = Internal.createIndex("PRIMARY", User.USER, new OrderField[] { User.USER.ID }, true);
         public static Index USER_USER_EMAIL_UNIQUE = Internal.createIndex("user_email_unique", User.USER, new OrderField[] { User.USER.EMAIL }, true);
         public static Index USER_USER_NAME_INDEX = Internal.createIndex("user_name_index", User.USER, new OrderField[] { User.USER.NAME }, false);
