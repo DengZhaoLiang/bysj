@@ -4,6 +4,8 @@ import com.liang.DAO.blog.BlogDbStrategy;
 import com.liang.dto.admin.blog.AdminBlogResponse;
 import generated.tables.pojos.Blog;
 import java.util.List;
+import org.jooq.Record;
+import org.jooq.RecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -21,12 +23,27 @@ public class BlogRepository implements IBlogRepository {
 
 
     @Override
-    public List<AdminBlogResponse> list(String params, Integer type) {
-        return mBlogDbStrategy.list(params, type);
+    public <T> List<T> list(String params, Integer type, RecordMapper<Record,T> mapper) {
+        return mBlogDbStrategy.list(params, type, mapper);
     }
 
     @Override
     public void insert(Blog blog) {
         mBlogDbStrategy.insert(blog);
+    }
+
+    @Override
+    public Blog detail(Long id) {
+        return mBlogDbStrategy.detail(id);
+    }
+
+    @Override
+    public void update(Blog blog) {
+        mBlogDbStrategy.update(blog);
+    }
+
+    @Override
+    public void delete(Long id) {
+        mBlogDbStrategy.delete(id);
     }
 }

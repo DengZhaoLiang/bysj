@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common/common :: head"></div>
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace('.editor');
+    </script>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 225px;margin-top: 10px;margin-bottom: 20px">
+    <h2><strong class="fl">添加博客背景图信息</strong></h2>
+    <form th:action="@{/bysj/admin/blog/bg/doInsert}" enctype="multipart/form-data" method="post" style="margin-top: 20px;margin-bottom: 20px ">
+        <ul class="ulColumn2">
+            <li>
+                <span class="item_name" style="width:120px;">博客背景图名：</span>
+                <input type="text" class="textbox textbox_295" name="name" placeholder="请输入博客背景图标题..."/>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">博客背景图描述：</span>
+                <input type="text" class="textbox textbox_295" name="describe" placeholder="请输入描述..."/>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">博客背景图类型：</span>
+                <select name="type">
+                    <option value="">--请选择--</option>
+                    <option value="1">可回收垃圾</option>
+                    <option value="2">有害垃圾</option>
+                    <option value="3">干垃圾</option>
+                    <option value="4">湿垃圾</option>
+                    <option value="5">厨余垃圾</option>
+                    <option value="6">其它垃圾</option>
+                </select>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">背景图：</span>
+                <input type="file" class="textbox textbox_295" name="file" placeholder="请选择图片"/>
+            </li>
+            <li>
+                <input type="submit" class="button_head" value="确认添加" style="margin-left: 124px"/>
+                <input type="reset" class="button_head" value="重置">
+            </li>
+        </ul>
+    </form>
+</section>
+
+
+</body>
+</html>

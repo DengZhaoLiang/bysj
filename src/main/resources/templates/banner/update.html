@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL-->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="common/common :: head"></div>
@@ -18,7 +19,7 @@
 
 <section style="margin-left: 225px;margin-top: 10px;margin-bottom: 20px;" >
     <h2><strong class="fl">修改轮播图信息:</strong></h2>
-    <form th:action="@{/bysj/admin/user/doUpdate}" method="post" name="form1">
+    <form th:action="@{/bysj/admin/banner/doUpdate}" method="post" name="form1">
         <ul class="ulColumn2">
             <input type="hidden" name="id" th:value="${this.getId()}">
 
@@ -37,7 +38,7 @@
             </li>
             <li>
                 <span class="item_name" style="width:120px;">对应的文章编号：</span>
-                <input th:value="${this.getArticleId()}" type="number" class="textbox textbox_295" name="articleId" placeholder="文章编号"/>
+                <input th:value="${this.getBlogId()}" type="number" class="textbox textbox_295" name="blogId" placeholder="文章编号"/>
             </li>
             <li>
                 <input type="submit" class="button_head" value="确认修改" style="margin-left: 124px"/>

@@ -1,19 +1,16 @@
-package com.liang.serviceImpl;
+package com.liang.service;
 
-import com.liang.service.SendMailService;
+import java.io.File;
+import javax.annotation.Resource;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-import java.io.File;
-
 /**
  * @author Liang
- * @Description SendMailImpl  2020/1/30 0030 13:51 Liang
  */
 @Service
 public class SendMailServiceImpl implements SendMailService {

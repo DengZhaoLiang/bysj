@@ -34,8 +34,8 @@ CREATE TABLE `banner`
 (
     `id`            BIGINT(13)          NOT NULL AUTO_INCREMENT,
     `name`          VARCHAR(255)        NOT NULL               COMMENT '标题',
-    `describe`      VARCHAR(255)                                COMMENT '描述',
-    `img`           VARCHAR(255)        NOT NULL               COMMENT '图片',
+    `describe`      LONGTEXT                                   COMMENT '描述',
+    `img`           TEXT                NOT NULL               COMMENT '图片',
     `blog_id`       BIGINT(13)          NOT NULL               COMMENT '博客Id',
     `created_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '创建时间',
     `updated_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '更新时间',
@@ -47,12 +47,26 @@ CREATE TABLE `banner`
 CREATE TABLE `blog`
 (
     `id`            BIGINT(13)          NOT NULL AUTO_INCREMENT,
-    `name`          VARCHAR(255)        NOT NULL               COMMENT '博客名',
-    `describe`      VARCHAR(255)                               COMMENT '描述',
+    `name`          TEXT                NOT NULL               COMMENT '博客名',
+    `describe`      LONGTEXT                                   COMMENT '描述',
     `context`       LONGTEXT            NOT NULL               COMMENT '富文本内容',
     `type`          INT(1)              NOT NULL DEFAULT 1     COMMENT '博客类型 1-可回收 2-有害 3-干 4-湿 5-厨余 6-其它',
     `pv`            BIGINT(20)          NOT NULL DEFAULT 0     COMMENT '博客访问量',
     `created_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '创建时间',
     `updated_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '更新时间',
     PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+-- 博客背景图
+CREATE TABLE `blog_bg`
+(
+    `id`            BIGINT(13)          NOT NULL AUTO_INCREMENT,
+    `name`          VARCHAR(255)        NOT NULL               COMMENT '标题',
+    `describe`      VARCHAR(255)                               COMMENT '描述',
+    `img`           TEXT                NOT NULL               COMMENT '图片',
+    `type`          INT(1)              NOT NULL DEFAULT 1     COMMENT '博客类型 1-可回收 2-有害 3-干 4-湿 5-厨余 6-其它',
+    `created_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '创建时间',
+    `updated_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `blog_bg_type_unique` (`type`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

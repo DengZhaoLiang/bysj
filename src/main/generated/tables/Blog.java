@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Blog extends TableImpl<BlogRecord> {
 
-    private static final long serialVersionUID = 1742309803;
+    private static final long serialVersionUID = -999909193;
 
     /**
      * The reference instance of <code>bysj.blog</code>
@@ -57,12 +57,12 @@ public class Blog extends TableImpl<BlogRecord> {
     /**
      * The column <code>bysj.blog.name</code>. ???
      */
-    public final TableField<BlogRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "???");
+    public final TableField<BlogRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.CLOB.nullable(false), this, "???");
 
     /**
      * The column <code>bysj.blog.describe</code>. ??
      */
-    public final TableField<BlogRecord, String> DESCRIBE = createField(DSL.name("describe"), org.jooq.impl.SQLDataType.VARCHAR(255), this, "??");
+    public final TableField<BlogRecord, String> DESCRIBE = createField(DSL.name("describe"), org.jooq.impl.SQLDataType.CLOB, this, "??");
 
     /**
      * The column <code>bysj.blog.context</code>. ?????

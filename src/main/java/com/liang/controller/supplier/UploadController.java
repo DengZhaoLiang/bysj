@@ -21,7 +21,9 @@ public class UploadController {
             System.out.println("文件为空");
         }
         String fileName = file.getOriginalFilename();  // 文件名
-//        String suffixName = fileName.substring(fileName.lastIndexOf("."));  // 后缀名
+        assert fileName != null;
+        String suffixName = fileName.substring(fileName.lastIndexOf("."));  // 后缀名
+        fileName = System.currentTimeMillis() + suffixName;
         String filePath = null;
         try {
             filePath = ResourceUtils.getURL("classpath:").getPath() + "static/banner/";

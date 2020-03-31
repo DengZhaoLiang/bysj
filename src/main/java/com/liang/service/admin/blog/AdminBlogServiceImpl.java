@@ -25,7 +25,7 @@ public class AdminBlogServiceImpl implements AdminBlogService {
 
     @Override
     public AdminBlogPageResponse page(String params, Integer type, Pageable pageable) {
-        List<AdminBlogResponse> page = mIBlogRepository.list(params,type);
+        List<AdminBlogResponse> page = mIBlogRepository.list(params,type,it->it.into(AdminBlogResponse.class));
 
         page.forEach(it->{
             switch (it.getType()){
@@ -39,7 +39,7 @@ public class AdminBlogServiceImpl implements AdminBlogService {
             }
         });
 
-        /**
+        /*
          * 初始化页面大小和起始页
          */
         int pageNumber = 1;
@@ -63,5 +63,20 @@ public class AdminBlogServiceImpl implements AdminBlogService {
     @Override
     public void insert(Blog blog) {
         mIBlogRepository.insert(blog);
+    }
+
+    @Override
+    public Blog detail(Long id) {
+        return mIBlogRepository.detail(id);
+    }
+
+    @Override
+    public void update(Blog blog) {
+        mIBlogRepository.update(blog);
+    }
+
+    @Override
+    public void delete(Long id) {
+        mIBlogRepository.delete(id);
     }
 }

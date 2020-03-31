@@ -36,7 +36,7 @@ public interface IBlog extends Serializable {
      * Getter for <code>bysj.blog.name</code>. ???
      */
     @NotNull
-    @Size(max = 255)
+    @Size(max = 65535)
     public String getName();
 
     /**
@@ -47,7 +47,6 @@ public interface IBlog extends Serializable {
     /**
      * Getter for <code>bysj.blog.describe</code>. ??
      */
-    @Size(max = 255)
     public String getDescribe();
 
     /**

@@ -25,7 +25,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements Record7<Long, String, String, String, Long, LocalDateTime, LocalDateTime>, IBanner {
 
-    private static final long serialVersionUID = -1308485454;
+    private static final long serialVersionUID = 1702198327;
 
     /**
      * Setter for <code>bysj.banner.id</code>.
@@ -75,7 +75,6 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     /**
      * Getter for <code>bysj.banner.describe</code>. ??
      */
-    @Size(max = 255)
     @Override
     public String getDescribe() {
         return (String) get(2);
@@ -94,7 +93,7 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
      * Getter for <code>bysj.banner.img</code>. ??
      */
     @NotNull
-    @Size(max = 255)
+    @Size(max = 65535)
     @Override
     public String getImg() {
         return (String) get(3);

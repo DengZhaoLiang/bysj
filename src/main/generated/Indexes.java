@@ -7,6 +7,7 @@ package generated;
 import generated.tables.Admin;
 import generated.tables.Banner;
 import generated.tables.Blog;
+import generated.tables.BlogBg;
 import generated.tables.User;
 
 import org.jooq.Index;
@@ -30,6 +31,8 @@ public class Indexes {
     public static final Index BANNER_BANNER_BLOG_ID_INDEX = Indexes0.BANNER_BANNER_BLOG_ID_INDEX;
     public static final Index BANNER_PRIMARY = Indexes0.BANNER_PRIMARY;
     public static final Index BLOG_PRIMARY = Indexes0.BLOG_PRIMARY;
+    public static final Index BLOG_BG_BLOG_BG_TYPE_UNIQUE = Indexes0.BLOG_BG_BLOG_BG_TYPE_UNIQUE;
+    public static final Index BLOG_BG_PRIMARY = Indexes0.BLOG_BG_PRIMARY;
     public static final Index USER_PRIMARY = Indexes0.USER_PRIMARY;
     public static final Index USER_USER_EMAIL_UNIQUE = Indexes0.USER_USER_EMAIL_UNIQUE;
     public static final Index USER_USER_NAME_INDEX = Indexes0.USER_USER_NAME_INDEX;
@@ -46,6 +49,8 @@ public class Indexes {
         public static Index BANNER_BANNER_BLOG_ID_INDEX = Internal.createIndex("banner_blog_id_index", Banner.BANNER, new OrderField[] { Banner.BANNER.BLOG_ID }, false);
         public static Index BANNER_PRIMARY = Internal.createIndex("PRIMARY", Banner.BANNER, new OrderField[] { Banner.BANNER.ID }, true);
         public static Index BLOG_PRIMARY = Internal.createIndex("PRIMARY", Blog.BLOG, new OrderField[] { Blog.BLOG.ID }, true);
+        public static Index BLOG_BG_BLOG_BG_TYPE_UNIQUE = Internal.createIndex("blog_bg_type_unique", BlogBg.BLOG_BG, new OrderField[] { BlogBg.BLOG_BG.TYPE }, true);
+        public static Index BLOG_BG_PRIMARY = Internal.createIndex("PRIMARY", BlogBg.BLOG_BG, new OrderField[] { BlogBg.BLOG_BG.ID }, true);
         public static Index USER_PRIMARY = Internal.createIndex("PRIMARY", User.USER, new OrderField[] { User.USER.ID }, true);
         public static Index USER_USER_EMAIL_UNIQUE = Internal.createIndex("user_email_unique", User.USER, new OrderField[] { User.USER.EMAIL }, true);
         public static Index USER_USER_NAME_INDEX = Internal.createIndex("user_name_index", User.USER, new OrderField[] { User.USER.NAME }, false);

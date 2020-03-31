@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL-->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="common/common :: head"></div>
@@ -17,27 +18,36 @@
 <div th:replace="common/common :: aside_nav"></div>
 
 <section style="margin-left: 225px;margin-top: 10px;margin-bottom: 20px;" >
-    <h2><strong class="fl">修改轮播图信息:</strong></h2>
-    <form th:action="@{/bysj/admin/user/doUpdate}" method="post" name="form1">
+    <h2><strong class="fl">修改博客信息:</strong></h2>
+    <form th:action="@{/bysj/admin/blog/doUpdate}" method="post" name="form1">
         <ul class="ulColumn2">
             <input type="hidden" name="id" th:value="${this.getId()}">
 
             <li>
-                <span class="item_name" style="width:120px;">轮播图标题：</span>
-                <input th:value="${this.getName()}" type="text" class="textbox textbox_295" name="name">
+                <span class="item_name" style="width:120px;">博客名：</span>
+                <input th:value="${this.getName()}" type="text" class="textbox textbox_295" name="name" placeholder="请输入博客标题..."/>
             </li>
             <li>
-                <span class="item_name" style="width:120px;">轮播图描述：</span>
-                <input th:value="${this.getDescribe()}" type="text" class="textbox textbox_295" name="describe">
+                <span class="item_name" style="width:120px;">博客描述：</span>
+                <input th:value="${this.getDescribe()}" type="text" class="textbox textbox_295" name="describe" placeholder="请输入描述..."/>
             </li>
             <li>
-                <span class="item_name" style="width:120px;">当前轮播图：</span>
-                <img th:src="@{${this.getImg()}}" width="50px" height="50px">
-                <input type="file" class="textbox textbox_295" name="file" placeholder="请选择图片"/>
+                <span class="item_name" style="width:120px;">博客类型：</span>
+                <select name="type">
+                    <option value="">--请选择--</option>
+                    <option value="1" th:selected="${this.getType().equals(1)}">可回收垃圾</option>
+                    <option value="2" th:selected="${this.getType().equals(2)}">有害垃圾</option>
+                    <option value="3" th:selected="${this.getType().equals(3)}">干垃圾</option>
+                    <option value="4" th:selected="${this.getType().equals(4)}">湿垃圾</option>
+                    <option value="5" th:selected="${this.getType().equals(5)}">厨余垃圾</option>
+                    <option value="6" th:selected="${this.getType().equals(6)}">其它垃圾</option>
+                </select>
             </li>
             <li>
-                <span class="item_name" style="width:120px;">对应的文章编号：</span>
-                <input th:value="${this.getArticleId()}" type="number" class="textbox textbox_295" name="articleId" placeholder="文章编号"/>
+                <span class="item_name" style="width:120px;">博客内容：</span>
+                <div style="width: 864px;margin-left: 125px; margin-top: -16px">
+                    <textarea name="context" id="editor" class="ckeditor">[(${this.getContext()})]</textarea>
+                </div>
             </li>
             <li>
                 <input type="submit" class="button_head" value="确认修改" style="margin-left: 124px"/>

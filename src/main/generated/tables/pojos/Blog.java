@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Blog implements IBlog {
 
-    private static final long serialVersionUID = 1261558043;
+    private static final long serialVersionUID = -648198712;
 
     private Long          id;
     private String        name;
@@ -74,7 +74,7 @@ public class Blog implements IBlog {
     }
 
     @NotNull
-    @Size(max = 255)
+    @Size(max = 65535)
     @Override
     public String getName() {
         return this.name;
@@ -86,7 +86,6 @@ public class Blog implements IBlog {
         return this;
     }
 
-    @Size(max = 255)
     @Override
     public String getDescribe() {
         return this.describe;

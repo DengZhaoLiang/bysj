@@ -25,7 +25,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BlogRecord extends UpdatableRecordImpl<BlogRecord> implements Record8<Long, String, String, String, Integer, Long, LocalDateTime, LocalDateTime>, IBlog {
 
-    private static final long serialVersionUID = 577071684;
+    private static final long serialVersionUID = -1119769145;
 
     /**
      * Setter for <code>bysj.blog.id</code>.
@@ -57,7 +57,7 @@ public class BlogRecord extends UpdatableRecordImpl<BlogRecord> implements Recor
      * Getter for <code>bysj.blog.name</code>. ???
      */
     @NotNull
-    @Size(max = 255)
+    @Size(max = 65535)
     @Override
     public String getName() {
         return (String) get(1);
@@ -75,7 +75,6 @@ public class BlogRecord extends UpdatableRecordImpl<BlogRecord> implements Recor
     /**
      * Getter for <code>bysj.blog.describe</code>. ??
      */
-    @Size(max = 255)
     @Override
     public String getDescribe() {
         return (String) get(2);

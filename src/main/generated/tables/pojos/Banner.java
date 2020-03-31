@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner implements IBanner {
 
-    private static final long serialVersionUID = -2086227512;
+    private static final long serialVersionUID = 221745985;
 
     private Long          id;
     private String        name;
@@ -82,7 +82,6 @@ public class Banner implements IBanner {
         return this;
     }
 
-    @Size(max = 255)
     @Override
     public String getDescribe() {
         return this.describe;
@@ -95,7 +94,7 @@ public class Banner implements IBanner {
     }
 
     @NotNull
-    @Size(max = 255)
+    @Size(max = 65535)
     @Override
     public String getImg() {
         return this.img;

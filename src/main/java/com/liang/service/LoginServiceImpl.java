@@ -1,6 +1,5 @@
-package com.liang.serviceImpl;
+package com.liang.service;
 
-import com.liang.service.LoginService;
 import org.springframework.stereotype.Service;
 
 @Service

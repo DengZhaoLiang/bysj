@@ -2,6 +2,7 @@ package com.liang.service.admin.blog;
 
 import com.liang.dto.admin.blog.AdminBlogPageResponse;
 import org.springframework.data.domain.Pageable;
+import generated.tables.pojos.Blog;
 
 /**
  * @author Liang
@@ -16,5 +17,20 @@ public interface AdminBlogService {
     /**
      * 新增博客
      */
-    void insert(generated.tables.pojos.Blog blog);
+    void insert(Blog blog);
+
+    /**
+     * 获取博客详情
+     */
+    Blog detail(Long id);
+
+    /**
+     * 更新博客
+     */
+    void update(Blog blog);
+
+    /**
+     * 删除博客
+     */
+    void delete(Long id);
 }

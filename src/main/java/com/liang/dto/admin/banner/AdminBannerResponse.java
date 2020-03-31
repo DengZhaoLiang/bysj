@@ -42,7 +42,7 @@ public class AdminBannerResponse extends BaseResponse {
     private String img;
 
     @ApiModelProperty(value = "文章Id")
-    private Long articleId;
+    private Long blogId;
 
     @ApiModelProperty(value = "创建时间")
     private Date createdAt;

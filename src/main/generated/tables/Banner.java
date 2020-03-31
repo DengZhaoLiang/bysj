@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner extends TableImpl<BannerRecord> {
 
-    private static final long serialVersionUID = 334586070;
+    private static final long serialVersionUID = 1923498058;
 
     /**
      * The reference instance of <code>bysj.banner</code>
@@ -62,12 +62,12 @@ public class Banner extends TableImpl<BannerRecord> {
     /**
      * The column <code>bysj.banner.describe</code>. ??
      */
-    public final TableField<BannerRecord, String> DESCRIBE = createField(DSL.name("describe"), org.jooq.impl.SQLDataType.VARCHAR(255), this, "??");
+    public final TableField<BannerRecord, String> DESCRIBE = createField(DSL.name("describe"), org.jooq.impl.SQLDataType.CLOB, this, "??");
 
     /**
      * The column <code>bysj.banner.img</code>. ??
      */
-    public final TableField<BannerRecord, String> IMG = createField(DSL.name("img"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "??");
+    public final TableField<BannerRecord, String> IMG = createField(DSL.name("img"), org.jooq.impl.SQLDataType.CLOB.nullable(false), this, "??");
 
     /**
      * The column <code>bysj.banner.blog_id</code>. ??Id

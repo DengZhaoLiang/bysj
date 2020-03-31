@@ -47,7 +47,6 @@ public interface IBanner extends Serializable {
     /**
      * Getter for <code>bysj.banner.describe</code>. ??
      */
-    @Size(max = 255)
     public String getDescribe();
 
     /**
@@ -59,7 +58,7 @@ public interface IBanner extends Serializable {
      * Getter for <code>bysj.banner.img</code>. ??
      */
     @NotNull
-    @Size(max = 255)
+    @Size(max = 65535)
     public String getImg();
 
     /**

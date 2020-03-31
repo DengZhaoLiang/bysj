@@ -53,8 +53,7 @@
             <tr th:each="blog : ${blogList}">
                 <td th:text="${blog.getId()}"></td>
                 <td th:text="${blog.getName()}"></td>
-                <td th:text="${blog.getDescribe()}"
-                    style="max-width: 100px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap"></td>
+                <td th:text="${blog.getDescribe()}"></td>
                 <td th:text="${blog.getTypeStr()}"></td>
                 <td th:text="${blog.getPv()}"></td>
                 <td th:text="${#dates.format(blog.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
