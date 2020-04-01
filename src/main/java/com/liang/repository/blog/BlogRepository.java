@@ -23,8 +23,8 @@ public class BlogRepository implements IBlogRepository {
 
 
     @Override
-    public <T> List<T> list(String params, Integer type, RecordMapper<Record,T> mapper) {
-        return mBlogDbStrategy.list(params, type, mapper);
+    public <T> List<T> list(String params, Integer type,Integer articleType, RecordMapper<Record,T> mapper) {
+        return mBlogDbStrategy.list(params, type,articleType, mapper);
     }
 
     @Override

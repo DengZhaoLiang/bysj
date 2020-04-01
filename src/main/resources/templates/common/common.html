@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL-->
 <html xmlns:th="http://www.thymeleaf.org">
 
 <!--aside nav-->
@@ -179,8 +180,8 @@
 <div th:fragment="header">
     <header style="background-image: url('/images/admin/flower.jpg')">
         <ul class="rt_nav">
-            <li><a href="http://www.baidu.com" target="_blank" class="website_icon">站点首页</a></li>
-            <li><a href="login.html" class="quit_icon">安全退出</a></li>
+            <li><a th:href="@{'/bysj/index'}" target="_blank" class="website_icon">站点首页</a></li>
+            <li><a th:href="@{'/bysj/admin/logout'}" class="quit_icon">安全退出</a></li>
         </ul>
     </header>
 </div>

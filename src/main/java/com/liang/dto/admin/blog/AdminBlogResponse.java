@@ -40,6 +40,9 @@ public class AdminBlogResponse extends BaseResponse {
     @ApiModelProperty(value = "博客类型")
     private String typeStr;
 
+    @ApiModelProperty(value = "文章类型")
+    private String articleTypeStr;
+
     @ApiModelProperty(value = "博客访问量")
     private Long pv;
 
@@ -52,4 +55,8 @@ public class AdminBlogResponse extends BaseResponse {
     @ApiModelProperty(value = "博客类型")
     @JsonIgnore
     private Integer type;
+
+    @ApiModelProperty(value = "文章类型")
+    @JsonIgnore
+    private Integer articleType;
 }

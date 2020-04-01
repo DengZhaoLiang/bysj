@@ -20,4 +20,20 @@ public class ApiBlogPageResponse {
 
     @ApiModelProperty(value = "分页信息")
     private PageResponse page;
+
+    @ApiModelProperty(value = "所有文章数")
+    private Integer all;
+
+    @ApiModelProperty(value = "新闻文章数")
+    private Integer news;
+
+    @ApiModelProperty(value = "教学文章数")
+    private Integer teaching;
+
+    @ApiModelProperty(value = "信息文章数")
+    private Integer information;
+
+    @ApiModelProperty(value = "最新内容体")
+    private List<ApiBlogResponse> latest;
+
 }

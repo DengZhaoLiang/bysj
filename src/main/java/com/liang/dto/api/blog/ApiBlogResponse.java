@@ -56,4 +56,8 @@ public class ApiBlogResponse extends BaseResponse {
     @ApiModelProperty(value = "博客类型")
     @JsonIgnore
     private Integer type;
+
+    @ApiModelProperty(value = "文章类型")
+    @JsonIgnore
+    private Integer articleType;
 }

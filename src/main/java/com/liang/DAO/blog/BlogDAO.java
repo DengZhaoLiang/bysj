@@ -24,11 +24,12 @@ public class BlogDAO implements BlogDbStrategy{
     private DSLContext mDSLContext;
 
     @Override
-    public <T> List<T> list(String params, Integer type, RecordMapper<Record,T> mapper) {
+    public <T> List<T> list(String params, Integer type,Integer articleType, RecordMapper<Record,T> mapper) {
         SelectQuery<BlogRecord> query = mDSLContext.selectQuery(BLOG);
         query.addSelect(BLOG.fields());
         DSLPlusUtils.containsIfNotBlank(query,BLOG.NAME,params);
         DSLPlusUtils.eqIfNotNull(query,BLOG.TYPE,type);
+        DSLPlusUtils.eqIfNotNull(query,BLOG.ARTICLE_TYPE,articleType);
         return query.fetch(mapper);
     }
 

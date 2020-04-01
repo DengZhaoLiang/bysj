@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL-->
 <html xmlns:th="http://www.thymeleaf.org">
 
 <!-- 入场动画 -->
@@ -68,7 +69,6 @@
                 </select>
             </div>
         </div>
-    </div>
 </div>
 
 <!-- 导航栏 -->
@@ -77,7 +77,7 @@
         <div class="rd-navbar-nav-wrap">
             <ul class="rd-navbar-nav">
 
-                <li class="rd-nav-item active"><a class="rd-nav-link" th:href="@{#}">首页</a></li>
+                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{'/bysj/index'}">首页</a></li>
 
                 <!-- 下拉框 -->
                 <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">干湿分类</a>
@@ -122,28 +122,34 @@
                         <h5 class="footer-modern-title">画廊</h5>
                         <div class="row row-10 gutters-10" data-lightgallery="group">
                             <div class="col-4 col-sm-2 col-lg-4">
-                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
-                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                                <a class="thumbnail-minimal" th:href="@{'/trash/recoverable.jpeg'}" data-lightgallery="item">
+                                    <img th:src="@{'/trash/1.jpg'}" alt="" width="93" height="93"/>
+                                </a>
                             </div>
                             <div class="col-4 col-sm-2 col-lg-4">
-                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
-                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                                <a class="thumbnail-minimal" th:href="@{'/trash/harmful.jpeg'}" data-lightgallery="item">
+                                    <img th:src="@{'/trash/2.jpg'}" alt="" width="93" height="93"/>
+                                </a>
                             </div>
                             <div class="col-4 col-sm-2 col-lg-4">
-                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
-                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                                <a class="thumbnail-minimal" th:href="@{'/trash/dry.jpeg'}" data-lightgallery="item">
+                                    <img th:src="@{'/trash/3.jpg'}" alt="" width="93" height="93"/>
+                                </a>
                             </div>
                             <div class="col-4 col-sm-2 col-lg-4">
-                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
-                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                                <a class="thumbnail-minimal" th:href="@{'/trash/wet.jpeg'}" data-lightgallery="item">
+                                    <img th:src="@{'/trash/4.jpg'}" alt="" width="93" height="93"/>
+                                </a>
                             </div>
                             <div class="col-4 col-sm-2 col-lg-4">
-                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
-                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                                <a class="thumbnail-minimal" th:href="@{'/trash/kitchen.jpeg'}" data-lightgallery="item">
+                                    <img th:src="@{'/trash/5.jpg'}" alt="" width="93" height="93"/>
+                                </a>
                             </div>
                             <div class="col-4 col-sm-2 col-lg-4">
-                                <a class="thumbnail-minimal" th:href="@{/api/images/grid-gallery-footer-1-1200x800-original.jpg}" data-lightgallery="item">
-                                    <img th:src="@{/api/images/grid-gallery-1-93x93.jpg}" alt="" width="93" height="93"/></a>
+                                <a class="thumbnail-minimal" th:href="@{'/trash/harmful.jpeg'}" data-lightgallery="item">
+                                    <img th:src="@{'/trash/6.jpg'}" alt="" width="93" height="93"/>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -152,17 +158,56 @@
                 <div class="col-sm-6 col-md-7 col-lg-5 wow fadeInRight" data-wow-delay=".1s">
                     <h5 class="footer-modern-title">友情链接</h5>
                     <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block">
-                        <li><a th:href="@{#}">Our Team</a></li>
-                        <li><a th:href="@{#}">New Products</a></li>
-                        <li><a th:href="@{#}">Blog</a></li>
-                        <li><a th:href="@{#}">About Us</a></li>
-                        <li><a th:href="@{#}">FAQ</a></li>
-                        <li><a th:href="@{#}">Contact Us</a></li>
-                        <li><a th:href="@{#}">Smoothies</a></li>
-                        <li><a th:href="@{#}">Energy Bowls</a></li>
-                        <li><a th:href="@{#}">Juices</a></li>
-                        <li><a th:href="@{#}">Ingredients</a></li>
-                        <li><a th:href="@{#}">Delivery</a></li>
+                        <li>
+                            <a target="_blank" href="https://baike.baidu.com/item/%E5%8F%AF%E5%9B%9E%E6%94%B6%E7%89%A9">
+                                可回收垃圾
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://baike.baidu.com/item/%E6%9C%89%E5%AE%B3%E5%9E%83%E5%9C%BE">
+                                有害垃圾
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://baike.baidu.com/item/%E5%B9%B2%E5%9E%83%E5%9C%BE">
+                                干垃圾
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://baike.baidu.com/item/%E6%B9%BF%E5%9E%83%E5%9C%BE">
+                                湿垃圾
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://baike.baidu.com/item/%E5%8E%A8%E4%BD%99%E5%9E%83%E5%9C%BE">
+                                厨余垃圾
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://baike.baidu.com/item/%E5%85%B6%E4%BB%96%E5%9E%83%E5%9C%BE/10379912">
+                                其它垃圾
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://www.chinaenvironment.com/">
+                                环保网
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://www.mee.gov.cn/">
+                                中国国家环保部网站
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://www.cnemc.cn/">
+                                中国环境监测总站
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://www.ljflw.cn/">
+                                中国垃圾分类网
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

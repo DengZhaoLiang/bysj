@@ -4,8 +4,8 @@ import com.liang.dto.PageResponse;
 import com.liang.dto.api.blog.ApiBlogPageResponse;
 import com.liang.dto.api.blog.ApiBlogResponse;
 import com.liang.repository.blog.IBlogRepository;
-import com.liang.repository.blogBg.IBlogBgRepository;
 import com.liang.utils.PageUtils;
+import generated.tables.pojos.Blog;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,13 +23,15 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private IBlogRepository mIBlogRepository;
 
-    @Autowired
-    private IBlogBgRepository mIBlogBgRepository;
-
     @Override
-    public ApiBlogPageResponse listBlog(Integer type, Pageable pageable) {
-        List<ApiBlogResponse> page = mIBlogRepository.list(null,type, it->it.into(ApiBlogResponse.class));
-
+    public ApiBlogPageResponse listBlog(String params,Integer type,Integer articleType, Pageable pageable) {
+        List<ApiBlogResponse> page =
+                mIBlogRepository.list(params,type, articleType,it->it.into(ApiBlogResponse.class));
+        /*
+         * 此处用来获取文章数
+         */
+        List<ApiBlogResponse> noArticleType =
+                mIBlogRepository.list(params,type, null,it->it.into(ApiBlogResponse.class));
         page.forEach(it->{
             switch (it.getType()){
                 case 1 : it.setTypeStr("可回收垃圾"); break;
@@ -46,7 +48,7 @@ public class BlogServiceImpl implements BlogService {
          * 初始化页面大小和起始页
          */
         int pageNumber = 1;
-        int pageSize = 18;
+        int pageSize = 4;
         if (pageable.getPageNumber() != 0) {
             pageNumber = pageable.getPageNumber();
         }
@@ -60,6 +62,29 @@ public class BlogServiceImpl implements BlogService {
         ApiBlogPageResponse response = new ApiBlogPageResponse();
         response.setBlog(list);
         response.setPage(pageResponse);
+
+        //获取所有文章数
+        response.setAll(noArticleType.size());
+
+        //获取新闻文章数
+        response.setNews((int)noArticleType.stream().filter(it->it.getArticleType()==1).count());
+
+        //教学文章数
+        response.setTeaching((int)noArticleType.stream().filter(it->it.getArticleType()==2).count());
+
+        //信息文章数
+        response.setInformation((int)noArticleType.stream().filter(it->it.getArticleType()==3).count());
+
+        //获取最新两条博客
+        response.setLatest(noArticleType.stream()
+                .sorted(Comparator.comparing(ApiBlogResponse::getCreatedAt).reversed())
+                .limit(2)
+                .collect(Collectors.toList()));
         return response;
+    }
+
+    @Override
+    public Blog detailBlog(Long id) {
+        return mIBlogRepository.detail(id);
     }
 }

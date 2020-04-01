@@ -15,7 +15,7 @@ public interface IBlogRepository {
     /**
      * 分页获取博客列表
      */
-    <T> List<T> list(String params, Integer type, RecordMapper<Record,T> mapper);
+    <T> List<T> list(String params, Integer type,Integer articleType, RecordMapper<Record,T> mapper);
 
     /**
      * 新增博客

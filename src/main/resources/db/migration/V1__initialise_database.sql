@@ -51,6 +51,7 @@ CREATE TABLE `blog`
     `describe`      LONGTEXT                                   COMMENT '描述',
     `context`       LONGTEXT            NOT NULL               COMMENT '富文本内容',
     `type`          INT(1)              NOT NULL DEFAULT 1     COMMENT '博客类型 1-可回收 2-有害 3-干 4-湿 5-厨余 6-其它',
+    `article_type`  INT(1)              NOT NULL DEFAULT 1     COMMENT '文章类型 1-新闻 2-教学 3-信息',
     `pv`            BIGINT(20)          NOT NULL DEFAULT 0     COMMENT '博客访问量',
     `created_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '创建时间',
     `updated_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '更新时间',

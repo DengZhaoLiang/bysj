@@ -18,13 +18,14 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Blog implements IBlog {
 
-    private static final long serialVersionUID = -648198712;
+    private static final long serialVersionUID = 1808813953;
 
     private Long          id;
     private String        name;
     private String        describe;
     private String        context;
     private Integer       type;
+    private Integer       articleType;
     private Long          pv;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -37,6 +38,7 @@ public class Blog implements IBlog {
         this.describe = value.getDescribe();
         this.context = value.getContext();
         this.type = value.getType();
+        this.articleType = value.getArticleType();
         this.pv = value.getPv();
         this.createdAt = value.getCreatedAt();
         this.updatedAt = value.getUpdatedAt();
@@ -48,6 +50,7 @@ public class Blog implements IBlog {
         String        describe,
         String        context,
         Integer       type,
+        Integer       articleType,
         Long          pv,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
@@ -57,6 +60,7 @@ public class Blog implements IBlog {
         this.describe = describe;
         this.context = context;
         this.type = type;
+        this.articleType = articleType;
         this.pv = pv;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -117,6 +121,17 @@ public class Blog implements IBlog {
     @Override
     public Blog setType(Integer type) {
         this.type = type;
+        return this;
+    }
+
+    @Override
+    public Integer getArticleType() {
+        return this.articleType;
+    }
+
+    @Override
+    public Blog setArticleType(Integer articleType) {
+        this.articleType = articleType;
         return this;
     }
 
@@ -192,6 +207,12 @@ public class Blog implements IBlog {
         }
         else if (!type.equals(other.type))
             return false;
+        if (articleType == null) {
+            if (other.articleType != null)
+                return false;
+        }
+        else if (!articleType.equals(other.articleType))
+            return false;
         if (pv == null) {
             if (other.pv != null)
                 return false;
@@ -222,6 +243,7 @@ public class Blog implements IBlog {
         result = prime * result + ((this.describe == null) ? 0 : this.describe.hashCode());
         result = prime * result + ((this.context == null) ? 0 : this.context.hashCode());
         result = prime * result + ((this.type == null) ? 0 : this.type.hashCode());
+        result = prime * result + ((this.articleType == null) ? 0 : this.articleType.hashCode());
         result = prime * result + ((this.pv == null) ? 0 : this.pv.hashCode());
         result = prime * result + ((this.createdAt == null) ? 0 : this.createdAt.hashCode());
         result = prime * result + ((this.updatedAt == null) ? 0 : this.updatedAt.hashCode());
@@ -237,6 +259,7 @@ public class Blog implements IBlog {
         sb.append(", ").append(describe);
         sb.append(", ").append(context);
         sb.append(", ").append(type);
+        sb.append(", ").append(articleType);
         sb.append(", ").append(pv);
         sb.append(", ").append(createdAt);
         sb.append(", ").append(updatedAt);
@@ -256,6 +279,7 @@ public class Blog implements IBlog {
         setDescribe(from.getDescribe());
         setContext(from.getContext());
         setType(from.getType());
+        setArticleType(from.getArticleType());
         setPv(from.getPv());
         setCreatedAt(from.getCreatedAt());
         setUpdatedAt(from.getUpdatedAt());

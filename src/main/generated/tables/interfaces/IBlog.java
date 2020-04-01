@@ -71,6 +71,16 @@ public interface IBlog extends Serializable {
     public Integer getType();
 
     /**
+     * Setter for <code>bysj.blog.article_type</code>. ???? 1-?? 2-?? 3-??
+     */
+    public IBlog setArticleType(Integer value);
+
+    /**
+     * Getter for <code>bysj.blog.article_type</code>. ???? 1-?? 2-?? 3-??
+     */
+    public Integer getArticleType();
+
+    /**
      * Setter for <code>bysj.blog.pv</code>. ?????
      */
     public IBlog setPv(Long value);

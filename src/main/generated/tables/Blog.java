@@ -19,7 +19,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row8;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Blog extends TableImpl<BlogRecord> {
 
-    private static final long serialVersionUID = -999909193;
+    private static final long serialVersionUID = -30995431;
 
     /**
      * The reference instance of <code>bysj.blog</code>
@@ -73,6 +73,11 @@ public class Blog extends TableImpl<BlogRecord> {
      * The column <code>bysj.blog.type</code>. ???? 1-??? 2-?? 3-? 4-? 5-?? 6-??
      */
     public final TableField<BlogRecord, Integer> TYPE = createField(DSL.name("type"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.INTEGER)), this, "???? 1-??? 2-?? 3-? 4-? 5-?? 6-??");
+
+    /**
+     * The column <code>bysj.blog.article_type</code>. ???? 1-?? 2-?? 3-??
+     */
+    public final TableField<BlogRecord, Integer> ARTICLE_TYPE = createField(DSL.name("article_type"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.INTEGER)), this, "???? 1-?? 2-?? 3-??");
 
     /**
      * The column <code>bysj.blog.pv</code>. ?????
@@ -174,11 +179,11 @@ public class Blog extends TableImpl<BlogRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Long, String, String, String, Integer, Long, LocalDateTime, LocalDateTime> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row9<Long, String, String, String, Integer, Integer, Long, LocalDateTime, LocalDateTime> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
 }

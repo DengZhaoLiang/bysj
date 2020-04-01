@@ -44,6 +44,15 @@
                 </select>
             </li>
             <li>
+                <span class="item_name" style="width:120px;">文章类型：</span>
+                <select name="articleType">
+                    <option value="">--请选择--</option>
+                    <option value="1" th:selected="${this.getArticleType().equals(1)}">新闻</option>
+                    <option value="2" th:selected="${this.getArticleType().equals(2)}">教育</option>
+                    <option value="3" th:selected="${this.getArticleType().equals(3)}">信息</option>
+                </select>
+            </li>
+            <li>
                 <span class="item_name" style="width:120px;">博客内容：</span>
                 <div style="width: 864px;margin-left: 125px; margin-top: -16px">
                     <textarea name="context" id="editor" class="ckeditor">[(${this.getContext()})]</textarea>

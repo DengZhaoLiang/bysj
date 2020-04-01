@@ -38,6 +38,14 @@
                 </span>
             </li>
             <li>
+                <span class="item_name">
+                    文章类型：
+                    [(
+                    ${this.getArticleTypeStr()==1?'新闻':
+                    this.getArticleTypeStr()==1?'教育':'信息'})]
+                </span>
+            </li>
+            <li>
                 <span class="item_name">博客访问量：[(${this.getPv()})]</span>
             </li>
             <li>

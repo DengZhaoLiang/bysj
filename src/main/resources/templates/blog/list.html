@@ -42,6 +42,7 @@
                 <th>博客名</th>
                 <th>博客描述</th>
                 <th>博客类型</th>
+                <th>文章类型</th>
                 <th>博客访问量</th>
                 <th>创建时间</th>
                 <th>更新时间</th>
@@ -55,6 +56,7 @@
                 <td th:text="${blog.getName()}"></td>
                 <td th:text="${blog.getDescribe()}"></td>
                 <td th:text="${blog.getTypeStr()}"></td>
+                <td th:text="${blog.getArticleTypeStr()}"></td>
                 <td th:text="${blog.getPv()}"></td>
                 <td th:text="${#dates.format(blog.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td th:text="${#dates.format(blog.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>

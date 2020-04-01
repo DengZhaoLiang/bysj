@@ -25,7 +25,7 @@ public class AdminBlogServiceImpl implements AdminBlogService {
 
     @Override
     public AdminBlogPageResponse page(String params, Integer type, Pageable pageable) {
-        List<AdminBlogResponse> page = mIBlogRepository.list(params,type,it->it.into(AdminBlogResponse.class));
+        List<AdminBlogResponse> page = mIBlogRepository.list(params,type,null,it->it.into(AdminBlogResponse.class));
 
         page.forEach(it->{
             switch (it.getType()){
@@ -38,6 +38,16 @@ public class AdminBlogServiceImpl implements AdminBlogService {
                 default: it.setTypeStr(null);
             }
         });
+
+        page.forEach(it->{
+            switch (it.getArticleType()){
+                case 1 : it.setArticleTypeStr("新闻"); break;
+                case 2 : it.setArticleTypeStr("教育"); break;
+                case 3 : it.setArticleTypeStr("信息"); break;
+                default: it.setArticleTypeStr(null);
+            }
+        });
+
 
         /*
          * 初始化页面大小和起始页

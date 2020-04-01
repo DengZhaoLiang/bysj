@@ -2,12 +2,15 @@ package com.liang.controller.api;
 
 import com.liang.dto.api.blog.ApiBlogPageResponse;
 import generated.tables.pojos.Banner;
+import generated.tables.pojos.Blog;
 import generated.tables.pojos.BlogBg;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,15 +51,26 @@ public class ApiCommonController {
     @GetMapping("/blog")
     public String listBlog(
             Model model,
+            HttpServletRequest request,
             Pageable pageable,
+            @RequestParam(required = false) String params,
             @ApiParam(allowableValues = "1,2,3,4,5,6")
-            @RequestParam(required = false) Integer type) {
+            @RequestParam(required = false) Integer type,
+            @ApiParam(allowableValues = "1,2,3")
+            @RequestParam(required = false) Integer articleType) {
         BlogBg blogBg = mApiBlogBgController.detailBlogBg(type);
         model.addAttribute("blogBg",blogBg);
 
-        ApiBlogPageResponse response = mApiBlogController.listBlog(pageable, type);
+        ApiBlogPageResponse response = mApiBlogController.listBlog(pageable,params,type,articleType);
         model.addAttribute("listBlog",response.getBlog());
         model.addAttribute("page",response.getPage());
+        model.addAttribute("all",response.getAll());
+        model.addAttribute("news",response.getNews());
+        model.addAttribute("teaching",response.getTeaching());
+        model.addAttribute("information",response.getInformation());
+        model.addAttribute("latest",response.getLatest());
+
+        request.getSession().setAttribute("blogType",type);
         return "api/blog-list";
     }
 
@@ -64,7 +78,9 @@ public class ApiCommonController {
     @GetMapping("/blog/{id}")
     public String blog(
             Model model,
-            @PathVariable String id) {
+            @PathVariable Long id) {
+        Blog blog = mApiBlogController.detailBlog(id);
+        model.addAttribute("blog",blog);
         return "api/blog";
     }
 }
