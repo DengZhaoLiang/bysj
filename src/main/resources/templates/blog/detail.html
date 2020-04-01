@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common/common :: head"></div>
+    <style>
+        textarea:required:invalid, input:required:invalid {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<!--aside nav-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 225px;margin-top: 10px;margin-bottom: 20px;" >
+    <form th:action="@{/bysj/admin/user/doUpdate}" method="post" name="form1">
+        <ul class="ulColumn2">
+            <li>
+                <span class="item_name">博客名：[(${this.getName()})]</span>
+            </li>
+            <li>
+                <span class="item_name">博客描述：[(${this.getDescribe()})]</span>
+            </li>
+            <li>
+                <span class="item_name">
+                    博客类型：
+                    [(
+                    ${this.getType()==1?'可回收垃圾':
+                    this.getType()==2?'有害垃圾':
+                    this.getType()==3?'干垃圾':
+                    this.getType()==4?'湿垃圾':
+                    this.getType()==5?'厨余垃圾':'其它垃圾'})]
+                </span>
+            </li>
+            <li>
+                <span class="item_name">
+                    文章类型：
+                    [(
+                    ${this.getArticleTypeStr()==1?'新闻':
+                    this.getArticleTypeStr()==1?'教育':'信息'})]
+                </span>
+            </li>
+            <li>
+                <span class="item_name">博客访问量：[(${this.getPv()})]</span>
+            </li>
+            <li>
+                <span class="item_name">博客内容：</span>
+                <div style="overflow:auto; height:713px; margin-top: 10px">
+                    <div style="margin: 5px 30px 2px 30px">
+                        [(${this.getContext()})]
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+</section>
+
+
+
+</body>
+</html>

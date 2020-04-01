@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html class="wide wow-animation" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- head -->
+    <div th:replace="common/appCommon :: head"></div>
+<body>
+<!-- 入场动画 -->
+<div th:replace="common/appCommon :: effects"></div>
+
+<div class="page">
+    <!-- Page Header-->
+    <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-creative rd-navbar-creative-2" data-layout="rd-navbar-fixed"
+                 data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+                 data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                 data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                 data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+                 data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px"
+                 data-xl-stick-up-offset="112px" data-xxl-stick-up-offset="132px" data-lg-stick-up="true"
+                 data-xl-stick-up="true" data-xxl-stick-up="true">
+                <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1"
+                     data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                <!--网站logo 和 工具类 -->
+                <div th:replace="common/appCommon :: navbar"></div>
+
+                <!--导航栏 -->
+                <div th:replace="common/appCommon :: nav"></div>
+
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs-custom">
+        <div class="parallax-container" th:data-parallax-img="${blogBg.getImg()}">
+            <div class="breadcrumbs-custom-body parallax-content context-dark">
+                <div class="container">
+                    <h2 class="text-transform-capitalize breadcrumbs-custom-title">[(${blogBg.getName()})]</h2>
+                    <h5 class="breadcrumbs-custom-text">[(${blogBg.getDescribe()})] <br class="d-none d-md-block"></h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section Shop-->
+    <section class="section section-xl bg-default text-md-left">
+        <div class="container">
+            <div class="row row-50 row-md-60">
+                <div class="col-lg-8 col-xl-9">
+                    <div class="inset-xl-right-70">
+                        <div class="row row-50 row-md-60 row-lg-80 row-xl-100">
+                            <!--                            文章列表-->
+                            <div class="col-12" th:each="blog : ${listBlog}">
+                                <article class="post post-modern box-xxl" style="height: 268px;">
+                                    <div class="post-modern-panel">
+                                        <div><a class="post-modern-tag"
+                                                th:href="@{'/bysj/blog/'+${blog.getId()}}">News</a></div>
+                                        <div>
+                                            <time class="post-modern-time">
+                                                [(${#dates.format(blog.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')})]
+                                            </time>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="post-modern-title">
+                                        <a th:href="@{'/bysj/blog/'+${blog.getId()}}" style="
+                                        width: 800px;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp:2;
+                                        -webkit-box-orient: vertical;
+                                        overflow-wrap: break-word;
+                                        overflow: hidden;">
+                                            [(${blog.getName()})]
+                                        </a>
+                                    </h3>
+                                    <p class="post-modern-text" style="
+                                        width: 800px;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp:3;
+                                        -webkit-box-orient: vertical;
+                                        overflow-wrap: break-word;
+                                        overflow: hidden;">
+                                        [(${blog.getDescribe()})]
+                                    </p>
+                                    <a class="post-modern-link" th:href="@{'/bysj/blog/'+${blog.getId()}}">
+                                        Read more
+                                    </a>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!--                        分页-->
+                        <div class="pagination-wrap">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li class="page-item page-item-control disabled">
+                                        <a class="page-link"
+                                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${page.getPrevious()}}"
+                                           aria-label="Previous">
+                                            <span class="icon" aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item" th:each="i:${#numbers.sequence(1,page.getTotalPage())}">
+                                        <a class="page-link"
+                                           th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"
+                                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${i}}"
+                                           th:text="${i}">
+                                        </a>
+                                    </li>
+                                    <li class="page-item page-item-control">
+                                        <a class="page-link"
+                                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${page.getNext()}}"
+                                           aria-label="Next">
+                                            <span class="icon" aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-3">
+                    <div class="aside row row-30 row-md-50 justify-content-md-between">
+                        <div class="aside-item col-12">
+                            <div class="team-info box-sm">
+                                <img th:src="@{'/trash/'+${session.blogType}+'.jpg'}" width="280px" height="280px">
+                            </div>
+                            <!--                            搜索-->
+                            <form class="rd-search form-search" th:action="@{/bysj/blog}" method="GET">
+                                <div class="form-wrap">
+                                    <label class="form-label" for="search-form">Search in blog...</label>
+                                    <input type="hidden" th:value="${session.blogType}" name="type">
+                                    <input class="form-input" id="search-form" type="text" name="params"
+                                           autocomplete="off">
+                                    <button class="button-search fl-bigmug-line-search74" type="submit"></button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="aside-item col-sm-6 col-md-5 col-lg-12">
+                            <h6 class="aside-title">分类</h6>
+                            <ul class="list-categories">
+                                <li><a th:href="@{'/bysj/blog?type='+${session.blogType}}">所有文章</a>
+                                    <span class="list-categories-number">[(${all})]</span>
+                                </li>
+                                <li><a th:href="@{'/bysj/blog?type='+${session.blogType}+'&articleType=1'}">新闻</a>
+                                    <span class="list-categories-number">[(${news})]</span>
+                                </li>
+                                <li><a th:href="@{'/bysj/blog?type='+${session.blogType}+'&articleType=2'}">教学</a>
+                                    <span class="list-categories-number">[(${teaching})]</span>
+                                </li>
+                                <li><a th:href="@{'/bysj/blog?type='+${session.blogType}+'&articleType=3'}">信息</a>
+                                    <span class="list-categories-number">[(${information})]</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="aside-item col-sm-6 col-lg-12">
+                            <h6 class="aside-title">最新文章</h6>
+                            <div class="row row-20 row-lg-30 gutters-10">
+                                <!--                                文章列表-->
+                                <div class="col-6 col-lg-12" th:each="blog : ${latest}">
+                                    <article class="post post-minimal">
+                                        <div class="unit unit-spacing-sm flex-column flex-lg-row align-items-lg-center">
+                                            <div class="unit-body">
+                                                <p class="post-minimal-title">
+                                                    <a th:href="@{'/bysj/blog/'+${blog.getId()}}">
+                                                        [(${blog.getName()})]
+                                                    </a>
+                                                </p>
+                                                <div class="post-minimal-time">
+                                                    <time>[(${#dates.format(blog.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')})]</time>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <div th:replace="common/appCommon :: footer"></div>
+</div>
+<div class="snackbars" id="form-output-global"></div>
+<script th:src="@{/api/js/core.min.js}"></script>
+<script th:src="@{/api/js/script.js}"></script>
+</body>
+</html>

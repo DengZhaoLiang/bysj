@@ -24,7 +24,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Record8<Long, String, String, String, String, LocalDateTime, LocalDateTime, LocalDateTime>, IUser {
 
-    private static final long serialVersionUID = -1004037551;
+    private static final long serialVersionUID = 1931310031;
 
     /**
      * Setter for <code>bysj.user.id</code>.
@@ -44,7 +44,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>bysj.user.email</code>. 邮箱
+     * Setter for <code>bysj.user.email</code>. ??
      */
     @Override
     public UserRecord setEmail(String value) {
@@ -53,7 +53,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>bysj.user.email</code>. 邮箱
+     * Getter for <code>bysj.user.email</code>. ??
      */
     @Size(max = 32)
     @Override
@@ -62,7 +62,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>bysj.user.phone</code>. 手机号
+     * Setter for <code>bysj.user.phone</code>. ???
      */
     @Override
     public UserRecord setPhone(String value) {
@@ -71,7 +71,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>bysj.user.phone</code>. 手机号
+     * Getter for <code>bysj.user.phone</code>. ???
      */
     @Size(max = 32)
     @Override
@@ -80,7 +80,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>bysj.user.password</code>. 密码
+     * Setter for <code>bysj.user.password</code>. ??
      */
     @Override
     public UserRecord setPassword(String value) {
@@ -89,7 +89,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>bysj.user.password</code>. 密码
+     * Getter for <code>bysj.user.password</code>. ??
      */
     @Size(max = 64)
     @Override
@@ -98,7 +98,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>bysj.user.name</code>. 昵称
+     * Setter for <code>bysj.user.name</code>. ??
      */
     @Override
     public UserRecord setName(String value) {
@@ -107,7 +107,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>bysj.user.name</code>. 昵称
+     * Getter for <code>bysj.user.name</code>. ??
      */
     @Size(max = 64)
     @Override
@@ -116,7 +116,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>bysj.user.last_login_at</code>. 最新登录时间
+     * Setter for <code>bysj.user.last_login_at</code>. ??????
      */
     @Override
     public UserRecord setLastLoginAt(LocalDateTime value) {
@@ -125,7 +125,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>bysj.user.last_login_at</code>. 最新登录时间
+     * Getter for <code>bysj.user.last_login_at</code>. ??????
      */
     @Override
     public LocalDateTime getLastLoginAt() {
@@ -133,7 +133,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>bysj.user.created_at</code>. 创建时间
+     * Setter for <code>bysj.user.created_at</code>. ????
      */
     @Override
     public UserRecord setCreatedAt(LocalDateTime value) {
@@ -142,7 +142,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>bysj.user.created_at</code>. 创建时间
+     * Getter for <code>bysj.user.created_at</code>. ????
      */
     @Override
     public LocalDateTime getCreatedAt() {
@@ -150,7 +150,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>bysj.user.updated_at</code>. 更新时间
+     * Setter for <code>bysj.user.updated_at</code>. ????
      */
     @Override
     public UserRecord setUpdatedAt(LocalDateTime value) {
@@ -159,7 +159,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>bysj.user.updated_at</code>. 更新时间
+     * Getter for <code>bysj.user.updated_at</code>. ????
      */
     @Override
     public LocalDateTime getUpdatedAt() {

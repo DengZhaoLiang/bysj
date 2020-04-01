@@ -64,8 +64,6 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void insert(Admin admin) {
-        admin.setUpdatedAt(LocalDateTime.now());
-        admin.setCreatedAt(LocalDateTime.now());
         mIAdminRepository.insert(admin);
     }
 

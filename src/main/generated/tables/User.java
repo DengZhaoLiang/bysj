@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = -1822609631;
+    private static final long serialVersionUID = -1480745316;
 
     /**
      * The reference instance of <code>bysj.user</code>
@@ -55,39 +55,39 @@ public class User extends TableImpl<UserRecord> {
     public final TableField<UserRecord, Long> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>bysj.user.email</code>. 邮箱
+     * The column <code>bysj.user.email</code>. ??
      */
-    public final TableField<UserRecord, String> EMAIL = createField(DSL.name("email"), org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "邮箱");
+    public final TableField<UserRecord, String> EMAIL = createField(DSL.name("email"), org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "??");
 
     /**
-     * The column <code>bysj.user.phone</code>. 手机号
+     * The column <code>bysj.user.phone</code>. ???
      */
-    public final TableField<UserRecord, String> PHONE = createField(DSL.name("phone"), org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "手机号");
+    public final TableField<UserRecord, String> PHONE = createField(DSL.name("phone"), org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "???");
 
     /**
-     * The column <code>bysj.user.password</code>. 密码
+     * The column <code>bysj.user.password</code>. ??
      */
-    public final TableField<UserRecord, String> PASSWORD = createField(DSL.name("password"), org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "密码");
+    public final TableField<UserRecord, String> PASSWORD = createField(DSL.name("password"), org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "??");
 
     /**
-     * The column <code>bysj.user.name</code>. 昵称
+     * The column <code>bysj.user.name</code>. ??
      */
-    public final TableField<UserRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "昵称");
+    public final TableField<UserRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "??");
 
     /**
-     * The column <code>bysj.user.last_login_at</code>. 最新登录时间
+     * The column <code>bysj.user.last_login_at</code>. ??????
      */
-    public final TableField<UserRecord, LocalDateTime> LAST_LOGIN_AT = createField(DSL.name("last_login_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "最新登录时间");
+    public final TableField<UserRecord, LocalDateTime> LAST_LOGIN_AT = createField(DSL.name("last_login_at"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "??????");
 
     /**
-     * The column <code>bysj.user.created_at</code>. 创建时间
+     * The column <code>bysj.user.created_at</code>. ????
      */
-    public final TableField<UserRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "创建时间");
+    public final TableField<UserRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
 
     /**
-     * The column <code>bysj.user.updated_at</code>. 更新时间
+     * The column <code>bysj.user.updated_at</code>. ????
      */
-    public final TableField<UserRecord, LocalDateTime> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "更新时间");
+    public final TableField<UserRecord, LocalDateTime> UPDATED_AT = createField(DSL.name("updated_at"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "????");
 
     /**
      * Create a <code>bysj.user</code> table reference

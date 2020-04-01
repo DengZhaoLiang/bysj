@@ -95,4 +95,11 @@ public class AdminController {
         mAdminService.delete(id);
         return "redirect:/bysj/admin/";
     }
+
+    @ApiOperation("管理员退出登录")
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+            session.removeAttribute("Admin");
+            return "admin/login";
+    }
 }

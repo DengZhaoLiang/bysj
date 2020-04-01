@@ -46,6 +46,13 @@ public class DSLPlusUtils {
         query.addConditions(field.eq(value));
     }
 
+    public static void eqIfNotNull(SelectQuery<?> query, TableField<?, Integer> field, Integer value) {
+        if (isNullOrBlank(value)) {
+            return;
+        }
+        query.addConditions(field.eq(value));
+    }
+
     public static void eqIfNotNull(DeleteQuery<?> query, TableField<?, Long> field, Long value) {
         if (isNullOrBlank(value)) {
             return;
@@ -119,5 +126,4 @@ public class DSLPlusUtils {
         }
         return o == null;
     }
-
 }

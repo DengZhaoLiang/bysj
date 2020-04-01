@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="common/common :: head"></div>
+    <div th:replace="common/common :: page"></div>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<!--侧边栏-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 235px;margin-top: 10px;margin-bottom: 20px;">
+    <form method="get" th:action="@{/bysj/admin/blog/bg}">
+        <h2 class="fl">博客背景图列表</h2>
+        <input type="text" style="margin-left: 20px;margin-top: 12px" name="params" placeholder="请输入搜索关键字"/>
+
+        <select name="type">
+            <option value="">--请选择--</option>
+            <option value="1">可回收垃圾</option>
+            <option value="2">有害垃圾</option>
+            <option value="3">干垃圾</option>
+            <option value="4">湿垃圾</option>
+            <option value="5">厨余垃圾</option>
+            <option value="6">其它垃圾</option>
+        </select>
+        <input type="submit" class="button_head" value="搜索"/>
+        <a th:href="@{/bysj/admin/blog/bg/insert}" class="button_head">添加博客背景图</a>
+    </form>
+</section>
+
+<section>
+    <form action="" method="get">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>博客背景图编号</th>
+                <th>博客背景图名</th>
+                <th>博客背景图描述</th>
+                <th>博客背景图类型</th>
+                <th>博客背景图</th>
+                <th>创建时间</th>
+                <th>更新时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tbody style="text-align: center">
+            <tr th:each="blogBg : ${blogBgList}">
+                <td th:text="${blogBg.getId()}"></td>
+                <td th:text="${blogBg.getName()}"></td>
+                <td th:text="${blogBg.getDescribe()}"
+                    style="max-width: 100px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap"></td>
+                <td th:text="${blogBg.getTypeStr()}"></td>
+                <td > <img th:src="${blogBg.getImg()}" width="50px" height="50px"></td>
+                <td th:text="${#dates.format(blogBg.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td th:text="${#dates.format(blogBg.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td>
+                    <a th:href="@{'/bysj/admin/blog/bg/update/'+${blogBg.getId()}}" class="inner_btn">编辑</a>
+                    <a th:href="@{'/bysj/admin/blog/bg/delete/'+${blogBg.getId()}}" class="inner_btn">删除</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <!--    分页导航栏-->
+    <div class="center">
+        <ul class="pagination">
+            <li>
+                <a th:href="@{'/bysj/admin/blog/bg?page='+${page.getPrevious()}}">«</a></li>
+            <li th:each="i:${#numbers.sequence(1,page.getTotalPage())}">
+
+                <a th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"
+                   th:href="@{'/bysj/admin/blog/bg?page='+${i}}"
+                   th:text="${i}">
+                </a>
+
+            </li>
+            <li><a th:href="@{'/bysj/admin/blog/bg?page='+${page.getNext()}}">»</a></li>
+        </ul>
+    </div>
+</section>
+
+</body>
+</html>
