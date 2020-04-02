@@ -83,4 +83,10 @@ public class ApiCommonController {
         model.addAttribute("blog",blog);
         return "api/blog";
     }
+
+    @ApiOperation("垃圾分类知识")
+    @GetMapping("/knowledge")
+    public String knowledge() {
+        return "api/knowledge";
+    }
 }
