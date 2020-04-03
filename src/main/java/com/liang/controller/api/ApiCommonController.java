@@ -86,7 +86,10 @@ public class ApiCommonController {
 
     @ApiOperation("垃圾分类知识")
     @GetMapping("/knowledge")
-    public String knowledge() {
+    public String knowledge(@ApiParam(allowableValues = "1,2,3,4")
+                            @RequestParam(required = false) Integer type,
+                            Model model) {
+        model.addAttribute("type",type);
         return "api/knowledge";
     }
 }

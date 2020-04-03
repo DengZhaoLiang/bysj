@@ -99,7 +99,15 @@
                     </ul>
                 </li>
 
-                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{'/bysj/knowledge'}">垃圾分类知识</a></li>
+                <!-- 下拉框 -->
+                <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{#}">垃圾分类知识</a>
+                    <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{'/bysj/knowledge?type=1'}">可回收垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{'/bysj/knowledge?type=3'}">有害垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{'/bysj/knowledge?type=2'}">厨余垃圾</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" th:href="@{'/bysj/knowledge?type=4'}">其它垃圾</a></li>
+                    </ul>
+                </li>
 
                 <li class="rd-nav-item"><a class="rd-nav-link" th:href="@{'/bysj/information'}">垃圾分类资讯</a></li>
 

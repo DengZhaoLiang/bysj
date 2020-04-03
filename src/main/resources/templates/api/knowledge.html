@@ -34,7 +34,7 @@
     </header>
 <!--    富文本内容-->
     <div style="margin: 2% 10%" >
-        <img src="/trash/knowledge.png" width="100%">
+        <img th:src="@{'/trash/knowledge'+${type}+'.png'}" width="100%">
     </div>
     <!-- Page Footer-->
     <div th:replace="common/appCommon :: footer"></div>
