@@ -1,8 +1,8 @@
 package com.liang.service.admin.blogBg;
 
 import com.liang.dto.admin.blogBg.AdminBlogBgPageResponse;
-import org.springframework.data.domain.Pageable;
 import generated.tables.pojos.BlogBg;
+import org.springframework.data.domain.Pageable;
 
 /**
  * @author Liang

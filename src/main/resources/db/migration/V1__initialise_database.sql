@@ -71,3 +71,19 @@ CREATE TABLE `blog_bg`
     PRIMARY KEY (`id`),
     UNIQUE KEY `blog_bg_type_unique` (`type`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+-- 分类资讯
+CREATE TABLE `information`
+(
+    `id`            BIGINT(13)          NOT NULL AUTO_INCREMENT,
+    `name`          VARCHAR(255)        NOT NULL               COMMENT '标题',
+    `describe`      VARCHAR(255)                               COMMENT '描述',
+    `img`           TEXT                NOT NULL               COMMENT '视频封面图',
+    `video`         TEXT                NOT NULL               COMMENT '视频链接',
+    `type`          INT(1)              NOT NULL DEFAULT 1     COMMENT '资讯类型 1-可回收 2-有害 3-干 4-湿 5-厨余 6-其它',
+    `pv`            BIGINT(20)          NOT NULL DEFAULT 0     COMMENT '资讯访问量',
+    `created_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '创建时间',
+    `updated_at`    DATETIME            NOT NULL DEFAULT NOW() COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `information_type_unique` (`type`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

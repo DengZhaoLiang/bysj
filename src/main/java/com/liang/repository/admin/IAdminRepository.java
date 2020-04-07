@@ -4,7 +4,6 @@ import com.liang.dto.admin.admin.AdminResponse;
 import generated.tables.pojos.Admin;
 import java.util.List;
 import java.util.Optional;
-import org.jooq.types.ULong;
 
 /**
  * @author Liang

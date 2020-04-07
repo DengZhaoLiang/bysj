@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
  **/
 @Repository
 @Primary
-public class BannerRepository implements IBannerRepository{
+public class BannerRepository implements IBannerRepository {
 
     @Autowired
     private BannerDbStrategy mBannerDbStrategy;

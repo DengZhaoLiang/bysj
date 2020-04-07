@@ -1,8 +1,8 @@
 package com.liang.repository.banner;
 
 import com.liang.dto.admin.banner.AdminBannerResponse;
-import java.util.List;
 import generated.tables.pojos.Banner;
+import java.util.List;
 
 /**
  * @author Liang

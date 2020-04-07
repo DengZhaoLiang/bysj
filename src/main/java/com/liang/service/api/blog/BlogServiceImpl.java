@@ -24,23 +24,36 @@ public class BlogServiceImpl implements BlogService {
     private IBlogRepository mIBlogRepository;
 
     @Override
-    public ApiBlogPageResponse listBlog(String params,Integer type,Integer articleType, Pageable pageable) {
+    public ApiBlogPageResponse listBlog(String params, Integer type, Integer articleType, Pageable pageable) {
         List<ApiBlogResponse> page =
-                mIBlogRepository.list(params,type, articleType,it->it.into(ApiBlogResponse.class));
+                mIBlogRepository.list(params, type, articleType, it -> it.into(ApiBlogResponse.class));
         /*
          * 此处用来获取文章数
          */
         List<ApiBlogResponse> noArticleType =
-                mIBlogRepository.list(params,type, null,it->it.into(ApiBlogResponse.class));
-        page.forEach(it->{
-            switch (it.getType()){
-                case 1 : it.setTypeStr("可回收垃圾"); break;
-                case 2 : it.setTypeStr("有害垃圾"); break;
-                case 3 : it.setTypeStr("干垃圾"); break;
-                case 4 : it.setTypeStr("湿垃圾"); break;
-                case 5 : it.setTypeStr("厨余垃圾"); break;
-                case 6 : it.setTypeStr("其它垃圾"); break;
-                default: it.setTypeStr(null);
+                mIBlogRepository.list(params, type, null, it -> it.into(ApiBlogResponse.class));
+        page.forEach(it -> {
+            switch (it.getType()) {
+                case 1:
+                    it.setTypeStr("可回收垃圾");
+                    break;
+                case 2:
+                    it.setTypeStr("有害垃圾");
+                    break;
+                case 3:
+                    it.setTypeStr("干垃圾");
+                    break;
+                case 4:
+                    it.setTypeStr("湿垃圾");
+                    break;
+                case 5:
+                    it.setTypeStr("厨余垃圾");
+                    break;
+                case 6:
+                    it.setTypeStr("其它垃圾");
+                    break;
+                default:
+                    it.setTypeStr(null);
             }
         });
 
@@ -67,13 +80,13 @@ public class BlogServiceImpl implements BlogService {
         response.setAll(noArticleType.size());
 
         //获取新闻文章数
-        response.setNews((int)noArticleType.stream().filter(it->it.getArticleType()==1).count());
+        response.setNews((int) noArticleType.stream().filter(it -> it.getArticleType() == 1).count());
 
         //教学文章数
-        response.setTeaching((int)noArticleType.stream().filter(it->it.getArticleType()==2).count());
+        response.setTeaching((int) noArticleType.stream().filter(it -> it.getArticleType() == 2).count());
 
         //信息文章数
-        response.setInformation((int)noArticleType.stream().filter(it->it.getArticleType()==3).count());
+        response.setInformation((int) noArticleType.stream().filter(it -> it.getArticleType() == 3).count());
 
         //获取最新两条博客
         response.setLatest(noArticleType.stream()
@@ -86,5 +99,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog detailBlog(Long id) {
         return mIBlogRepository.detail(id);
+    }
+
+    @Override
+    public void updatePV(Long id, Long pv) {
+        mIBlogRepository.updatePV(id, pv);
     }
 }

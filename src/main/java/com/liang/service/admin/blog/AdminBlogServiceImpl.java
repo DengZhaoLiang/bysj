@@ -25,26 +25,46 @@ public class AdminBlogServiceImpl implements AdminBlogService {
 
     @Override
     public AdminBlogPageResponse page(String params, Integer type, Pageable pageable) {
-        List<AdminBlogResponse> page = mIBlogRepository.list(params,type,null,it->it.into(AdminBlogResponse.class));
+        List<AdminBlogResponse> page = mIBlogRepository.list(params, type, null, it -> it.into(AdminBlogResponse.class));
 
-        page.forEach(it->{
-            switch (it.getType()){
-                case 1 : it.setTypeStr("可回收垃圾"); break;
-                case 2 : it.setTypeStr("有害垃圾"); break;
-                case 3 : it.setTypeStr("干垃圾"); break;
-                case 4 : it.setTypeStr("湿垃圾"); break;
-                case 5 : it.setTypeStr("厨余垃圾"); break;
-                case 6 : it.setTypeStr("其它垃圾"); break;
-                default: it.setTypeStr(null);
+        page.forEach(it -> {
+            switch (it.getType()) {
+                case 1:
+                    it.setTypeStr("可回收垃圾");
+                    break;
+                case 2:
+                    it.setTypeStr("有害垃圾");
+                    break;
+                case 3:
+                    it.setTypeStr("干垃圾");
+                    break;
+                case 4:
+                    it.setTypeStr("湿垃圾");
+                    break;
+                case 5:
+                    it.setTypeStr("厨余垃圾");
+                    break;
+                case 6:
+                    it.setTypeStr("其它垃圾");
+                    break;
+                default:
+                    it.setTypeStr(null);
             }
         });
 
-        page.forEach(it->{
-            switch (it.getArticleType()){
-                case 1 : it.setArticleTypeStr("新闻"); break;
-                case 2 : it.setArticleTypeStr("教育"); break;
-                case 3 : it.setArticleTypeStr("信息"); break;
-                default: it.setArticleTypeStr(null);
+        page.forEach(it -> {
+            switch (it.getArticleType()) {
+                case 1:
+                    it.setArticleTypeStr("新闻");
+                    break;
+                case 2:
+                    it.setArticleTypeStr("教育");
+                    break;
+                case 3:
+                    it.setArticleTypeStr("信息");
+                    break;
+                default:
+                    it.setArticleTypeStr(null);
             }
         });
 

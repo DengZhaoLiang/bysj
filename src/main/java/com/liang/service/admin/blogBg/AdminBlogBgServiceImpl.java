@@ -5,7 +5,6 @@ import com.liang.dto.admin.blogBg.AdminBlogBgPageResponse;
 import com.liang.dto.admin.blogBg.AdminBlogBgResponse;
 import com.liang.repository.blogBg.IBlogBgRepository;
 import com.liang.utils.PageUtils;
-import generated.tables.pojos.Blog;
 import generated.tables.pojos.BlogBg;
 import java.util.Comparator;
 import java.util.List;
@@ -19,24 +18,37 @@ import org.springframework.stereotype.Service;
  * Created By 2020/3/31
  **/
 @Service
-public class AdminBlogBgServiceImpl implements AdminBlogBgService{
+public class AdminBlogBgServiceImpl implements AdminBlogBgService {
 
     @Autowired
     private IBlogBgRepository mBlogBgRepository;
 
     @Override
     public AdminBlogBgPageResponse page(String params, Integer type, Pageable pageable) {
-        List<AdminBlogBgResponse> page = mBlogBgRepository.list(params,type, it->it.into(AdminBlogBgResponse.class));
+        List<AdminBlogBgResponse> page = mBlogBgRepository.list(params, type, it -> it.into(AdminBlogBgResponse.class));
 
-        page.forEach(it->{
-            switch (it.getType()){
-                case 1 : it.setTypeStr("可回收垃圾"); break;
-                case 2 : it.setTypeStr("有害垃圾"); break;
-                case 3 : it.setTypeStr("干垃圾"); break;
-                case 4 : it.setTypeStr("湿垃圾"); break;
-                case 5 : it.setTypeStr("厨余垃圾"); break;
-                case 6 : it.setTypeStr("其它垃圾"); break;
-                default: it.setTypeStr(null);
+        page.forEach(it -> {
+            switch (it.getType()) {
+                case 1:
+                    it.setTypeStr("可回收垃圾");
+                    break;
+                case 2:
+                    it.setTypeStr("有害垃圾");
+                    break;
+                case 3:
+                    it.setTypeStr("干垃圾");
+                    break;
+                case 4:
+                    it.setTypeStr("湿垃圾");
+                    break;
+                case 5:
+                    it.setTypeStr("厨余垃圾");
+                    break;
+                case 6:
+                    it.setTypeStr("其它垃圾");
+                    break;
+                default:
+                    it.setTypeStr(null);
             }
         });
 

@@ -1,4 +1,5 @@
 package com.liang.service.api.blogBg;
+
 import generated.tables.pojos.BlogBg;
 
 /**

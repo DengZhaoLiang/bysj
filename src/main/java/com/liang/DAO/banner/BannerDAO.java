@@ -16,7 +16,7 @@ import static generated.Tables.BANNER;
  * Created By 2020/3/28
  **/
 @Repository
-public class BannerDAO implements BannerDbStrategy{
+public class BannerDAO implements BannerDbStrategy {
 
     @Autowired
     private DSLContext mDSLContext;
@@ -25,7 +25,7 @@ public class BannerDAO implements BannerDbStrategy{
     public List<AdminBannerResponse> list(String params) {
         SelectQuery<BannerRecord> query = mDSLContext.selectQuery(BANNER);
         query.addSelect(BANNER.fields());
-        DSLPlusUtils.containsIfNotBlank(query,BANNER.NAME,params);
+        DSLPlusUtils.containsIfNotBlank(query, BANNER.NAME, params);
         return query.fetchInto(AdminBannerResponse.class);
     }
 

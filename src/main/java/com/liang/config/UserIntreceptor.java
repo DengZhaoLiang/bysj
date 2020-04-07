@@ -1,18 +1,17 @@
 package com.liang.config;
 
-import org.springframework.web.servlet.HandlerInterceptor;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 public class UserIntreceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object user = request.getSession().getAttribute("user");
 
-        if (user!=null){
+        if (user != null) {
             return true;
-        }else {
+        } else {
             response.sendRedirect("/");
             return false;
         }

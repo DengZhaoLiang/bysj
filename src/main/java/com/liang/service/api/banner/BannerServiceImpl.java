@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * Created By 2020/3/28
  **/
 @Service
-public class BannerServiceImpl implements BannerService{
+public class BannerServiceImpl implements BannerService {
 
     @Autowired
     private IBannerRepository mIBannerRepository;

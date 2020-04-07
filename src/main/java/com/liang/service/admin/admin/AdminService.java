@@ -2,7 +2,6 @@ package com.liang.service.admin.admin;
 
 import com.liang.dto.admin.admin.AdminPageResponse;
 import generated.tables.pojos.Admin;
-import org.jooq.types.ULong;
 import org.springframework.data.domain.Pageable;
 
 /**
@@ -19,7 +18,7 @@ public interface AdminService {
     /**
      * 分页获取管理员列表
      */
-    AdminPageResponse page(Pageable pageable,String params);
+    AdminPageResponse page(Pageable pageable, String params);
 
     /**
      * 获取管理员详情
