@@ -26,8 +26,8 @@ public class BlogBgDAO implements BlogBgDbStrategy {
     public <T> List<T> list(String params, Integer type, RecordMapper<Record, T> mapper) {
         SelectQuery<BlogBgRecord> query = mDSLContext.selectQuery(BLOG_BG);
         query.addSelect(BLOG_BG.fields());
-        DSLPlusUtils.containsIfNotBlank(query,BLOG_BG.NAME,params);
-        DSLPlusUtils.eqIfNotNull(query,BLOG_BG.TYPE,type);
+        DSLPlusUtils.containsIfNotBlank(query, BLOG_BG.NAME, params);
+        DSLPlusUtils.eqIfNotNull(query, BLOG_BG.TYPE, type);
         return query.fetch(mapper);
     }
 

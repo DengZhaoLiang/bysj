@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common/common :: head"></div>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<!--aside nav-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 225px;margin-top: 10px;margin-bottom: 20px;" >
+    <h2><strong class="fl">修改资讯信息:</strong></h2>
+    <form th:action="@{/bysj/admin/information/doUpdate}" method="post" name="form1">
+        <ul class="ulColumn2">
+            <input type="hidden" name="id" th:value="${this.getId()}">
+
+            <li>
+                <span class="item_name" style="width:120px;">资讯名：</span>
+                <input th:value="${this.getName()}" type="text" class="textbox textbox_295" name="name" placeholder="请输入资讯标题..." maxlength="255"/>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">资讯描述：</span>
+                <input th:value="${this.getDescribe()}" type="text" class="textbox textbox_295" name="describe" placeholder="请输入描述..." maxlength="255"/>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">资讯类型：</span>
+                <select name="type">
+                    <option value="">--请选择--</option>
+                    <option value="1" th:selected="${this.getType().equals(1)}">可回收垃圾</option>
+                    <option value="2" th:selected="${this.getType().equals(2)}">有害垃圾</option>
+                    <option value="3" th:selected="${this.getType().equals(3)}">干垃圾</option>
+                    <option value="4" th:selected="${this.getType().equals(4)}">湿垃圾</option>
+                    <option value="5" th:selected="${this.getType().equals(5)}">厨余垃圾</option>
+                    <option value="6" th:selected="${this.getType().equals(6)}">其它垃圾</option>
+                </select>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">当前资讯封面图：</span>
+                <img th:src="@{${this.getImg()}}" width="50px" height="50px">
+                <input type="file" class="textbox textbox_295" name="file" placeholder="请选择图片"/>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">资讯：</span>
+                <input type="file" class="textbox textbox_295" name="file" placeholder="请选择视频(MP4格式)"/>
+            </li>
+            <li>
+                <input type="submit" class="button_head" value="确认修改" style="margin-left: 124px"/>
+                <input type="reset" class="button_head" value="重置">
+            </li>
+        </ul>
+    </form>
+</section>
+
+
+
+</body>
+</html>

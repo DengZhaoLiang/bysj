@@ -8,6 +8,8 @@ import generated.tables.Admin;
 import generated.tables.Banner;
 import generated.tables.Blog;
 import generated.tables.BlogBg;
+import generated.tables.Information;
+import generated.tables.Posts;
 import generated.tables.User;
 
 
@@ -36,6 +38,16 @@ public class Tables {
      * The table <code>bysj.blog_bg</code>.
      */
     public static final BlogBg BLOG_BG = BlogBg.BLOG_BG;
+
+    /**
+     * The table <code>bysj.information</code>.
+     */
+    public static final Information INFORMATION = Information.INFORMATION;
+
+    /**
+     * The table <code>bysj.posts</code>.
+     */
+    public static final Posts POSTS = Posts.POSTS;
 
     /**
      * The table <code>bysj.user</code>.

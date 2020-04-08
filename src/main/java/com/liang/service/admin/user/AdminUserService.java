@@ -1,8 +1,8 @@
 package com.liang.service.admin.user;
 
 import com.liang.dto.admin.user.AdminUserPageResponse;
-import org.springframework.data.domain.Pageable;
 import generated.tables.pojos.User;
+import org.springframework.data.domain.Pageable;
 
 /**
  * @author Liang

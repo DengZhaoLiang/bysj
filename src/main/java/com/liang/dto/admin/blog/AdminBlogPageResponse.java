@@ -1,7 +1,6 @@
 package com.liang.dto.admin.blog;
 
 import com.liang.dto.PageResponse;
-import com.liang.dto.admin.banner.AdminBannerResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;

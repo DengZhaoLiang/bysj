@@ -38,9 +38,9 @@ public class AdminBlogController {
             @RequestParam(required = false) String params,
             @ApiParam(allowableValues = "1,2,3,4,5,6")
             @RequestParam(required = false) Integer type) {
-        AdminBlogPageResponse response=mAdminBlogService.page(params,type,pageable);
-        model.addAttribute("blogList",response.getBlog());
-        model.addAttribute("page",response.getPage());
+        AdminBlogPageResponse response = mAdminBlogService.page(params, type, pageable);
+        model.addAttribute("blogList", response.getBlog());
+        model.addAttribute("page", response.getPage());
         return "blog/list";
     }
 

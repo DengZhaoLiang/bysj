@@ -16,7 +16,7 @@ import static generated.tables.User.USER;
  * Created By 2020/3/27
  **/
 @Repository
-public class UserDAO implements UserDbStrategy{
+public class UserDAO implements UserDbStrategy {
 
     @Autowired
     private DSLContext mDSLContext;
@@ -25,7 +25,7 @@ public class UserDAO implements UserDbStrategy{
     public List<AdminUserResponse> list(String params) {
         SelectQuery<UserRecord> query = mDSLContext.selectQuery(USER);
         query.addSelect(USER.fields());
-        DSLPlusUtils.containsIfNotBlank(query,USER.NAME,params);
+        DSLPlusUtils.containsIfNotBlank(query, USER.NAME, params);
         return query.fetchInto(AdminUserResponse.class);
     }
 
@@ -58,7 +58,7 @@ public class UserDAO implements UserDbStrategy{
     @Override
     public void reset(Long id) {
         mDSLContext.update(USER)
-                .set(USER.PASSWORD,"123456")
+                .set(USER.PASSWORD, "123456")
                 .where(USER.ID.eq(id))
                 .execute();
     }

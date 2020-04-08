@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html class="wide wow-animation" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- head -->
+    <div th:replace="common/appCommon :: head"></div>
+<body>
+<!-- 入场动画 -->
+<div th:replace="common/appCommon :: effects"></div>
+
+<div class="page">
+    <!-- Page Header-->
+    <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-creative rd-navbar-creative-2" data-layout="rd-navbar-fixed"
+                 data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+                 data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                 data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                 data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+                 data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px"
+                 data-xl-stick-up-offset="112px" data-xxl-stick-up-offset="132px" data-lg-stick-up="true"
+                 data-xl-stick-up="true" data-xxl-stick-up="true">
+                <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1"
+                     data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                <!--网站logo 和 工具类 -->
+                <div th:replace="common/appCommon :: navbar"></div>
+
+                <!--导航栏 -->
+                <div th:replace="common/appCommon :: nav"></div>
+
+            </nav>
+        </div>
+    </header>
+<!--    富文本内容-->
+    <div style="margin: 2% 10%" >
+        <img th:src="@{'/trash/knowledge'+${type}+'.png'}" width="100%">
+    </div>
+    <!-- Page Footer-->
+    <div th:replace="common/appCommon :: footer"></div>
+</div>
+<div class="snackbars" id="form-output-global"></div>
+<script th:src="@{/api/js/core.min.js}"></script>
+<script th:src="@{/api/js/script.js}"></script>
+</body>
+</html>

@@ -6,10 +6,8 @@ import com.liang.dto.admin.admin.AdminResponse;
 import com.liang.repository.admin.IAdminRepository;
 import com.liang.utils.PageUtils;
 import generated.tables.pojos.Admin;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +30,10 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public AdminPageResponse page(Pageable pageable,String params) {
+    public AdminPageResponse page(Pageable pageable, String params) {
 
         List<AdminResponse> page = mIAdminRepository.list(params);
-        /**
+        /*
          * 初始化页面大小和起始页
          */
         int pageNumber = 1;

@@ -1,8 +1,7 @@
 package com.liang.repository.blog;
 
-import com.liang.dto.admin.blog.AdminBlogResponse;
-import java.util.List;
 import generated.tables.pojos.Blog;
+import java.util.List;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 
@@ -15,7 +14,7 @@ public interface IBlogRepository {
     /**
      * 分页获取博客列表
      */
-    <T> List<T> list(String params, Integer type,Integer articleType, RecordMapper<Record,T> mapper);
+    <T> List<T> list(String params, Integer type, Integer articleType, RecordMapper<Record, T> mapper);
 
     /**
      * 新增博客
@@ -36,4 +35,9 @@ public interface IBlogRepository {
      * 删除博客
      */
     void delete(Long id);
+
+    /**
+     * 更新博客浏览量
+     */
+    void updatePV(Long id, Long pv);
 }

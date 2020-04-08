@@ -1,6 +1,5 @@
 package com.liang.DAO.blog;
 
-import com.liang.dto.admin.blog.AdminBlogResponse;
 import com.liang.utils.DSLPlusUtils;
 import generated.tables.pojos.Blog;
 import generated.tables.records.BlogRecord;
@@ -18,18 +17,18 @@ import static generated.Tables.BLOG;
  * Created By 2020/3/30
  **/
 @Repository
-public class BlogDAO implements BlogDbStrategy{
+public class BlogDAO implements BlogDbStrategy {
 
     @Autowired
     private DSLContext mDSLContext;
 
     @Override
-    public <T> List<T> list(String params, Integer type,Integer articleType, RecordMapper<Record,T> mapper) {
+    public <T> List<T> list(String params, Integer type, Integer articleType, RecordMapper<Record, T> mapper) {
         SelectQuery<BlogRecord> query = mDSLContext.selectQuery(BLOG);
         query.addSelect(BLOG.fields());
-        DSLPlusUtils.containsIfNotBlank(query,BLOG.NAME,params);
-        DSLPlusUtils.eqIfNotNull(query,BLOG.TYPE,type);
-        DSLPlusUtils.eqIfNotNull(query,BLOG.ARTICLE_TYPE,articleType);
+        DSLPlusUtils.containsIfNotBlank(query, BLOG.NAME, params);
+        DSLPlusUtils.eqIfNotNull(query, BLOG.TYPE, type);
+        DSLPlusUtils.eqIfNotNull(query, BLOG.ARTICLE_TYPE, articleType);
         return query.fetch(mapper);
     }
 
@@ -55,6 +54,14 @@ public class BlogDAO implements BlogDbStrategy{
     @Override
     public void delete(Long id) {
         mDSLContext.delete(BLOG)
+                .where(BLOG.ID.eq(id))
+                .execute();
+    }
+
+    @Override
+    public void updatePV(Long id, Long pv) {
+        mDSLContext.update(BLOG)
+                .set(BLOG.PV, pv)
                 .where(BLOG.ID.eq(id))
                 .execute();
     }

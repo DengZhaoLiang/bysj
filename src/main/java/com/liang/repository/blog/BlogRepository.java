@@ -1,7 +1,6 @@
 package com.liang.repository.blog;
 
 import com.liang.DAO.blog.BlogDbStrategy;
-import com.liang.dto.admin.blog.AdminBlogResponse;
 import generated.tables.pojos.Blog;
 import java.util.List;
 import org.jooq.Record;
@@ -23,8 +22,8 @@ public class BlogRepository implements IBlogRepository {
 
 
     @Override
-    public <T> List<T> list(String params, Integer type,Integer articleType, RecordMapper<Record,T> mapper) {
-        return mBlogDbStrategy.list(params, type,articleType, mapper);
+    public <T> List<T> list(String params, Integer type, Integer articleType, RecordMapper<Record, T> mapper) {
+        return mBlogDbStrategy.list(params, type, articleType, mapper);
     }
 
     @Override
@@ -45,5 +44,10 @@ public class BlogRepository implements IBlogRepository {
     @Override
     public void delete(Long id) {
         mBlogDbStrategy.delete(id);
+    }
+
+    @Override
+    public void updatePV(Long id, Long pv) {
+        mBlogDbStrategy.updatePV(id, pv);
     }
 }

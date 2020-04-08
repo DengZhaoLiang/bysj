@@ -19,7 +19,7 @@ public class SendMailServiceImpl implements SendMailService {
     JavaMailSenderImpl javaMailSenderImpl;
 
     @Override
-    public void simpleSend(String subject,String text,String from,String to) {
+    public void simpleSend(String subject, String text, String from, String to) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject(subject);
         message.setText(text);
@@ -29,14 +29,14 @@ public class SendMailServiceImpl implements SendMailService {
     }
 
     @Override
-    public void MimeSend(String subject, String text,Boolean html, String fileName,String pathName,String from, String to) throws MessagingException {
+    public void MimeSend(String subject, String text, Boolean html, String fileName, String pathName, String from, String to) throws MessagingException {
         MimeMessage mimeMessage = javaMailSenderImpl.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
         helper.setSubject(subject);
-        helper.setText(text,html);
+        helper.setText(text, html);
         helper.setFrom(from);
         helper.setTo(to);
-        helper.addAttachment(fileName,new File(pathName));
+        helper.addAttachment(fileName, new File(pathName));
         javaMailSenderImpl.send(mimeMessage);
     }
 

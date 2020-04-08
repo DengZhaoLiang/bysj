@@ -1,6 +1,5 @@
 package com.liang.utils;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.jooq.Condition;
 import org.jooq.DeleteQuery;

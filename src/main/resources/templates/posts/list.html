@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="common/common :: head"></div>
+    <div th:replace="common/common :: page"></div>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<!--侧边栏-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 235px;margin-top: 10px;margin-bottom: 20px;">
+    <form method="get" th:action="@{/bysj/admin/posts}">
+        <h2 class="fl" style="margin-right: 10px; margin-top: 3px">帖子列表</h2>
+        <select name="check" th:value="审核状态">
+            <option value="">--请选择--</option>
+            <option value="1">通过</option>
+            <option value="0">未通过</option>
+        </select>
+
+        <select name="type" th:value="帖子状态">
+            <option value="">--请选择--</option>
+            <option value="1">可评论</option>
+            <option value="0">已完贴</option>
+        </select>
+        <input type="submit" class="button_head" value="搜索"/>
+    </form>
+</section>
+
+<section>
+    <form action="" method="get">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>帖子编号</th>
+                <th>帖子名</th>
+                <th>帖子描述</th>
+                <th>帖子评论数</th>
+                <th>帖子状态</th>
+                <th>是否置顶</th>
+                <th>审核状态</th>
+                <th>用户Id</th>
+                <th>创建时间</th>
+                <th>更新时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tbody style="text-align: center">
+            <tr th:each="post : ${postsList}">
+                <td th:text="${post.getId()}"></td>
+                <td th:text="${post.getName()}"></td>
+                <td th:text="${post.getDescribe()}"
+                    style="max-width: 100px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap"></td>
+                <td th:text="${post.getPv()}"></td>
+                <td th:text="${post.getType()}==0?'已完贴':'可评论'"></td>
+                <td th:text="${post.getStick()}==0?'否':'是'"></td>
+                <td th:text="${post.getCheck()}==0?'未通过':'通过'"></td>
+                <td th:text="${post.getUserId()}"></td>
+                <td th:text="${#dates.format(post.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td th:text="${#dates.format(post.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td>
+                    <a th:href="@{'/bysj/admin/posts/stick/'+${post.getId()}+'/'+${post.getStick()==0?1:0}}" th:text="${post.getStick()==0?'置顶':'取消置顶'}" class="inner_btn"></a>
+                    <a th:href="@{'/bysj/admin/posts/check/'+${post.getId()}}" th:text="${post.getCheck()==0?'确认通过审核':'审核已通过'}" class="inner_btn"></a>
+                    <a th:href="@{'/bysj/admin/posts/delete/'+${post.getId()}}" class="inner_btn">删除</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <!--    分页导航栏-->
+    <div class="center">
+        <ul class="pagination">
+            <li>
+                <a th:href="@{'/bysj/admin/posts?page='+${page.getPrevious()}}">«</a></li>
+            <li th:each="i:${#numbers.sequence(1,page.getTotalPage())}">
+
+                <a th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"
+                   th:href="@{'/bysj/admin/posts?page='+${i}}"
+                   th:text="${i}">
+                </a>
+
+            </li>
+            <li><a th:href="@{'/bysj/admin/posts?page='+${page.getNext()}}">»</a></li>
+        </ul>
+    </div>
+</section>
+
+</body>
+</html>

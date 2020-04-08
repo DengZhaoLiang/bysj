@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Liang
- * @Description MailController  2020/1/30 0030 15:22 Liang
+ * MailController  2020/1/30 0030 15:22 Liang
  */
 @RestController
 public class MailController {
@@ -16,7 +16,7 @@ public class MailController {
     private SendMailService mail;
 
     @GetMapping("/simpleSend")
-    public String simpleSend(){
+    public String simpleSend() {
         mail.simpleSend(
                 "@Async注解",
                 "异步任务测试邮件",

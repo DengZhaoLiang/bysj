@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BlogBg extends TableImpl<BlogBgRecord> {
 
-    private static final long serialVersionUID = -1509165596;
+    private static final long serialVersionUID = -522275977;
 
     /**
      * The reference instance of <code>bysj.blog_bg</code>
@@ -124,7 +124,7 @@ public class BlogBg extends TableImpl<BlogBgRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.BLOG_BG_BLOG_BG_TYPE_UNIQUE, Indexes.BLOG_BG_PRIMARY);
+        return Arrays.<Index>asList(Indexes.BLOG_BG_BLOG_BG_TYPE_INDEX, Indexes.BLOG_BG_PRIMARY);
     }
 
     @Override
@@ -139,7 +139,7 @@ public class BlogBg extends TableImpl<BlogBgRecord> {
 
     @Override
     public List<UniqueKey<BlogBgRecord>> getKeys() {
-        return Arrays.<UniqueKey<BlogBgRecord>>asList(Keys.KEY_BLOG_BG_PRIMARY, Keys.KEY_BLOG_BG_BLOG_BG_TYPE_UNIQUE);
+        return Arrays.<UniqueKey<BlogBgRecord>>asList(Keys.KEY_BLOG_BG_PRIMARY);
     }
 
     @Override

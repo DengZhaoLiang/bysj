@@ -2,6 +2,7 @@ package com.liang.controller.admin;
 
 import com.liang.dto.admin.user.AdminUserPageResponse;
 import com.liang.service.admin.user.AdminUserService;
+import generated.tables.pojos.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import generated.tables.pojos.User;
 
 /**
  * @author Liang

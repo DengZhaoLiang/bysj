@@ -1,7 +1,7 @@
 package com.liang.repository.user;
 
-import generated.tables.pojos.User;
 import com.liang.dto.admin.user.AdminUserResponse;
+import generated.tables.pojos.User;
 import java.util.List;
 
 /**

@@ -15,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/upload")
 @RestController
 public class UploadController {
-    @PostMapping("")
+
+
+    @PostMapping("/banner")
     public String GGupload(MultipartFile file) {
         if (file.isEmpty()) {
             System.out.println("文件为空");
@@ -43,6 +45,38 @@ public class UploadController {
         String relativePath = null;
         if (!StringUtils.isBlank(filePath)) {
             relativePath = filePath.substring(filePath.lastIndexOf("/banner"));
+        }
+        return relativePath + fileName;
+    }
+
+    @PostMapping("/video")
+    public String videoUpload(MultipartFile file) {
+        if (file.isEmpty()) {
+            System.out.println("文件为空");
+        }
+        String fileName = file.getOriginalFilename();  // 文件名
+        assert fileName != null;
+        String suffixName = fileName.substring(fileName.lastIndexOf("."));  // 后缀名
+        fileName = System.currentTimeMillis() + suffixName;
+        String filePath = null;
+        try {
+            filePath = ResourceUtils.getURL("classpath:").getPath() + "static/information/";
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        // 上传后的路径
+        File dest = new File(filePath + fileName);
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+        }
+        try {
+            file.transferTo(dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String relativePath = null;
+        if (!StringUtils.isBlank(filePath)) {
+            relativePath = filePath.substring(filePath.lastIndexOf("/information"));
         }
         return relativePath + fileName;
     }

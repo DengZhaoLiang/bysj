@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
  **/
 @Controller
 @RequestMapping("/bysj/admin/blog/bg")
-@Api(tags = "6. 博客背景图背景图管理")
+@Api(tags = "6. 博客背景图管理")
 @Validated
 public class AdminBlogBgController {
 
@@ -43,9 +43,9 @@ public class AdminBlogBgController {
             @RequestParam(required = false) String params,
             @ApiParam(allowableValues = "1,2,3,4,5,6")
             @RequestParam(required = false) Integer type) {
-        AdminBlogBgPageResponse response=mAdminBlogBgService.page(params,type,pageable);
-        model.addAttribute("blogBgList",response.getBlogBg());
-        model.addAttribute("page",response.getPage());
+        AdminBlogBgPageResponse response = mAdminBlogBgService.page(params, type, pageable);
+        model.addAttribute("blogBgList", response.getBlogBg());
+        model.addAttribute("page", response.getPage());
         return "blogBg/list";
     }
 

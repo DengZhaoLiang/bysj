@@ -9,9 +9,9 @@ public class AdminIntreceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object admin = request.getSession().getAttribute("Admin");
 
-        if (admin!=null){
+        if (admin != null) {
             return true;
-        }else {
+        } else {
             response.sendRedirect("/bysj/admin/login");
             return false;
         }

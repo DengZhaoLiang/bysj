@@ -1,6 +1,5 @@
 package com.liang.service.api.blogBg;
 
-import com.liang.repository.blogBg.BlogBgRepository;
 import com.liang.repository.blogBg.IBlogBgRepository;
 import generated.tables.pojos.BlogBg;
 import org.springframework.beans.factory.annotation.Autowired;

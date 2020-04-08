@@ -1,7 +1,7 @@
 package com.liang.service.api.banner;
 
-import java.util.List;
 import generated.tables.pojos.Banner;
+import java.util.List;
 
 /**
  * @author Liang

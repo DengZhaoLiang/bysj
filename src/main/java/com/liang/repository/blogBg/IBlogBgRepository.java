@@ -1,9 +1,9 @@
 package com.liang.repository.blogBg;
 
+import generated.tables.pojos.BlogBg;
 import java.util.List;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
-import generated.tables.pojos.BlogBg;
 
 /**
  * @author Liang
@@ -14,7 +14,7 @@ public interface IBlogBgRepository {
     /**
      * 分页获取博客背景图列表
      */
-    <T> List<T> list(String params, Integer type, RecordMapper<Record,T> mapper);
+    <T> List<T> list(String params, Integer type, RecordMapper<Record, T> mapper);
 
     /**
      * 新增博客背景图

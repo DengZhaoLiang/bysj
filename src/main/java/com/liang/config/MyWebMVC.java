@@ -13,11 +13,11 @@ public class MyWebMVC implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-       registry.addInterceptor(new AdminIntreceptor())
-               .addPathPatterns("/bysj/admin/**")
-               .excludePathPatterns("/bysj/admin/login")
-               .excludePathPatterns("/bysj/admin/doLogin")
-               .excludePathPatterns("/login","/css/*","/img/*","/js/*");
+        registry.addInterceptor(new AdminIntreceptor())
+                .addPathPatterns("/bysj/admin/**")
+                .excludePathPatterns("/bysj/admin/login")
+                .excludePathPatterns("/bysj/admin/doLogin")
+                .excludePathPatterns("/login", "/css/*", "/img/*", "/js/*");
     }
 
     //视图跳转控制器
@@ -25,8 +25,6 @@ public class MyWebMVC implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/bysj/admin/login").setViewName("admin/login");
     }
-
-
 
 
 }
