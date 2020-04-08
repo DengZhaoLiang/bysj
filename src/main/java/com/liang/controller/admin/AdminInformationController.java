@@ -41,7 +41,7 @@ public class AdminInformationController {
             Model model,
             Pageable pageable,
             @RequestParam(required = false) String params,
-            @ApiParam(allowableValues = "1,2,3,4,5,6")
+            @ApiParam(value = "资讯类型 1-可回收 2-有害 3-干 4-湿 5-厨余 6-其它",allowableValues = "1,2,3,4,5,6")
             @RequestParam(required = false) Integer type) {
         AdminInformationPageResponse response = mAdminInformationService.page(params, type, pageable);
         model.addAttribute("informationList", response.getInformation());

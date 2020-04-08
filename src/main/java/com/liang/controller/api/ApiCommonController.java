@@ -122,4 +122,29 @@ public class ApiCommonController {
         model.addAttribute("this", information);
         return "api/information";
     }
+
+    @ApiOperation("问答社区")
+    @GetMapping("/community")
+    public String community(
+            Model model) {
+        return "api/community-list";
+    }
+
+    @ApiOperation("问答社区")
+    @GetMapping("/community/iframe/index")
+    public String communityIndex() {
+        return "api/community-list-index";
+    }
+
+    @ApiOperation("发表问题")
+    @GetMapping("/community/iframe/publish")
+    public String communityPublish() {
+        return "api/publish-index";
+    }
+
+    @ApiOperation("评论")
+    @GetMapping("/community/iframe/comment")
+    public String communityComment() {
+        return "api/comment-index";
+    }
 }

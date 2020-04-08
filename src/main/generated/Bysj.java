@@ -9,6 +9,7 @@ import generated.tables.Banner;
 import generated.tables.Blog;
 import generated.tables.BlogBg;
 import generated.tables.Information;
+import generated.tables.Posts;
 import generated.tables.User;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Bysj extends SchemaImpl {
 
-    private static final long serialVersionUID = -65749892;
+    private static final long serialVersionUID = -663712863;
 
     /**
      * The reference instance of <code>bysj</code>
@@ -57,6 +58,11 @@ public class Bysj extends SchemaImpl {
      * The table <code>bysj.information</code>.
      */
     public final Information INFORMATION = generated.tables.Information.INFORMATION;
+
+    /**
+     * The table <code>bysj.posts</code>.
+     */
+    public final Posts POSTS = generated.tables.Posts.POSTS;
 
     /**
      * The table <code>bysj.user</code>.
@@ -90,6 +96,7 @@ public class Bysj extends SchemaImpl {
             Blog.BLOG,
             BlogBg.BLOG_BG,
             Information.INFORMATION,
+            Posts.POSTS,
             User.USER);
     }
 }

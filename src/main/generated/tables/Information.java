@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Information extends TableImpl<InformationRecord> {
 
-    private static final long serialVersionUID = -1967114448;
+    private static final long serialVersionUID = 516895373;
 
     /**
      * The reference instance of <code>bysj.information</code>
@@ -134,7 +134,7 @@ public class Information extends TableImpl<InformationRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.INFORMATION_INFORMATION_TYPE_UNIQUE, Indexes.INFORMATION_PRIMARY);
+        return Arrays.<Index>asList(Indexes.INFORMATION_INFORMATION_TYPE_INDEX, Indexes.INFORMATION_PRIMARY);
     }
 
     @Override
@@ -149,7 +149,7 @@ public class Information extends TableImpl<InformationRecord> {
 
     @Override
     public List<UniqueKey<InformationRecord>> getKeys() {
-        return Arrays.<UniqueKey<InformationRecord>>asList(Keys.KEY_INFORMATION_PRIMARY, Keys.KEY_INFORMATION_INFORMATION_TYPE_UNIQUE);
+        return Arrays.<UniqueKey<InformationRecord>>asList(Keys.KEY_INFORMATION_PRIMARY);
     }
 
     @Override
