@@ -46,4 +46,19 @@ public class AdminPostsServiceImpl implements AdminPostsService {
         response.setPage(pageResponse);
         return response;
     }
+
+    @Override
+    public void stick(Long id,Integer stick) {
+        mIPostsRepository.stick(id,stick);
+    }
+
+    @Override
+    public void check(Long id) {
+        mIPostsRepository.check(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        mIPostsRepository.delete(id);
+    }
 }
