@@ -17,13 +17,15 @@
 <section style="margin-left: 235px;margin-top: 10px;margin-bottom: 20px;">
     <form method="get" th:action="@{/bysj/admin/posts}">
         <h2 class="fl" style="margin-right: 10px; margin-top: 3px">帖子列表</h2>
-        <select name="check" th:value="审核状态">
+        <p style="float: left; margin-top: 3px; margin-right: 3px"> 审核状态:</p>
+        <select name="check" style="float: left; margin-right: 3px">
             <option value="">--请选择--</option>
             <option value="1">通过</option>
             <option value="0">未通过</option>
         </select>
 
-        <select name="type" th:value="帖子状态">
+        <p style="float: left; margin-top: 3px; margin-right: 3px"> 帖子状态:</p>
+        <select name="type" style="float: left; margin-right: 3px">
             <option value="">--请选择--</option>
             <option value="1">可评论</option>
             <option value="0">已完贴</option>
@@ -65,8 +67,12 @@
                 <td th:text="${#dates.format(post.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td th:text="${#dates.format(post.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td>
-                    <a th:href="@{'/bysj/admin/posts/stick/'+${post.getId()}+'/'+${post.getStick()==0?1:0}}" th:text="${post.getStick()==0?'置顶':'取消置顶'}" class="inner_btn"></a>
-                    <a th:href="@{'/bysj/admin/posts/check/'+${post.getId()}}" th:text="${post.getCheck()==0?'确认通过审核':'审核已通过'}" class="inner_btn"></a>
+                    <a th:href="@{'/bysj/admin/posts/stick/'+${post.getId()}+'/'+${post.getStick()==0?1:0}}"
+                       th:text="${post.getStick()==0?'置顶':'取消置顶'}" class="inner_btn"></a>
+                    <th:block th:if="${post.getCheck()==0}">
+                        <a th:href="@{'/bysj/admin/posts/check/'+${post.getId()}}" th:text="'点击通过审核'"
+                           class="inner_btn"></a>
+                    </th:block>
                     <a th:href="@{'/bysj/admin/posts/delete/'+${post.getId()}}" class="inner_btn">删除</a>
                 </td>
 

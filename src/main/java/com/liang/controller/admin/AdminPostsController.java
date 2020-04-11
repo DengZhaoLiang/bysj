@@ -1,18 +1,17 @@
 package com.liang.controller.admin;
 
-import com.liang.dto.admin.information.AdminInformationPageResponse;
 import com.liang.dto.admin.posts.AdminPostsPageResponse;
 import com.liang.service.admin.posts.AdminPostsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,5 +41,26 @@ public class AdminPostsController {
         model.addAttribute("postsList", response.getPosts());
         model.addAttribute("page", response.getPage());
         return "posts/list";
+    }
+
+    @ApiOperation("置顶/取消置顶")
+    @GetMapping("/stick/{id}/{stick}")
+    public String stick(@PathVariable Long id, @PathVariable Integer stick) {
+        mAdminPostsService.stick(id, stick);
+        return "redirect:/bysj/admin/posts/";
+    }
+
+    @ApiOperation("通过审核")
+    @GetMapping("/check/{id}")
+    public String check(@PathVariable Long id) {
+        mAdminPostsService.check(id);
+        return "redirect:/bysj/admin/posts/";
+    }
+
+    @ApiOperation("删除帖子")
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        mAdminPostsService.delete(id);
+        return "redirect:/bysj/admin/posts/";
     }
 }

@@ -27,7 +27,30 @@ public class PostsDAO implements PostsDbStrategy {
         query.addSelect(POSTS.fields());
         DSLPlusUtils.eqIfNotNull(query, POSTS.CHECK, check);
         DSLPlusUtils.eqIfNotNull(query, POSTS.TYPE, type);
-        query.addOrderBy(POSTS.STICK.desc(),POSTS.CREATED_AT.desc());
+        query.addOrderBy(POSTS.STICK.desc(), POSTS.CREATED_AT.desc());
         return query.fetch(mapper);
+    }
+
+    @Override
+    public void stick(Long id, Integer stick) {
+        mDSLContext.update(POSTS)
+                .set(POSTS.STICK, stick)
+                .where(POSTS.ID.eq(id))
+                .execute();
+    }
+
+    @Override
+    public void check(Long id) {
+        mDSLContext.update(POSTS)
+                .set(POSTS.CHECK, 1)
+                .where(POSTS.ID.eq(id))
+                .execute();
+    }
+
+    @Override
+    public void delete(Long id) {
+        mDSLContext.delete(POSTS)
+                .where(POSTS.ID.eq(id))
+                .execute();
     }
 }

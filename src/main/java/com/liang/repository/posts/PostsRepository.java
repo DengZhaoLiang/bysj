@@ -23,4 +23,19 @@ public class PostsRepository implements IPostsRepository{
     public <T> List<T> list(Integer check, Integer type, RecordMapper<Record, T> mapper) {
         return mPostsDbStrategy.list(check, type, mapper);
     }
+
+    @Override
+    public void stick(Long id, Integer stick) {
+        mPostsDbStrategy.stick(id, stick);
+    }
+
+    @Override
+    public void check(Long id) {
+        mPostsDbStrategy.check(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        mPostsDbStrategy.delete(id);
+    }
 }
