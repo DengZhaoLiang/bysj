@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>World And You</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" th:href="@{/res/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/res/css/global.css}">
+    <script th:src="@{/res/layui/layui.js}"></script>
+    <!-- Favicon -->
+    <link rel="icon" th:href="@{/img/core-img/favicon.png}">
+    <link type="text/css" rel="stylesheet"
+          th:href="@{/res/css/default.css}">
+</head>
+<body style="margin-top: 200px">
+
+
+<div class="main layui-clear">
+    <div class="fly-panel" pad20="">
+        <h2 class="page-title" style="text-align: center">发表问题</h2>
+
+        <!-- <div class="fly-none">并无权限</div> -->
+
+        <div class="layui-form layui-form-pane">
+            <form action=" ">
+                <div class="layui-form-item">
+                    <label for="L_title" class="layui-form-label">标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="L_title" name="title" required="" lay-verify="required"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_title" class="layui-form-label">悬赏</label>
+                    <div class="layui-input-block">
+                        <input type="number" name="reward" min="0" required="" lay-verify="required" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label for="L_title" class="layui-form-label">描述</label>
+                    <div class="layui-input-block">
+                        <textarea name="context"  style="height: 20em" id="editor" class="layui-input" placeholder="请输入正文..."></textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <input type="submit" class="layui-btn" th:value="立即发布" style="float: right"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;"></div>
+<div class="ke-mask" style="opacity: 0.5;"></div>
+</body>
+</html>

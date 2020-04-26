@@ -40,6 +40,7 @@ public class AdminPostsController {
         AdminPostsPageResponse response = mAdminPostsService.page(check, type, pageable);
         model.addAttribute("postsList", response.getPosts());
         model.addAttribute("page", response.getPage());
+
         return "posts/list";
     }
 

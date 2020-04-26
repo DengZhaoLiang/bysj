@@ -46,6 +46,7 @@ public class AdminInformationController {
         AdminInformationPageResponse response = mAdminInformationService.page(params, type, pageable);
         model.addAttribute("informationList", response.getInformation());
         model.addAttribute("page", response.getPage());
+        model.addAttribute("params", params);
         return "information/list";
     }
 

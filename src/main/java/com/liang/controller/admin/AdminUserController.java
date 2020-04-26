@@ -38,6 +38,7 @@ public class AdminUserController {
         AdminUserPageResponse response = mAdminUserService.page(pageable, params);
         model.addAttribute("userList", response.getUser());
         model.addAttribute("page", response.getPage());
+        model.addAttribute("params", params);
         return "user/list";
     }
 
