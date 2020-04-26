@@ -3,10 +3,10 @@ package com.liang.controller.admin;
 import com.liang.controller.supplier.UploadController;
 import com.liang.dto.admin.banner.AdminBannerPageResponse;
 import com.liang.service.admin.banner.AdminBannerService;
-import generated.tables.pojos.Banner;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import generated.tables.pojos.Banner;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,6 +45,7 @@ public class AdminBannerController {
         //TODO 对应的文章标题
         model.addAttribute("bannerList", response.getBanner());
         model.addAttribute("page", response.getPage());
+        model.addAttribute("params", params);
         return "banner/list";
     }
 

@@ -186,7 +186,7 @@
                             <inputSchema>bysj</inputSchema>
                         </database>
                         <target>
-                            <packageName>generated</packageName>
+                            <packageName>generated-jooq</packageName>
                             <directory>src/main</directory>
                         </target>
                     </generator>

@@ -41,6 +41,7 @@ public class AdminBlogController {
         AdminBlogPageResponse response = mAdminBlogService.page(params, type, pageable);
         model.addAttribute("blogList", response.getBlog());
         model.addAttribute("page", response.getPage());
+        model.addAttribute("params", params);
         return "blog/list";
     }
 

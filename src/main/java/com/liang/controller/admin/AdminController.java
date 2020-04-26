@@ -57,6 +57,7 @@ public class AdminController {
         AdminPageResponse response = mAdminService.page(pageable, params);
         model.addAttribute("adminList", response.getAdmin());
         model.addAttribute("page", response.getPage());
+        model.addAttribute("params", params);
         return "admin/list";
     }
 

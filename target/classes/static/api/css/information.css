@@ -1,0 +1,105 @@
+.info {
+    background: #FFFFFF;
+}
+
+.info {
+    margin: 0 20px;
+    padding: 12px 10px;
+    background: #f2f2f2;
+}
+
+* {
+    word-break: break-all;
+}
+
+div {
+    display: block;
+}
+
+body {
+    font-size: 14px;
+    color: #404040;
+}
+
+.f_r {
+    float: right;
+}
+
+ul, form, p, dl, dd, dt, span {
+    margin: 0;
+    padding: 0;
+}
+
+.mbg {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+}
+
+.m, .mxh {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.o_h {
+    overflow: hidden;
+}
+
+.mt20 {
+    margin-top: 20px!important;
+}
+
+.head-txt {
+    padding: 0 10px;
+    line-height: 45px;
+    height: 45px;
+    /* border-top: #e5e5e5 1px solid; */
+    border-bottom: #e5e5e5 1px solid;
+    margin-bottom: 20px;
+    clear: both;
+    background: #fafafa;
+}
+
+.no_bt {
+    border-top: 0!important;
+}
+
+.content {
+    font-size: 14px;
+    line-height: 180%;
+    padding: 10px 20px;
+}
+
+#comment_main {
+    padding: 0 0 0 0;
+}
+
+.c_b {
+    clear: both;
+}
+
+.element .style {
+    width: 100%;
+    height: 327px;
+}
+
+iframe {
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+body {
+    margin: 0;
+    font-size: 12px;
+    color: #333333;
+    background: #FFFFFF;
+}
+
+.stat {
+    padding: 20px 20px 20px 0;
+}
+
+form, input, select, textarea, td, th {
+    font-size: 12px;
+}
