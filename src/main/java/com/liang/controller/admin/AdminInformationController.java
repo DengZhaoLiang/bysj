@@ -3,7 +3,7 @@ package com.liang.controller.admin;
 import com.liang.controller.supplier.UploadController;
 import com.liang.dto.admin.information.AdminInformationPageResponse;
 import com.liang.service.admin.information.AdminInformationService;
-import generated.tables.pojos.Information;
+import generated_jooq.tables.pojos.Information;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

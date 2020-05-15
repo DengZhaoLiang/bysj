@@ -1,7 +1,7 @@
 package com.liang.service.admin.banner;
 
 import com.liang.dto.admin.banner.AdminBannerPageResponse;
-import generated.tables.pojos.Banner;
+import generated_jooq.tables.pojos.Banner;
 import org.springframework.data.domain.Pageable;
 
 /**

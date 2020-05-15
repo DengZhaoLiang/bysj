@@ -1,7 +1,7 @@
 package com.liang.service.admin.blogBg;
 
 import com.liang.dto.admin.blogBg.AdminBlogBgPageResponse;
-import generated.tables.pojos.BlogBg;
+import generated_jooq.tables.pojos.BlogBg;
 import org.springframework.data.domain.Pageable;
 
 /**

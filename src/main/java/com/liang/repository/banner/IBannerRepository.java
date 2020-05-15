@@ -1,7 +1,8 @@
 package com.liang.repository.banner;
 
 import com.liang.dto.admin.banner.AdminBannerResponse;
-import generated.tables.pojos.Banner;
+import generated_jooq.tables.pojos.Banner;
+
 import java.util.List;
 
 /**

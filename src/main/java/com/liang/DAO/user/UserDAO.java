@@ -2,14 +2,16 @@ package com.liang.DAO.user;
 
 import com.liang.dto.admin.user.AdminUserResponse;
 import com.liang.utils.DSLPlusUtils;
-import generated.tables.pojos.User;
-import generated.tables.records.UserRecord;
-import java.util.List;
+import generated_jooq.tables.pojos.User;
+import generated_jooq.tables.records.UserRecord;
 import org.jooq.DSLContext;
 import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import static generated.tables.User.USER;
+
+import java.util.List;
+
+import static generated_jooq.Tables.USER;
 
 /**
  * @author Liang
@@ -61,5 +63,30 @@ public class UserDAO implements UserDbStrategy {
                 .set(USER.PASSWORD, "123456")
                 .where(USER.ID.eq(id))
                 .execute();
+    }
+
+    @Override
+    public User login(String username, String password) {
+        return mDSLContext.selectFrom(USER)
+                .where(USER.PASSWORD.eq(password)
+                        .and(USER.PHONE.eq(username))
+                        .or(USER.EMAIL.eq(username)))
+                .fetchOneInto(User.class);
+    }
+
+    @Override
+    public boolean existByPhone(String phone) {
+        return mDSLContext.fetchExists(
+                mDSLContext.selectFrom(USER)
+                        .where(USER.PHONE.eq(phone))
+        );
+    }
+
+    @Override
+    public boolean existByEmail(String email) {
+        return mDSLContext.fetchExists(
+                mDSLContext.selectFrom(USER)
+                        .where(USER.EMAIL.eq(email))
+        );
     }
 }

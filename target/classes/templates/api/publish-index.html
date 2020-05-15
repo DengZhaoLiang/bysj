@@ -13,6 +13,12 @@
     <link rel="icon" th:href="@{/img/core-img/favicon.png}">
     <link type="text/css" rel="stylesheet"
           th:href="@{/res/css/default.css}">
+    <script>
+        function beforeSubmit(form){
+            return true;
+            parent.location.reload();
+        }
+    </script>
 </head>
 <body style="margin-top: 200px">
 
@@ -24,11 +30,12 @@
         <!-- <div class="fly-none">并无权限</div> -->
 
         <div class="layui-form layui-form-pane">
-            <form action=" ">
+            <form th:action="@{/bysj/community/iframe/publish/doInsert}" target="_top" onSubmit="return beforeSubmit(this);" name="form">
+                <input type="hidden" name="userId" th:value="${session.user.getId()}">
                 <div class="layui-form-item">
                     <label for="L_title" class="layui-form-label">标题</label>
                     <div class="layui-input-block">
-                        <input type="text" id="L_title" name="title" required="" lay-verify="required"
+                        <input type="text" id="L_title" name="name" required="" lay-verify="required"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -43,7 +50,7 @@
                 <div class="layui-form-item">
                     <label for="L_title" class="layui-form-label">描述</label>
                     <div class="layui-input-block">
-                        <textarea name="context"  style="height: 20em" id="editor" class="layui-input" placeholder="请输入正文..."></textarea>
+                        <textarea name="describe"  style="height: 20em" id="editor" class="layui-input" placeholder="请输入正文..."></textarea>
                     </div>
                 </div>
 

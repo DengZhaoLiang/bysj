@@ -1,6 +1,6 @@
 package com.liang.service.api.blogBg;
 
-import generated.tables.pojos.BlogBg;
+import generated_jooq.tables.pojos.BlogBg;
 
 /**
  * @author Liang

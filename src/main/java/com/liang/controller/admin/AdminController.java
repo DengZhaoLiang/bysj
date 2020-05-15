@@ -3,10 +3,9 @@ package com.liang.controller.admin;
 
 import com.liang.dto.admin.admin.AdminPageResponse;
 import com.liang.service.admin.admin.AdminService;
-import generated.tables.pojos.Admin;
+import generated_jooq.tables.pojos.Admin;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author Liang

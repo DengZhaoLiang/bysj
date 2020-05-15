@@ -5,14 +5,15 @@ import com.liang.dto.admin.banner.AdminBannerPageResponse;
 import com.liang.dto.admin.banner.AdminBannerResponse;
 import com.liang.repository.banner.IBannerRepository;
 import com.liang.utils.PageUtils;
-import generated.tables.pojos.Banner;
+import generated_jooq.tables.pojos.Banner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Liang

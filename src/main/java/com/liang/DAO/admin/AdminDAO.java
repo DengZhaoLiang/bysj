@@ -2,15 +2,17 @@ package com.liang.DAO.admin;
 
 import com.liang.dto.admin.admin.AdminResponse;
 import com.liang.utils.DSLPlusUtils;
-import generated.tables.pojos.Admin;
-import generated.tables.records.AdminRecord;
-import java.util.List;
-import java.util.Optional;
+import generated_jooq.tables.pojos.Admin;
+import generated_jooq.tables.records.AdminRecord;
 import org.jooq.DSLContext;
 import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import static generated.Tables.ADMIN;
+
+import java.util.List;
+import java.util.Optional;
+
+import static generated_jooq.Tables.ADMIN;
 
 /**
  * @author Liang

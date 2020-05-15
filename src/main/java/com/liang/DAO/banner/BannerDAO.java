@@ -2,8 +2,8 @@ package com.liang.DAO.banner;
 
 import com.liang.dto.admin.banner.AdminBannerResponse;
 import com.liang.utils.DSLPlusUtils;
-import generated.tables.pojos.Banner;
-import generated.tables.records.BannerRecord;
+import generated_jooq.tables.pojos.Banner;
+import generated_jooq.tables.records.BannerRecord;
 import org.jooq.DSLContext;
 import org.jooq.JoinType;
 import org.jooq.SelectQuery;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static generated.Tables.BANNER;
-import static generated.Tables.BLOG;
+import static generated_jooq.Tables.BANNER;
+import static generated_jooq.Tables.BLOG;
 
 /**
  * @author Liang

@@ -1,7 +1,7 @@
 package com.liang.service.admin.user;
 
 import com.liang.dto.admin.user.AdminUserPageResponse;
-import generated.tables.pojos.User;
+import generated_jooq.tables.pojos.User;
 import org.springframework.data.domain.Pageable;
 
 /**
@@ -18,7 +18,7 @@ public interface AdminUserService {
     /**
      * 添加用户
      */
-    void insert(generated.tables.pojos.User user);
+    void insert(generated_jooq.tables.pojos.User user);
 
     /**
      * 获取用户详情

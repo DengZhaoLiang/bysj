@@ -5,13 +5,14 @@ import com.liang.dto.admin.blogBg.AdminBlogBgPageResponse;
 import com.liang.dto.admin.blogBg.AdminBlogBgResponse;
 import com.liang.repository.blogBg.IBlogBgRepository;
 import com.liang.utils.PageUtils;
-import generated.tables.pojos.BlogBg;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
+import generated_jooq.tables.pojos.BlogBg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Liang

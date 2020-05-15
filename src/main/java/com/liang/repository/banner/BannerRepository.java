@@ -2,11 +2,12 @@ package com.liang.repository.banner;
 
 import com.liang.DAO.banner.BannerDbStrategy;
 import com.liang.dto.admin.banner.AdminBannerResponse;
-import generated.tables.pojos.Banner;
-import java.util.List;
+import generated_jooq.tables.pojos.Banner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author Liang

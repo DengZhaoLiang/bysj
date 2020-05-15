@@ -1,9 +1,11 @@
 package com.liang.DAO.posts;
 
+import com.liang.dto.api.post.PostResponse;
 import com.liang.utils.DSLPlusUtils;
-import generated.tables.pojos.Posts;
-import generated.tables.records.PostsRecord;
+import generated_jooq.tables.pojos.Posts;
+import generated_jooq.tables.records.PostsRecord;
 import org.jooq.DSLContext;
+import org.jooq.JoinType;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.jooq.SelectQuery;
@@ -12,7 +14,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static generated.Tables.POSTS;
+import static generated_jooq.Tables.POSTS;
+import static generated_jooq.Tables.USER;
 
 /**
  * @author Liang
@@ -43,9 +46,9 @@ public class PostsDAO implements PostsDbStrategy {
     }
 
     @Override
-    public void check(Long id) {
+    public void check(Long id, Integer check) {
         mDSLContext.update(POSTS)
-                .set(POSTS.CHECK, 1)
+                .set(POSTS.CHECK, check)
                 .where(POSTS.ID.eq(id))
                 .execute();
     }
@@ -61,5 +64,16 @@ public class PostsDAO implements PostsDbStrategy {
     public void insert(Posts posts) {
         PostsRecord record = mDSLContext.newRecord(POSTS, posts);
         record.insert();
+    }
+
+    @Override
+    public List<PostResponse> page(String params) {
+        SelectQuery<PostsRecord> query = mDSLContext.selectQuery(POSTS);
+        query.addSelect(POSTS.fields());
+        DSLPlusUtils.containsIfNotBlank(query, POSTS.NAME, params);
+        query.addJoin(USER, JoinType.LEFT_OUTER_JOIN, USER.ID.eq(POSTS.USER_ID));
+        query.addSelect(USER.NAME.as("user"), USER.AVATAR.as("avatar"));
+        query.addOrderBy(POSTS.STICK.desc(), POSTS.CREATED_AT.desc());
+        return query.fetchInto(PostResponse.class);
     }
 }

@@ -2,7 +2,7 @@ package com.liang.controller.admin;
 
 import com.liang.dto.admin.user.AdminUserPageResponse;
 import com.liang.service.admin.user.AdminUserService;
-import generated.tables.pojos.User;
+import generated_jooq.tables.pojos.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

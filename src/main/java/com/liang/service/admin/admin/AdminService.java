@@ -1,7 +1,7 @@
 package com.liang.service.admin.admin;
 
 import com.liang.dto.admin.admin.AdminPageResponse;
-import generated.tables.pojos.Admin;
+import generated_jooq.tables.pojos.Admin;
 import org.springframework.data.domain.Pageable;
 
 /**

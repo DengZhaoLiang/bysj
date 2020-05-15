@@ -5,14 +5,15 @@ import com.liang.dto.admin.user.AdminUserPageResponse;
 import com.liang.dto.admin.user.AdminUserResponse;
 import com.liang.repository.user.IUserRepository;
 import com.liang.utils.PageUtils;
-import generated.tables.pojos.User;
+import generated_jooq.tables.pojos.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Liang

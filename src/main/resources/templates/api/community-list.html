@@ -34,7 +34,9 @@
     </header>
 
     <div id="iframe-wrap">
-        <iframe id="iframe" th:src="@{http://localhost:8080/bysj/community/iframe/index}" frameborder="0" height="1280px" width="100%"></iframe>
+        <iframe frameborder="0" height="1280px" id="iframe"
+                th:src="@{'http://localhost:8080/bysj/community/iframe/index?userId='+${session.user.getId()}}"
+                width="100%"></iframe>
     </div>
 
     <!-- Page Footer-->

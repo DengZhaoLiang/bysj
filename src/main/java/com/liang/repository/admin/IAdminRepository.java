@@ -1,7 +1,8 @@
 package com.liang.repository.admin;
 
 import com.liang.dto.admin.admin.AdminResponse;
-import generated.tables.pojos.Admin;
+import generated_jooq.tables.pojos.Admin;
+
 import java.util.List;
 import java.util.Optional;
 

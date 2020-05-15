@@ -2,12 +2,13 @@ package com.liang.repository.admin;
 
 import com.liang.DAO.admin.AdminDbStrategy;
 import com.liang.dto.admin.admin.AdminResponse;
-import generated.tables.pojos.Admin;
-import java.util.List;
-import java.util.Optional;
+import generated_jooq.tables.pojos.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Liang

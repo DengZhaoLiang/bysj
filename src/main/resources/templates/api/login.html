@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" th:href="@{/api/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/api/common.css}"/>
+    <link rel="stylesheet" th:href="@{/api/font-awesome.min.css}"/>
+
+
+</head>
+<body>
+<div class="wrap login_wrap">
+    <div class="content">
+        <div class="logo"></div>
+        <div class="login_box" style="opacity:0.9">
+
+            <div class="login_form">
+                <div class="login_title">
+                    登录
+                </div>
+                <form method="get" th:action="@{/bysj/doLogin}">
+                    <div th:if="${loginMSG}!=''">
+                        <h3 style="color: #b21f2d; margin-left: 102px" th:text="${loginMSG}"></h3>
+                    </div>
+
+                    <div>
+                        <input name="username" placeholder="手机号/邮箱"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="text">
+                    </div>
+
+                    <div>
+                        <input name="password" placeholder="密码"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="password">
+                    </div>
+
+                    <div class="form_check_ipt">
+                        <div class="left check_left">
+                            <label><input name="" type="checkbox"> 下次自动登录</label>
+                        </div>
+                        <div class="right check_right">
+                            <a th:href="@{/bysj/register}">忘记密码</a>
+                        </div>
+                    </div>
+                    <div class="form_btn">
+                        <button type="submit">登录</button>
+                    </div>
+                    <div class="form_	reg_btn" style="margin-left: 113px">
+                        <span>还没有帐号？</span><a th:href="@{/bysj/register}">马上注册</a>
+                    </div>
+                </form>
+                <div class="other_login">
+                    <div class="left other_left">
+                        <span>其它登录方式</span>
+                    </div>
+                    <div class="right other_right">
+                        <a href="#"><i class="fa fa-qq fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/api/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/api/common.js}" type="text/javascript"></script>
+<div style="text-align:center;">
+
+</div>
+</body>
+</html>

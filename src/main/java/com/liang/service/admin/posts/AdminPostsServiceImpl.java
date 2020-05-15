@@ -5,12 +5,13 @@ import com.liang.dto.admin.posts.AdminPostsPageResponse;
 import com.liang.dto.admin.posts.AdminPostsResponse;
 import com.liang.repository.posts.IPostsRepository;
 import com.liang.utils.PageUtils;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Liang
@@ -53,8 +54,8 @@ public class AdminPostsServiceImpl implements AdminPostsService {
     }
 
     @Override
-    public void check(Long id) {
-        mIPostsRepository.check(id);
+    public void check(Long id, Integer check) {
+        mIPostsRepository.check(id, check);
     }
 
     @Override

@@ -1,13 +1,14 @@
 package com.liang.repository.blogBg;
 
 import com.liang.DAO.blogBg.BlogBgDbStrategy;
-import generated.tables.pojos.BlogBg;
-import java.util.List;
+import generated_jooq.tables.pojos.BlogBg;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author Liang

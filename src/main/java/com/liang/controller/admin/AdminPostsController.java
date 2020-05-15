@@ -35,7 +35,7 @@ public class AdminPostsController {
             Pageable pageable,
             @ApiParam("帖子状态 1-可评论 0-已完贴")
             @RequestParam(required = false) Integer type,
-            @ApiParam("审核状态 0-拒绝 1-通过")
+            @ApiParam("审核状态 0-审核中 1-通过 2-不通过")
             @RequestParam(required = false) Integer check) {
         AdminPostsPageResponse response = mAdminPostsService.page(check, type, pageable);
         model.addAttribute("postsList", response.getPosts());
@@ -51,10 +51,10 @@ public class AdminPostsController {
         return "redirect:/bysj/admin/posts/";
     }
 
-    @ApiOperation("通过审核")
-    @GetMapping("/check/{id}")
-    public String check(@PathVariable Long id) {
-        mAdminPostsService.check(id);
+    @ApiOperation("通过/不通过审核")
+    @GetMapping("/check/{id}/{check}")
+    public String check(@PathVariable Long id, @PathVariable Integer check) {
+        mAdminPostsService.check(id, check);
         return "redirect:/bysj/admin/posts/";
     }
 

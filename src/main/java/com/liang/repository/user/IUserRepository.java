@@ -1,7 +1,8 @@
 package com.liang.repository.user;
 
 import com.liang.dto.admin.user.AdminUserResponse;
-import generated.tables.pojos.User;
+import generated_jooq.tables.pojos.User;
+
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public interface IUserRepository {
     /**
      * 添加用户
      */
-    void insert(generated.tables.pojos.User user);
+    void insert(generated_jooq.tables.pojos.User user);
 
     /**
      * 获取用户详情
@@ -39,4 +40,19 @@ public interface IUserRepository {
      * 重置用户密码
      */
     void reset(Long id);
+
+    /**
+     * 邮箱、手机号登陆
+     */
+    generated_jooq.tables.pojos.User login(String username, String password);
+
+    /**
+     * 通过手机号查找用户
+     */
+    boolean existByPhone(String phone);
+
+    /**
+     * 通过邮箱查询用户
+     */
+    boolean existByEmail(String email);
 }

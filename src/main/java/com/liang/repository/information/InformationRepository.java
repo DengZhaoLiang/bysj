@@ -1,13 +1,14 @@
 package com.liang.repository.information;
 
 import com.liang.DAO.information.InformationDbStrategy;
-import generated.tables.pojos.Information;
-import java.util.List;
+import generated_jooq.tables.pojos.Information;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author Liang

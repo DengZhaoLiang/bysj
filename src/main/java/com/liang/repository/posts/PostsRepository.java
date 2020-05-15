@@ -1,14 +1,15 @@
 package com.liang.repository.posts;
 
 import com.liang.DAO.posts.PostsDbStrategy;
-import java.util.List;
-
-import generated.tables.pojos.Posts;
+import com.liang.dto.api.post.PostResponse;
+import generated_jooq.tables.pojos.Posts;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author Liang
@@ -32,8 +33,8 @@ public class PostsRepository implements IPostsRepository{
     }
 
     @Override
-    public void check(Long id) {
-        mPostsDbStrategy.check(id);
+    public void check(Long id, Integer check) {
+        mPostsDbStrategy.check(id, check);
     }
 
     @Override
@@ -44,5 +45,10 @@ public class PostsRepository implements IPostsRepository{
     @Override
     public void insert(Posts posts) {
         mPostsDbStrategy.insert(posts);
+    }
+
+    @Override
+    public List<PostResponse> page(String params) {
+        return mPostsDbStrategy.page(params);
     }
 }

@@ -1,7 +1,7 @@
 package com.liang.service.api.information;
 
 import com.liang.dto.api.information.ApiInformationPageResponse;
-import generated.tables.pojos.Information;
+import generated_jooq.tables.pojos.Information;
 import org.springframework.data.domain.Pageable;
 
 /**

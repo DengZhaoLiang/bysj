@@ -1,16 +1,18 @@
 package com.liang.DAO.information;
 
 import com.liang.utils.DSLPlusUtils;
-import generated.tables.pojos.Information;
-import generated.tables.records.InformationRecord;
-import java.util.List;
+import generated_jooq.tables.pojos.Information;
+import generated_jooq.tables.records.InformationRecord;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import static generated.Tables.INFORMATION;
+
+import java.util.List;
+
+import static generated_jooq.Tables.INFORMATION;
 
 /**
  * @author Liang

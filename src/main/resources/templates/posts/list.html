@@ -20,8 +20,9 @@
         <p style="float: left; margin-top: 3px; margin-right: 3px"> 审核状态:</p>
         <select name="check" style="float: left; margin-right: 3px">
             <option value="">--请选择--</option>
+            <option value="2">未通过</option>
             <option value="1">通过</option>
-            <option value="0">未通过</option>
+            <option value="0">审核中</option>
         </select>
 
         <p style="float: left; margin-top: 3px; margin-right: 3px"> 帖子状态:</p>
@@ -42,7 +43,7 @@
                 <th>帖子编号</th>
                 <th>帖子名</th>
                 <th>帖子描述</th>
-                <th>帖子评论数</th>
+                <th>评论数</th>
                 <th>帖子状态</th>
                 <th>是否置顶</th>
                 <th>审核状态</th>
@@ -59,18 +60,22 @@
                 <td th:text="${post.getName()}"></td>
                 <td th:text="${post.getDescribe()}"
                     style="max-width: 100px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap"></td>
-                <td th:text="${post.getPv()}"></td>
+                <td style="width: 4%" th:text="${post.getPv()}"></td>
                 <td th:text="${post.getType()}==0?'已完贴':'可评论'"></td>
                 <td th:text="${post.getStick()}==0?'否':'是'"></td>
-                <td th:text="${post.getCheck()}==0?'未通过':'通过'"></td>
+                <td th:text="${post.getCheck()}==0?'审核中':(${post.getCheck()}==1?'通过':'未通过')"></td>
                 <td th:text="${post.getUserId()}"></td>
-                <td th:text="${#dates.format(post.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
-                <td th:text="${#dates.format(post.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td style="width: 10%" th:text="${#dates.format(post.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td style="width: 10%" th:text="${#dates.format(post.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td>
                     <a th:href="@{'/bysj/admin/posts/stick/'+${post.getId()}+'/'+${post.getStick()==0?1:0}}"
                        th:text="${post.getStick()==0?'置顶':'取消置顶'}" class="inner_btn"></a>
                     <th:block th:if="${post.getCheck()==0}">
-                        <a th:href="@{'/bysj/admin/posts/check/'+${post.getId()}}" th:text="'点击通过审核'"
+                        <a class="inner_btn" th:href="@{'/bysj/admin/posts/check/'+${post.getId()}+'/1'}"
+                           th:text="'通过审核'"></a>
+                    </th:block>
+                    <th:block th:if="${post.getCheck()==0}">
+                        <a th:href="@{'/bysj/admin/posts/check/'+${post.getId()}+'/2'}" th:text="'不通过审核'"
                            class="inner_btn"></a>
                     </th:block>
                     <a th:href="@{'/bysj/admin/posts/delete/'+${post.getId()}}" class="inner_btn">删除</a>

@@ -1,8 +1,9 @@
 package com.liang.config;
 
+import org.springframework.web.servlet.HandlerInterceptor;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.web.servlet.HandlerInterceptor;
 
 public class UserIntreceptor implements HandlerInterceptor {
     @Override
@@ -12,7 +13,7 @@ public class UserIntreceptor implements HandlerInterceptor {
         if (user != null) {
             return true;
         } else {
-            response.sendRedirect("/");
+            response.sendRedirect("/bysj/login");
             return false;
         }
     }

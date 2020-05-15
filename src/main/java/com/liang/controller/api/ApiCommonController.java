@@ -2,15 +2,14 @@ package com.liang.controller.api;
 
 import com.liang.dto.api.blog.ApiBlogPageResponse;
 import com.liang.dto.api.information.ApiInformationPageResponse;
-import generated.tables.pojos.Banner;
-import generated.tables.pojos.Blog;
-import generated.tables.pojos.BlogBg;
-import generated.tables.pojos.Information;
+import com.liang.dto.api.post.PostPageResponse;
+import generated_jooq.tables.pojos.Banner;
+import generated_jooq.tables.pojos.Blog;
+import generated_jooq.tables.pojos.BlogBg;
+import generated_jooq.tables.pojos.Information;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -20,6 +19,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author Liang
@@ -42,6 +44,9 @@ public class ApiCommonController {
 
     @Autowired
     private ApiInformationController mApiInformationController;
+
+    @Autowired
+    private ApiPostController mApiPostController;
 
     @ApiOperation("站点首页")
     @GetMapping("/index")
@@ -125,14 +130,16 @@ public class ApiCommonController {
 
     @ApiOperation("问答社区")
     @GetMapping("/community")
-    public String community(
-            Model model) {
+    public String community() {
         return "api/community-list";
     }
 
     @ApiOperation("问答社区")
     @GetMapping("/community/iframe/index")
-    public String communityIndex() {
+    public String communityIndex(@RequestParam(required = false) String params, Long userId, Pageable pageable, Model model) {
+        PostPageResponse response = mApiPostController.page(params, userId, pageable);
+        model.addAttribute("listPosts", response.getPost());
+        model.addAttribute("page", response.getPage());
         return "api/community-list-index";
     }
 
@@ -140,6 +147,13 @@ public class ApiCommonController {
     @GetMapping("/community/iframe/publish")
     public String communityPublish() {
         return "api/publish-index";
+    }
+
+    @ApiOperation("发表问题逻辑")
+    @GetMapping("/community/iframe/publish/doInsert")
+    public String communityPublishInsert(generated_jooq.tables.pojos.Posts posts) {
+        mApiPostController.insertPost(posts);
+        return "redirect:/bysj/community/";
     }
 
     @ApiOperation("评论")

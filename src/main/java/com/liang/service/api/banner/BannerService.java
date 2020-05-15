@@ -1,6 +1,7 @@
 package com.liang.service.api.banner;
 
-import generated.tables.pojos.Banner;
+import generated_jooq.tables.pojos.Banner;
+
 import java.util.List;
 
 /**

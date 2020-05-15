@@ -3,7 +3,7 @@ package com.liang.controller.admin;
 import com.liang.controller.supplier.UploadController;
 import com.liang.dto.admin.banner.AdminBannerPageResponse;
 import com.liang.service.admin.banner.AdminBannerService;
-import generated.tables.pojos.Banner;
+import generated_jooq.tables.pojos.Banner;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

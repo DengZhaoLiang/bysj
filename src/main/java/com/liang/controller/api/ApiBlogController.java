@@ -2,7 +2,7 @@ package com.liang.controller.api;
 
 import com.liang.dto.api.blog.ApiBlogPageResponse;
 import com.liang.service.api.blog.BlogService;
-import generated.tables.pojos.Blog;
+import generated_jooq.tables.pojos.Blog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

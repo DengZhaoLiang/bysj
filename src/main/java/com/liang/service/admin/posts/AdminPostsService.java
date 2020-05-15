@@ -22,7 +22,7 @@ public interface AdminPostsService {
     /**
      * 通过审核
      */
-    void check(Long id);
+    void check(Long id, Integer check);
 
     /**
      * 删除帖子

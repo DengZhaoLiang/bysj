@@ -1,7 +1,7 @@
 package com.liang.service.api.blogBg;
 
 import com.liang.repository.blogBg.IBlogBgRepository;
-import generated.tables.pojos.BlogBg;
+import generated_jooq.tables.pojos.BlogBg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

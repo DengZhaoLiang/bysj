@@ -1,16 +1,18 @@
 package com.liang.DAO.blog;
 
 import com.liang.utils.DSLPlusUtils;
-import generated.tables.pojos.Blog;
-import generated.tables.records.BlogRecord;
-import java.util.List;
+import generated_jooq.tables.pojos.Blog;
+import generated_jooq.tables.records.BlogRecord;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import static generated.Tables.BLOG;
+
+import java.util.List;
+
+import static generated_jooq.Tables.BLOG;
 
 /**
  * @author Liang

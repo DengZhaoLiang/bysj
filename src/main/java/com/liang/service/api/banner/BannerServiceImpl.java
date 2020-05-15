@@ -1,10 +1,11 @@
 package com.liang.service.api.banner;
 
 import com.liang.repository.banner.IBannerRepository;
-import generated.tables.pojos.Banner;
-import java.util.List;
+import generated_jooq.tables.pojos.Banner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author Liang

@@ -1,9 +1,10 @@
 package com.liang.repository.blogBg;
 
-import generated.tables.pojos.BlogBg;
-import java.util.List;
+import generated_jooq.tables.pojos.BlogBg;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
+
+import java.util.List;
 
 /**
  * @author Liang

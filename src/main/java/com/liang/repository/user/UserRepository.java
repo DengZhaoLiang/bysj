@@ -2,11 +2,12 @@ package com.liang.repository.user;
 
 import com.liang.DAO.user.UserDbStrategy;
 import com.liang.dto.admin.user.AdminUserResponse;
-import generated.tables.pojos.User;
-import java.util.List;
+import generated_jooq.tables.pojos.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author Liang
@@ -47,5 +48,20 @@ public class UserRepository implements IUserRepository {
     @Override
     public void reset(Long id) {
         mUserDbStrategy.reset(id);
+    }
+
+    @Override
+    public User login(String username, String password) {
+        return mUserDbStrategy.login(username, password);
+    }
+
+    @Override
+    public boolean existByPhone(String phone) {
+        return mUserDbStrategy.existByPhone(phone);
+    }
+
+    @Override
+    public boolean existByEmail(String email) {
+        return mUserDbStrategy.existByEmail(email);
     }
 }

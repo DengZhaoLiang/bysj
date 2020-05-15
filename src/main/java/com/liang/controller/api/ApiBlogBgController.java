@@ -1,7 +1,7 @@
 package com.liang.controller.api;
 
 import com.liang.service.api.blogBg.BlogBgService;
-import generated.tables.pojos.BlogBg;
+import generated_jooq.tables.pojos.BlogBg;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

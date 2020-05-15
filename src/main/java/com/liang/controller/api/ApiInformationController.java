@@ -2,7 +2,7 @@ package com.liang.controller.api;
 
 import com.liang.dto.api.information.ApiInformationPageResponse;
 import com.liang.service.api.information.InformationService;
-import generated.tables.pojos.Information;
+import generated_jooq.tables.pojos.Information;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

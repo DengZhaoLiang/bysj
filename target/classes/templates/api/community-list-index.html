@@ -11,6 +11,40 @@
     <script th:src="@{/res/layui/layui.js}"></script>
     <!-- Favicon -->
     <link rel="icon" th:href="@{/img/core-img/favicon.png}">
+    <style>
+        ul.pagination {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.pagination li {
+            display: inline;
+        }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        ul.pagination li a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        ul.pagination li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        div.center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body style="margin-top: 80px">
 
@@ -26,222 +60,21 @@
             </div>
 
             <ul class="fly-list">
-                <li class="fly-list-li">
-                    <a th:href="@{/bysj/community/iframe/comment}" class="fly-list-avatar">
-                        <img th:src="@{/img/core-img/favicon.png}" alt="">
+                <li class="fly-list-li" th:each="post : ${listPosts}">
+                    <a th:href="@{#}" class="fly-list-avatar">
+                        <img th:src="${post.getAvatar()}" alt="">
                     </a>
                     <h2 class="fly-tip">
-                        <a th:href="@{/bysj/community/iframe/comment}">基于Layui的轻量级问答社区页面模版</a>
-                        <span class="fly-tip-stick">置顶</span>
+                        <a th:href="@{/bysj/community/iframe/comment}">[(${post.getName()})]</a>
+                        <span class="fly-tip-stick" th:if="${post.getStick()}==1">
+                            置顶
+                        </span>
                     </h2>
                     <p>
-                        <span><a href="">贤心</a></span>
-                        <span>刚刚</span>
+                        <span><a href="">[(${post.getUser()})]</a></span>
+                        <span>[(${#dates.format(post.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')})]</span>
                         <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 317
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="jie/detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                        <span class="fly-tip-stick">置顶</span>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                        <span class="fly-tip-stick">置顶</span>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                        <span class="fly-tip-stick">置顶</span>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                        <span class="fly-tip-stick">置顶</span>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                        <span class="fly-tip-stick">置顶</span>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                        <span class="fly-tip-stick">置顶</span>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>技术闲谈</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>技术闲谈</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
-            </span>
-                    </p>
-                </li>
-                <li class="fly-list-li">
-                    <a href="" class="fly-list-avatar">
-                        <img src="res/images/uer.jpg" alt="">
-                    </a>
-                    <h2 class="fly-tip">
-                        <a href="detail.html"> Layui 首个版本千呼万唤，终于滚出来了 </a>
-                    </h2>
-                    <p>
-                        <span><a href="">纸飞机</a></span>
-                        <span>30分钟前</span>
-                        <span>技术闲谈</span>
-                        <span class="fly-list-hint">
-              <i class="iconfont" title="回答"></i> 502
+              <i class="iconfont" title="评论数"></i> [(${post.getPv()})]
             </span>
                     </p>
                 </li>
@@ -249,15 +82,21 @@
 
             <!-- <div class="fly-none">并无相关数据</div> -->
 
-            <div style="text-align: center">
-                <div class="laypage-main"><span class="laypage-curr">1</span>
-                    <a href="">2</a>
-                    <a href="">3</a>
-                    <a href="">4</a>
-                    <a href="">5</a><span>…</span>
-                    <a href="" class="laypage-last" title="尾页">尾页</a>
-                    <a href="" class="laypage-next">下一页</a>
-                </div>
+            <!--    分页导航栏-->
+            <div class="center" style="text-align: center;">
+                <ul class="pagination">
+                    <li>
+                        <a th:href="@{'/bysj/community/iframe/index?page='+${page.getPrevious()}}">«</a></li>
+                    <li th:each="i:${#numbers.sequence(1,page.getTotalPage())}">
+
+                        <a th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"
+                           th:href="@{'/bysj/community/iframe/index?page='+${i}}"
+                           th:text="${i}">
+                        </a>
+
+                    </li>
+                    <li><a th:href="@{'/bysj/community/iframe/index?page='+${page.getNext()}}">»</a></li>
+                </ul>
             </div>
 
         </div>

@@ -1,8 +1,10 @@
 package com.liang.repository.posts;
 
-import java.util.List;
+import com.liang.dto.api.post.PostResponse;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
+
+import java.util.List;
 
 /**
  * @author Liang
@@ -24,7 +26,7 @@ public interface IPostsRepository {
     /**
      * 通过审核
      */
-    void check(Long id);
+    void check(Long id, Integer check);
 
     /**
      * 删除帖子
@@ -34,5 +36,10 @@ public interface IPostsRepository {
     /**
      * 新增帖子
      */
-    void insert(generated.tables.pojos.Posts posts);
+    void insert(generated_jooq.tables.pojos.Posts posts);
+
+    /**
+     * 查询所有相关的帖子
+     */
+    List<PostResponse> page(String params);
 }
