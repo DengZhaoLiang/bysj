@@ -60,19 +60,19 @@
                 <td th:text="${post.getName()}"></td>
                 <td th:text="${post.getDescribe()}"
                     style="max-width: 100px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap"></td>
-                <td th:text="${post.getPv()}" style="width: 4%"></td>
+                <td style="width: 4%" th:text="${post.getPv()}"></td>
                 <td th:text="${post.getType()}==0?'已完贴':'可评论'"></td>
                 <td th:text="${post.getStick()}==0?'否':'是'"></td>
                 <td th:text="${post.getCheck()}==0?'审核中':(${post.getCheck()}==1?'通过':'未通过')"></td>
                 <td th:text="${post.getUserId()}"></td>
-                <td th:text="${#dates.format(post.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}" style="width: 10%"></td>
-                <td th:text="${#dates.format(post.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}" style="width: 10%"></td>
+                <td style="width: 10%" th:text="${#dates.format(post.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td style="width: 10%" th:text="${#dates.format(post.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td>
                     <a th:href="@{'/bysj/admin/posts/stick/'+${post.getId()}+'/'+${post.getStick()==0?1:0}}"
                        th:text="${post.getStick()==0?'置顶':'取消置顶'}" class="inner_btn"></a>
                     <th:block th:if="${post.getCheck()==0}">
-                        <a th:href="@{'/bysj/admin/posts/check/'+${post.getId()}+'/1'}" th:text="'通过审核'"
-                           class="inner_btn"></a>
+                        <a class="inner_btn" th:href="@{'/bysj/admin/posts/check/'+${post.getId()}+'/1'}"
+                           th:text="'通过审核'"></a>
                     </th:block>
                     <th:block th:if="${post.getCheck()==0}">
                         <a th:href="@{'/bysj/admin/posts/check/'+${post.getId()}+'/2'}" th:text="'不通过审核'"

@@ -4,81 +4,87 @@
 <head>
     <meta charset="utf-8">
     <title>注册界面</title>
-    <link rel="stylesheet" th:href="@{/api/reset.css}" />
-    <link rel="stylesheet" th:href="@{/api/common.css}" />
-    <link rel="stylesheet" th:href="@{/api/font-awesome.min.css}" />
+    <link rel="stylesheet" th:href="@{/api/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/api/common.css}"/>
+    <link rel="stylesheet" th:href="@{/api/font-awesome.min.css}"/>
 
 
 </head>
-	<body>
-		<div class="wrap login_wrap">
-			<div class="content">
-				
-				<div class="logo"></div>
-				
-				<div class="login_box" style="opacity:0.9">
-					
-					<div class="login_form">
-						<div class="login_title">
-							注册
-						</div>
-						<form th:action="@{/bysj/doRegister}" method="post" enctype="multipart/form-data">
-                            <div th:if="${registerMSG}!=''">
-                                <h3 style="color: #b21f2d; margin-left: 102px" th:text="${registerMSG}"></h3>
-                            </div>
-							<div >
-								<input name="name" type="text" placeholder="用户名"
-									   style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;">
-							</div>
-							<div >
-								<input name="email" type="email" placeholder="邮箱"
-									   style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;">
-							</div>
-							<div class="ececk_warning"><span>邮箱不能为空</span></div>
-							<div >
-								<input name="phone" type="number" placeholder="手机号"
-									   style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;">
-							</div>
-							<div class="ececk_warning"><span>手机号不能为空</span></div>
-							<div >
-								<input type="file" name="file" placeholder="请选择头像"
-									   style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;">
-							</div>
-							<div class="ececk_warning"><span>头像不能为空</span></div>
-							<div >
-								<input name="password" type="password" placeholder="密码"
-									   style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;">
-							</div>
-							<div class="ececk_warning"><span>密码不能为空</span></div>
-							<div >
-								<input name="repassword" type="password" placeholder="重复密码"
-									   style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;">
-							</div>
-							<div class="ececk_warning"><span>密码不能为空</span></div>
-							<div class="form_btn">
-								<button type="submit">注册</button>
-							</div>
-							<div class="form_reg_btn">
-								<span>已有帐号？</span><a th:href="@{/bysj/login}">登录</a>
-							</div>
-						</form>
-						<div class="other_login">
-							<div class="left other_left">
-								<span>其它登录方式</span>
-							</div>
-							<div class="right other_right">
-								<a href="#"><i class="fa fa-qq fa-2x"></i></a>
-								<a href="#"><i class="fa fa-weixin fa-2x"></i></a>
-								<a href="#"><i class="fa fa-weibo fa-2x"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-        <script type="text/javascript" th:src="@{/api/jquery.min.js}" ></script>
-        <script type="text/javascript" th:src="@{/api/common.js}" ></script>
-		<div style="text-align:center;">
+<body>
+<div class="wrap login_wrap">
+    <div class="content">
+
+        <div class="logo"></div>
+
+        <div class="login_box" style="opacity:0.9">
+
+            <div class="login_form">
+                <div class="login_title">
+                    注册
+                </div>
+                <form enctype="multipart/form-data" method="post" th:action="@{/bysj/doRegister}">
+                    <div th:if="${registerMSG}!=''">
+                        <h3 style="color: #b21f2d; margin-left: 102px" th:text="${registerMSG}"></h3>
+                    </div>
+                    <div>
+                        <input name="name" placeholder="用户名"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="text">
+                    </div>
+                    <div>
+                        <input name="email" placeholder="邮箱"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="email">
+                    </div>
+                    <div class="ececk_warning"><span>邮箱不能为空</span></div>
+                    <div>
+                        <input name="phone" placeholder="手机号"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="number">
+                    </div>
+                    <div class="ececk_warning"><span>手机号不能为空</span></div>
+                    <div>
+                        <input name="file" placeholder="请选择头像"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="file">
+                    </div>
+                    <div class="ececk_warning"><span>头像不能为空</span></div>
+                    <div>
+                        <input name="password" placeholder="密码"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="password">
+                    </div>
+                    <div class="ececk_warning"><span>密码不能为空</span></div>
+                    <div>
+                        <input name="repassword" placeholder="重复密码"
+                               style="width: 300px;height: 40px;border: solid 1px #CCCCCC;margin: 20px auto 0 29px;background: #FFFFFF;"
+                               type="password">
+                    </div>
+                    <div class="ececk_warning"><span>密码不能为空</span></div>
+                    <div class="form_btn">
+                        <button type="submit">注册</button>
+                    </div>
+                    <div class="form_reg_btn">
+                        <span>已有帐号？</span><a th:href="@{/bysj/login}">登录</a>
+                    </div>
+                </form>
+                <div class="other_login">
+                    <div class="left other_left">
+                        <span>其它登录方式</span>
+                    </div>
+                    <div class="right other_right">
+                        <a href="#"><i class="fa fa-qq fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+                        <a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-	</body>
+<script th:src="@{/api/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/api/common.js}" type="text/javascript"></script>
+<div style="text-align:center;">
+</div>
+</body>
 </html>

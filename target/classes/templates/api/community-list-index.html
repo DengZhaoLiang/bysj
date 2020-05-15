@@ -61,8 +61,8 @@
 
             <ul class="fly-list">
                 <li class="fly-list-li" th:each="post : ${listPosts}">
-                    <a th:href="@{#}" class="fly-list-avatar">
-                        <img th:src="${post.getAvatar()}" alt="">
+                    <a class="fly-list-avatar" th:href="@{#}">
+                        <img alt="" th:src="${post.getAvatar()}">
                     </a>
                     <h2 class="fly-tip">
                         <a th:href="@{/bysj/community/iframe/comment}">[(${post.getName()})]</a>
