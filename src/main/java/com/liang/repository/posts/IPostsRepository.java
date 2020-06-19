@@ -30,4 +30,9 @@ public interface IPostsRepository {
      * 删除帖子
      */
     void delete(Long id);
+
+    /**
+     * 新增帖子
+     */
+    void insert(generated.tables.pojos.Posts posts);
 }

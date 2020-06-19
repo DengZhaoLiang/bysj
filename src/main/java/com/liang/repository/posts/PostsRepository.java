@@ -2,6 +2,8 @@ package com.liang.repository.posts;
 
 import com.liang.DAO.posts.PostsDbStrategy;
 import java.util.List;
+
+import generated.tables.pojos.Posts;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +39,10 @@ public class PostsRepository implements IPostsRepository{
     @Override
     public void delete(Long id) {
         mPostsDbStrategy.delete(id);
+    }
+
+    @Override
+    public void insert(Posts posts) {
+        mPostsDbStrategy.insert(posts);
     }
 }
