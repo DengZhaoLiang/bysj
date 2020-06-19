@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html class="wide wow-animation" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- head -->
+    <div th:replace="common/appCommon :: head"></div>
+</head>
+<body>
+<!-- 入场动画 -->
+<div th:replace="common/appCommon :: effects"></div>
+
+<div class="page">
+    <!-- Page Header-->
+    <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-creative rd-navbar-creative-2" data-layout="rd-navbar-fixed"
+                 data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+                 data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                 data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                 data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+                 data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px"
+                 data-xl-stick-up-offset="112px" data-xxl-stick-up-offset="132px" data-lg-stick-up="true"
+                 data-xl-stick-up="true" data-xxl-stick-up="true">
+                <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1"
+                     data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                <!--网站logo 和 工具类 -->
+                <div th:replace="common/appCommon :: navbar"></div>
+
+                <!--导航栏 -->
+                <div th:replace="common/appCommon :: nav"></div>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="layui-container video_listing">
+        <div class="layui-tab-item layui-show">
+            <div class="layui-row layui-col-space20">
+
+
+                <div class="layui-col-xs6 layui-col-sm6 layui-col-md3" th:each="information : ${listInformation}">
+                    <div class="video_con">
+                        <a th:href="@{'/bysj/information/'+${information.getId()}}" target="_blank"
+                           th:title="${information.getName()}">
+                            <div class="video_box"
+                                 th:data-url="'localhost:8080'+${information.getVideo()}">
+                                <img th:src="${information.getImg()}" th:alt="${information.getName()}">
+                            </div>
+                            <div class="videoIntro">
+                                <p class="watchNum">
+                                    <img src="http://www.sdfymj.com/skin/sinaskin/video/list/picture/watch.png"
+                                         alt="查看次数icon">
+                                    <span>[(${information.getPv()})]</span>
+                                </p>
+                                <a class="videotitle" target="_blank" th:title="${information.getName()}">[(${information.getName()})]</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--        &lt;!&ndash;                        分页&ndash;&gt;-->
+<!--        <div class="pagination-wrap">-->
+<!--            <nav aria-label="Page navigation">-->
+<!--                <ul class="pagination">-->
+<!--                    <li class="page-item page-item-control disabled">-->
+<!--                        <a class="page-link"-->
+<!--                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${page.getPrevious()}}"-->
+<!--                           aria-label="Previous">-->
+<!--                            <span class="icon" aria-hidden="true"></span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="page-item" th:each="i:${#numbers.sequence(1,page.getTotalPage())}">-->
+<!--                        <a class="page-link"-->
+<!--                           th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"-->
+<!--                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${i}}"-->
+<!--                           th:text="${i}">-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="page-item page-item-control">-->
+<!--                        <a class="page-link"-->
+<!--                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${page.getNext()}}"-->
+<!--                           aria-label="Next">-->
+<!--                            <span class="icon" aria-hidden="true"></span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+<!-- Page Footer-->
+<div th:replace="common/appCommon :: footer"></div>
+
+<div class="snackbars" id="form-output-global"></div>
+<script th:src="@{/api/js/core.min.js}"></script>
+<script th:src="@{/api/js/script.js}"></script>
+</body>
+</html>

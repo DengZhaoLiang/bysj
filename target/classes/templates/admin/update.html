@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common/common :: head"></div>
+    <style>
+        textarea:required:invalid, input:required:invalid {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body style="background-image: url('/img/core-img/background.jpeg');">
+
+<!--header-->
+<div th:replace="common/common :: header"></div>
+
+<!--aside nav-->
+<div th:replace="common/common :: aside_nav"></div>
+
+<section style="margin-left: 225px;margin-top: 10px;margin-bottom: 20px;" >
+    <h2><strong class="fl">修改管理员信息:</strong></h2>
+    <form th:action="@{/bysj/admin/doUpdate}" method="post" name="form1">
+        <ul class="ulColumn2">
+            <input type="hidden" name="id" th:value="${this.getId()}">
+
+            <li>
+                <span class="item_name" style="width:120px;">管理员姓名：</span>
+                <input th:value="${this.getName()}" type="text" class="textbox textbox_295" name="name">
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">管理员账号：</span>
+                <input th:value="${this.getAccount()}" type="text" class="textbox textbox_295" name="account">
+            </li>
+            <li>
+                <input type="submit" class="button_head" value="确认修改" style="margin-left: 124px"/>
+                <input type="reset" class="button_head" value="重置">
+            </li>
+        </ul>
+    </form>
+</section>
+
+
+
+</body>
+</html>
