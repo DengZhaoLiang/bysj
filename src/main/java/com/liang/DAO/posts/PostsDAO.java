@@ -1,14 +1,17 @@
 package com.liang.DAO.posts;
 
 import com.liang.utils.DSLPlusUtils;
+import generated.tables.pojos.Posts;
 import generated.tables.records.PostsRecord;
-import java.util.List;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
 import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
 import static generated.Tables.POSTS;
 
 /**
@@ -52,5 +55,11 @@ public class PostsDAO implements PostsDbStrategy {
         mDSLContext.delete(POSTS)
                 .where(POSTS.ID.eq(id))
                 .execute();
+    }
+
+    @Override
+    public void insert(Posts posts) {
+        PostsRecord record = mDSLContext.newRecord(POSTS, posts);
+        record.insert();
     }
 }

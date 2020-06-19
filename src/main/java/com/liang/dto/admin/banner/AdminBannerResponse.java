@@ -3,10 +3,11 @@ package com.liang.dto.admin.banner;
 import com.liang.dto.BaseResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.sql.Date;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.validation.annotation.Validated;
+
+import java.sql.Date;
 
 /**
  * @author Liang
@@ -41,8 +42,8 @@ public class AdminBannerResponse extends BaseResponse {
     @ApiModelProperty(value = "轮播图路径")
     private String img;
 
-    @ApiModelProperty(value = "文章Id")
-    private Long blogId;
+    @ApiModelProperty(value = "对应的文章标题")
+    private String blog;
 
     @ApiModelProperty(value = "创建时间")
     private Date createdAt;

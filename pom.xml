@@ -155,7 +155,8 @@
                         <url>jdbc:mysql://127.0.0.1:3306/bysj?
                             useUnicode=true&amp;
                             useSSL=false&amp;
-                            characterEncoding=UTF-8&amp;
+                            characterEncoding=utf8&amp;
+                            mysqlEncoding=utf8&amp;
                             zeroDateTimeBehavior=convertToNull&amp;
                             serverTimezone=UTC</url>
                         <user>root</user>
@@ -205,7 +206,8 @@
                     <url>jdbc:mysql://127.0.0.1:3306/bysj?
                         useUnicode=true&amp;
                         useSSL=false&amp;
-                        characterEncoding=UTF-8&amp;
+                        characterEncoding=utf8&amp;
+                        mysqlEncoding=utf8&amp;
                         zeroDateTimeBehavior=convertToNull&amp;
                         serverTimezone=UTC</url>
                     <baselineOnMigrate>true</baselineOnMigrate>

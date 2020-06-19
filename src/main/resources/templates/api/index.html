@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <!-- head -->
-  <div th:replace="common/appCommon :: head"></div>
+    <!-- head -->
+    <div th:replace="common/appCommon :: head"></div>
 
 </head>
 <body>
@@ -10,53 +10,63 @@
 <div th:replace="common/appCommon :: effects"></div>
 
 <div class="page">
-  <!-- 菜单栏-->
-  <header class="section page-header header-creative-wrap context-dark">
-    <div class="rd-navbar-wrap">
-      <nav class="rd-navbar rd-navbar-creative rd-navbar-creative-2" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px" data-xl-stick-up-offset="112px" data-xxl-stick-up-offset="132px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
-        <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+    <!-- 菜单栏-->
+    <header class="section page-header header-creative-wrap context-dark">
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-creative rd-navbar-creative-2" data-layout="rd-navbar-fixed"
+                 data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+                 data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                 data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                 data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+                 data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px"
+                 data-xl-stick-up-offset="112px" data-xxl-stick-up-offset="132px" data-lg-stick-up="true"
+                 data-xl-stick-up="true" data-xxl-stick-up="true">
+                <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1"
+                     data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
 
-          <!--网站logo 和 工具类 -->
-          <div th:replace="common/appCommon :: navbar"></div>
+                <!--网站logo 和 工具类 -->
+                <div th:replace="common/appCommon :: navbar"></div>
 
-          <!--网站logo 和 工具类 -->
-          <div th:replace="common/appCommon :: nav"></div>
+                <!--网站logo 和 工具类 -->
+                <div th:replace="common/appCommon :: nav"></div>
 
 
-      </nav>
-    </div>
-  </header>
-
-  <!-- Banner-->
-  <section class="section swiper-container swiper-slider swiper-slider-4" data-loop="true" data-autoplay="5000">
-    <div class="swiper-wrapper context-dark">
-      <div th:each="banner : ${banners}"
-           class="swiper-slide"
-           style="width: 100%"
-           th:classappend="'swiper-slider-'+${banners.indexOf(banner)}"
-           th:data-slide-bg="${banner.getImg()}">
-        <div class="swiper-slide-caption section-md text-center">
-          <div class="container">
-            <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">[(${banner.getName()})]</h2>
-            <h5 class="swiper-title-2" data-caption-animate="fadeInRight" data-caption-delay="250">[(${banner.getDescribe()})]<br class="d-none d-md-block">
-            </h5>
-            <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400">
-<!--                    TODO 文章链接-->
-                <a class="button button-lg button-shadow-5 button-default-outline button-zakaria" th:href="@{#}">立即阅览</a></div>
-          </div>
+            </nav>
         </div>
-      </div>
-    </div>
+    </header>
 
-    <!-- Swiper Pagination-->
-    <div class="swiper-pagination"></div>
+    <!-- Banner-->
+    <section class="section swiper-container swiper-slider swiper-slider-4" data-loop="true" data-autoplay="5000">
+        <div class="swiper-wrapper context-dark">
+            <div th:each="banner : ${banners}"
+                 class="swiper-slide"
+                 style="width: 100%"
+                 th:classappend="'swiper-slider-'+${banners.indexOf(banner)}"
+                 th:data-slide-bg="${banner.getImg()}">
+                <div class="swiper-slide-caption section-md text-center">
+                    <div class="container">
+                        <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">
+                            [(${banner.getName()})]</h2>
+                        <h5 class="swiper-title-2" data-caption-animate="fadeInRight" data-caption-delay="250">
+                            [(${banner.getDescribe()})]<br class="d-none d-md-block">
+                        </h5>
+                        <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400">
+                            <a class="button button-lg button-shadow-5 button-default-outline button-zakaria"
+                               th:href="@{'/bysj/blog/'+${banner.getBlogId()}}">立即阅览</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- 翻页-->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </section>
+        <!-- Swiper Pagination-->
+        <div class="swiper-pagination"></div>
 
-  <!-- Page Footer-->
+        <!-- 翻页-->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </section>
+
+    <!-- Page Footer-->
     <div th:replace="common/appCommon :: footer"></div>
 </div>
 <div class="snackbars" id="form-output-global"></div>

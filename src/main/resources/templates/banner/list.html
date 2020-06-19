@@ -17,7 +17,8 @@
 <section style="margin-left: 235px;margin-top: 10px;margin-bottom: 20px;">
     <form method="get" th:action="@{/bysj/admin/banner}">
         <h2 class="fl">轮播图列表</h2>
-        <input type="text" style="margin-left: 20px;margin-top: 12px" th:value="${params}!=null? ${params}:''" name="params" placeholder="请输入搜索关键字"/>
+        <input type="text" style="margin-left: 20px;margin-top: 12px" th:value="${params}!=null? ${params}:''"
+               name="params" placeholder="请输入搜索关键字"/>
         <input type="submit" class="button_head" value="搜索"/>
         <a th:href="@{/bysj/admin/banner/insert}" class="button_head">添加轮播图</a>
     </form>
@@ -44,8 +45,8 @@
                 <td th:text="${banner.getId()}"></td>
                 <td th:text="${banner.getName()}"></td>
                 <td th:text="${banner.getDescribe()}"></td>
-                <td ><img th:src="@{${banner.getImg()}}" width="50px" height="50px"/></td>
-                <td th:text="${banner.getBlogId()}"></td>
+                <td><img th:src="@{${banner.getImg()}}" width="50px" height="50px"/></td>
+                <td th:text="${banner.getBlog()}"></td>
                 <td th:text="${#dates.format(banner.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td th:text="${#dates.format(banner.getUpdatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td>

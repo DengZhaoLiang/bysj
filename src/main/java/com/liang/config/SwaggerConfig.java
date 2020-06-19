@@ -58,7 +58,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //页面标题
-                .title("Admin")
+                .title("World And You")
                 //创建人
                 .contact(new Contact("Liang", "https://github.com/DengZhaoLiang", "386229680@qq.com"))
                 //版本号

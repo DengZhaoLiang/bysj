@@ -50,7 +50,7 @@
                             </div>
                             <div class="videoIntro">
                                 <p class="watchNum">
-                                    <img src="http://www.sdfymj.com/skin/sinaskin/video/list/picture/watch.png"
+                                    <img th:src="@{/images/watch.png}"
                                          alt="查看次数icon">
                                     <span>[(${information.getPv()})]</span>
                                 </p>
@@ -65,37 +65,6 @@
         </div>
     </div>
 </div>
-
-<!--        &lt;!&ndash;                        分页&ndash;&gt;-->
-<!--        <div class="pagination-wrap">-->
-<!--            <nav aria-label="Page navigation">-->
-<!--                <ul class="pagination">-->
-<!--                    <li class="page-item page-item-control disabled">-->
-<!--                        <a class="page-link"-->
-<!--                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${page.getPrevious()}}"-->
-<!--                           aria-label="Previous">-->
-<!--                            <span class="icon" aria-hidden="true"></span>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="page-item" th:each="i:${#numbers.sequence(1,page.getTotalPage())}">-->
-<!--                        <a class="page-link"-->
-<!--                           th:classappend="${(page.getCurrentPage().equals(i)?'active':'')}"-->
-<!--                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${i}}"-->
-<!--                           th:text="${i}">-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="page-item page-item-control">-->
-<!--                        <a class="page-link"-->
-<!--                           th:href="@{'/bysj/blog?type='+${session.blogType}+'&page='+${page.getNext()}}"-->
-<!--                           aria-label="Next">-->
-<!--                            <span class="icon" aria-hidden="true"></span>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </nav>-->
-<!--        </div>-->
-<!--    </div>-->
-
 
 <!-- Page Footer-->
 <div th:replace="common/appCommon :: footer"></div>
