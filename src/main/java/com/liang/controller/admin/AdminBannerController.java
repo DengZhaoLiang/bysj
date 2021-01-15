@@ -48,12 +48,12 @@ public class AdminBannerController {
         return "banner/list";
     }
 
+
     @ApiOperation("跳转到轮播图添加页面")
     @GetMapping("/insert")
     public String insert() {
         return "banner/add";
     }
-
     @ApiOperation("添加轮播图逻辑")
     @PostMapping("/doInsert")
     public String doInsert(Banner banner, MultipartFile file) {
