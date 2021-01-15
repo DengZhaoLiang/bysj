@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -38,10 +41,17 @@ public class AdminController {
     public String doLogin(String username,
                           String password,
                           HttpSession session,
+                          HttpServletRequest request,
+                          HttpServletResponse response,
                           Model model) {
         Admin admin = mAdminService.login(username, password);
         if (!ObjectUtils.nullSafeEquals(null, admin)) {
             session.setAttribute("Admin", admin);
+            session.setMaxInactiveInterval(3600);
+            Cookie cookie = new Cookie("JSESSIONID", session.getId());
+            cookie.setMaxAge(3600);
+            cookie.setSecure(true);
+            response.addCookie(cookie);
             return "redirect:/bysj/admin/index";
         } else {
             model.addAttribute("loginMSG", "用户名或密码错误,请重新输入!");
